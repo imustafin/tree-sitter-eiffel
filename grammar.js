@@ -3,6 +3,8 @@ module.exports = grammar({
   rules: {
     source_file: $ => $.class_declaration,
 
+    comment: $ => token(seq("--", /.*/)),
+
     class_declaration: $ => seq(
       optional(field('notes', $.notes)),
       optional(field('mark', $.header_mark)),

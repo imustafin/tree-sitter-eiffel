@@ -5,6 +5,22 @@
       "type": "SYMBOL",
       "name": "class_declaration"
     },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "--"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          }
+        ]
+      }
+    },
     "class_declaration": {
       "type": "SEQ",
       "members": [
