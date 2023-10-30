@@ -1,0 +1,38 @@
+===
+Feature blocks
+===
+class A
+feature
+feature
+end
+---
+(source_file
+  (class_declaration
+    name: (class_name (identifier))
+    features: (features
+        (feature_clause)
+        (feature_clause))))
+
+===
+Arguments
+===
+class A
+feature
+f(x, y: INTEGER; z: BOOLEAN)
+end
+---
+(source_file
+  (class_declaration
+    name: (class_name (identifier))
+    features: (features
+      (feature_clause
+        declarations: (feature_declaration
+            name: (identifier)
+            arguments: (formal_arguments
+              (entity_declaration_list
+                (entity_declaration_group
+                  identifiers: (identifier_list (identifier) (identifier))
+                  type: (type (identifier)))
+                (entity_declaration_group
+                  identifiers: (identifier_list (identifier))
+                  type: (type (identifier))))))))))

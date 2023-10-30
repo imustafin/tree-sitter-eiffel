@@ -1,0 +1,32 @@
+===
+Notes
+===
+note
+  demo_note: True
+  multi_note: True, False
+class DEMO_CLASS
+end
+---
+(source_file
+  (class_declaration
+    notes: (notes
+      (note_entry
+        name: (identifier)
+        (note_values
+          (note_item (manifest_constant (manifest_value (boolean_constant))))))
+      (note_entry
+        name: (identifier)
+        (note_values
+          (note_item (manifest_constant (manifest_value (boolean_constant))))
+          (note_item (manifest_constant (manifest_value (boolean_constant)))))))
+    name: (class_name (identifier))))
+
+===
+Mark
+===
+deferred class DEMO end
+---
+(source_file
+  (class_declaration
+    mark: (header_mark)
+    name: (class_name (identifier))))
