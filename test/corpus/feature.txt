@@ -14,6 +14,23 @@ end
         (feature_clause))))
 
 ===
+Field
+===
+class A
+feature
+  x: INTEGER
+end
+---
+(source_file
+  (class_declaration
+    name: (class_name (identifier))
+    features: (features
+      (feature_clause
+        declarations: (feature_declaration
+          name: (identifier)
+          type: (type (identifier)))))))
+
+===
 Arguments
 ===
 class A

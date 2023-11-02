@@ -1,5 +1,54 @@
 [
   {
+    "type": "assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attribute_or_routine",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "feature_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "basic_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "boolean_constant",
     "named": true,
     "fields": {}
@@ -66,6 +115,36 @@
     }
   },
   {
+    "type": "compound",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "instruction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "effective_routine",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "internal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "entity_declaration_group",
     "named": true,
     "fields": {
@@ -107,6 +186,40 @@
     }
   },
   {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "basic_expression",
+          "named": true
+        },
+        {
+          "type": "special_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "feature_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "effective_routine",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "feature_clause",
     "named": true,
     "fields": {
@@ -114,10 +227,6 @@
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": ";",
-            "named": false
-          },
           {
             "type": "feature_declaration",
             "named": true
@@ -140,12 +249,46 @@
           }
         ]
       },
+      "attribute_or_routine": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "attribute_or_routine",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
         "types": [
           {
             "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "query_mark": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type",
             "named": true
           }
         ]
@@ -197,6 +340,40 @@
       "types": [
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "instruction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "internal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "compound",
+          "named": true
+        },
+        {
+          "type": "routine_mark",
           "named": true
         }
       ]
@@ -327,6 +504,11 @@
     }
   },
   {
+    "type": "routine_mark",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -342,12 +524,42 @@
     }
   },
   {
+    "type": "special_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "manifest_constant",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "type",
     "named": true,
     "fields": {},
     "children": {
       "multiple": false,
       "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
       "types": [
         {
           "type": "identifier",
@@ -373,11 +585,19 @@
     "named": false
   },
   {
+    "type": ":=",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
   {
     "type": "False",
+    "named": false
+  },
+  {
+    "type": "Result",
     "named": false
   },
   {
@@ -389,7 +609,15 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "deferred",
+    "named": false
+  },
+  {
+    "type": "do",
     "named": false
   },
   {

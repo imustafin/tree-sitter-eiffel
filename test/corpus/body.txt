@@ -1,0 +1,37 @@
+===
+Assignment
+===
+class A feature x
+  do
+    a := True
+    c := False
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (assignment
+                        (variable (identifier))
+                        (expression
+                          (special_expression
+                            (manifest_constant
+                              (manifest_value (boolean_constant)))))))
+                    (instruction
+                      (assignment
+                        (variable (identifier))
+                        (expression
+                          (special_expression
+                            (manifest_constant
+                              (manifest_value (boolean_constant)))))))))))))))))
+

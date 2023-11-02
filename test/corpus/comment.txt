@@ -1,0 +1,10 @@
+===
+Comment right after class
+===
+class A
+-- this is comment
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (comment)))
