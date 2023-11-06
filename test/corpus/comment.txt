@@ -7,4 +7,4 @@ end
 ---
 (source_file
   (class_declaration (class_name (identifier))
-  (comment)))
+  (comment (comment_start))))

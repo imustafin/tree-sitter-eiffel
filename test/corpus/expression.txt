@@ -1,0 +1,205 @@
+===
+Current
+===
+class A feature x
+  do
+    f(Current)
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (call
+                        (object_call
+                          (unqualified_call
+                            (identifier)
+                            (actuals
+                              (expression
+                                (basic_expression (current))))))))))))))))))
+
+===
+Void
+===
+class A feature x
+  do
+    f(Void)
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (call
+                        (object_call
+                          (unqualified_call
+                            (identifier)
+                            (actuals
+                              (expression
+                                (special_expression (void))))))))))))))))))
+
+===
+Character constant
+===
+class A feature x
+  do
+    f('a')
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (call
+                        (object_call
+                          (unqualified_call
+                            (identifier)
+                            (actuals
+                              (expression
+                                (special_expression
+                                  (manifest_constant
+                                    (manifest_value
+                                      (character_constant (character)))))))))))))))))))))
+
+===
+Integer constant
+===
+class A feature x
+  do
+    f(-12)
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (call
+                        (object_call
+                          (unqualified_call
+                            (identifier)
+                            (actuals
+                              (expression
+                                (special_expression
+                                  (manifest_constant
+                                    (manifest_value
+                                      (integer_constant
+                                        (sign)
+                                        (integer)))))))))))))))))))))
+
+===
+Real
+===
+class A feature x
+  do
+    f(-.3e-10)
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (call
+                        (object_call
+                          (unqualified_call
+                            (identifier)
+                            (actuals
+                              (expression
+                                (special_expression
+                                  (manifest_constant
+                                    (manifest_value
+                                      (real_constant
+                                        (sign)
+                                        (real
+                                          (integer)
+                                          (real_exponent
+                                            (sign)
+                                            (integer)))))))))))))))))))))))
+===
+Basic string
+===
+class A feature x
+  do
+    f("Hello, World!")
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (call
+                        (object_call
+                          (unqualified_call
+                            (identifier)
+                            (actuals
+                              (expression
+                                (special_expression
+                                  (manifest_constant
+                                    (manifest_value
+                                      (manifest_string
+                                        (basic_manifest_string (string_content))))))))))))))))))))))

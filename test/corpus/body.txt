@@ -35,3 +35,108 @@ end
                             (manifest_constant
                               (manifest_value (boolean_constant)))))))))))))))))
 
+===
+Creation instruction
+===
+class A feature x
+  do
+    create {X} x.make
+    create x.make(True)
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (creation
+                        (manifest_type (type (identifier)))
+                        (creation_call
+                          (variable (identifier))
+                          (unqualified_call (identifier)))))
+                    (instruction
+                      (creation
+                        (creation_call
+                          (variable (identifier))
+                          (unqualified_call
+                            (identifier)
+                            (actuals
+                              (expression
+                                (special_expression
+                                  (manifest_constant
+                                    (manifest_value (boolean_constant))))))))))))))))))))
+
+===
+Call
+===
+class A feature x
+  do
+    a.b
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (call
+                        (object_call
+                          (target
+                            (call
+                              (object_call (unqualified_call (identifier)))))
+                          (unqualified_call (identifier)))))))))))))))
+
+===
+Arguments on next line
+===
+class A feature x
+  do
+    a.f
+      (True)
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (compound
+                    (instruction
+                      (call
+                        (object_call
+                          (target
+                            (call
+                              (object_call
+                                (unqualified_call (identifier)))))
+                          (unqualified_call
+                            (identifier)
+                            (actuals
+                              (expression
+                                (special_expression
+                                  (manifest_constant
+                                    (manifest_value (boolean_constant))))))))))))))))))))

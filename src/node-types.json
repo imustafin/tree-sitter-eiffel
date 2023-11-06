@@ -1,5 +1,20 @@
 [
   {
+    "type": "actuals",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assignment",
     "named": true,
     "fields": {},
@@ -42,7 +57,26 @@
       "required": true,
       "types": [
         {
+          "type": "current",
+          "named": true
+        },
+        {
           "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "basic_manifest_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string_content",
           "named": true
         }
       ]
@@ -52,6 +86,40 @@
     "type": "boolean_constant",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "non_object_call",
+          "named": true
+        },
+        {
+          "type": "object_call",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "character_constant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "character",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "class_declaration",
@@ -115,6 +183,21 @@
     }
   },
   {
+    "type": "comment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "comment_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "compound",
     "named": true,
     "fields": {},
@@ -128,6 +211,49 @@
         }
       ]
     }
+  },
+  {
+    "type": "creation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "creation_call",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "creation_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "unqualified_call",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "current",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "effective_routine",
@@ -356,6 +482,33 @@
         {
           "type": "assignment",
           "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "integer_constant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "sign",
+          "named": true
         }
       ]
     }
@@ -399,6 +552,21 @@
     }
   },
   {
+    "type": "manifest_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "basic_manifest_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "manifest_type",
     "named": true,
     "fields": {},
@@ -423,6 +591,45 @@
       "types": [
         {
           "type": "boolean_constant",
+          "named": true
+        },
+        {
+          "type": "character_constant",
+          "named": true
+        },
+        {
+          "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_string",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "real_constant",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_object_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "unqualified_call",
           "named": true
         }
       ]
@@ -504,7 +711,108 @@
     }
   },
   {
+    "type": "object_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "target",
+          "named": true
+        },
+        {
+          "type": "unqualified_call",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parenthesized_target",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "real",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "real_exponent",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "real_constant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "real",
+          "named": true
+        },
+        {
+          "type": "sign",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "real_exponent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "sign",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "result",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "routine_mark",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sign",
     "named": true,
     "fields": {}
   },
@@ -534,6 +842,29 @@
         {
           "type": "manifest_constant",
           "named": true
+        },
+        {
+          "type": "void",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "target",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "parenthesized_target",
+          "named": true
         }
       ]
     }
@@ -554,19 +885,50 @@
     }
   },
   {
-    "type": "variable",
+    "type": "unqualified_call",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "actuals",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "result",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
   },
   {
     "type": "(",
@@ -577,7 +939,19 @@
     "named": false
   },
   {
+    "type": "+",
+    "named": false
+  },
+  {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
@@ -593,6 +967,10 @@
     "named": false
   },
   {
+    "type": "Current",
+    "named": false
+  },
+  {
     "type": "False",
     "named": false
   },
@@ -605,12 +983,20 @@
     "named": false
   },
   {
+    "type": "character",
+    "named": true
+  },
+  {
     "type": "class",
     "named": false
   },
   {
-    "type": "comment",
+    "type": "comment_start",
     "named": true
+  },
+  {
+    "type": "create",
+    "named": false
   },
   {
     "type": "deferred",
@@ -618,6 +1004,10 @@
   },
   {
     "type": "do",
+    "named": false
+  },
+  {
+    "type": "e",
     "named": false
   },
   {
@@ -641,8 +1031,20 @@
     "named": true
   },
   {
+    "type": "integer",
+    "named": true
+  },
+  {
     "type": "note",
     "named": false
+  },
+  {
+    "type": "string_content",
+    "named": true
+  },
+  {
+    "type": "void",
+    "named": true
   },
   {
     "type": "{",

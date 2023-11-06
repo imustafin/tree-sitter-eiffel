@@ -1,10 +1,19 @@
+const PREC = {
+  ACTUALS: 2,
+  TYPE: 2
+};
+
+SIMPLE_CHARS = '[^@^$\\~\n`#\t|%\'"\\[\\]{}]';
+
 module.exports = grammar({
   name: 'eiffel',
   extras: $ => [/\s+/, $.comment],
   rules: {
     source_file: $ => $.class_declaration,
 
-    comment: $ => token(seq("--", /[^\n]*/)),
+    comment: $ => seq($.comment_start, /[^\n]*/),
+
+    comment_start: $ => '--',
 
     class_declaration: $ => seq(
       optional(field('notes', $.notes)),
@@ -72,8 +81,8 @@ module.exports = grammar({
     ),
 
     instruction: $ => choice(
-      // TODO: Creation_instruction
-      // TODO: Call
+      $.creation,
+      $.call,
       $.assignment,
       // TODO: Assigner_call
       // TODO: Conditional
@@ -85,6 +94,58 @@ module.exports = grammar({
       // TODO: Retry
     ),
 
+    call: $ => choice(
+      $.object_call,
+      $.non_object_call
+    ),
+
+    object_call: $ => seq(
+      optional(seq($.target, '.')),
+      $.unqualified_call
+    ),
+
+    non_object_call: $ => seq(
+      $.manifest_type,
+      '.',
+      $.unqualified_call
+    ),
+
+    target: $ => choice(
+      'Result',
+      'Current',
+      $.call,
+      $.parenthesized_target
+    ),
+
+    parenthesized_target: $ => seq(
+      '(',
+      $.expression,
+      ')'
+    ),
+
+    creation: $ => seq(
+      'create',
+      optional($.manifest_type),
+      $.creation_call
+    ),
+
+    creation_call: $ => seq(
+      $.variable,
+      optional(seq('.', $.unqualified_call))
+    ),
+
+    unqualified_call: $=> choice(
+      $.identifier, // without args
+      prec.left(PREC.ACTUALS, seq($.identifier, $.actuals)) // with args
+    ),
+
+    actuals: $ => seq(
+      '(',
+      $.expression,
+      repeat(seq(',', $.expression)),
+      ')'
+    ),
+
     assignment: $ => seq(
       $.variable,
       ':=',
@@ -93,8 +154,10 @@ module.exports = grammar({
 
     variable: $ => choice(
       $.identifier,
-      'Result'
+      $.result
     ),
+
+    result: $ => 'Result',
 
     expression: $ => choice(
       $.basic_expression,
@@ -102,7 +165,9 @@ module.exports = grammar({
     ),
 
     basic_expression: $ => choice(
-      // TODO: Read_only
+      // Read_only
+      $.current,
+
       $.variable,
       // TODO: Call
       // TODO: Precursor
@@ -115,9 +180,11 @@ module.exports = grammar({
       // TODO: Conditional_expression
     ),
 
+    current: $ => 'Current',
+
     special_expression: $ => choice(
       $.manifest_constant,
-      // TODO: Manifest_constant
+      $.void,
       // TODO: Manifest_array
       // TODO: Manifest_tuple
       // TODO: Agent
@@ -126,15 +193,11 @@ module.exports = grammar({
       // TODO: Address
     ),
 
+    void: $ => 'Void',
+
     manifest_constant: $ => seq(
       optional($.manifest_type),
       $.manifest_value
-    ),
-
-    manifest_type: $ => seq(
-      '{',
-      $.type,
-      '}'
     ),
 
     _type_mark: $ => seq(
@@ -186,22 +249,63 @@ module.exports = grammar({
 
     note_item: $ => choice($.identifier, $.manifest_constant),
 
-    manifest_constant: $ => seq(
-      optional($.manifest_type),
-      $.manifest_value
+    manifest_constant: $ => choice(
+      $.manifest_value,
+      prec.left(PREC.TYPE, seq($.manifest_type, $.manifest_value))
     ),
 
     manifest_type: $ => seq('{', $.type, '}'),
 
     manifest_value: $ => choice(
-      $.boolean_constant
-      // TODO: other values
+      $.boolean_constant,
+      $.character_constant,
+      $.integer_constant,
+      $.real_constant,
+      $.manifest_string,
+      $.manifest_type
     ),
+
+    manifest_string: $ => choice(
+      $.basic_manifest_string,
+      // TODO: Verbatim_string
+    ),
+
+    basic_manifest_string: $ => seq('"', $.string_content, '"'),
+
+    string_content: $ => new RegExp(SIMPLE_CHARS + '*'),
+
+    real_constant: $ => seq(
+      optional($.sign),
+      $.real
+    ),
+
+    real: $ => seq(
+      choice(
+        seq($.integer, '.', optional($.integer)), // with integral
+        seq('.', $.integer) // no integral, only fractional
+      ),
+      optional($.real_exponent)
+    ),
+
+    real_exponent: $ => seq('e', optional($.sign), $.integer),
+
+    integer_constant: $ => seq(
+      optional($.sign),
+      $.integer
+    ),
+
+    sign: $ => choice('-', '+'),
+
+    integer: $ => /[0-9]+/, // TODO: finish Integer
+
+    character_constant: $ => seq("'", $.character, "'"),
+
+    character: $ => new RegExp(SIMPLE_CHARS), // TODO: finish Character
 
     boolean_constant: $ => choice('True', 'False'),
 
     class_name: $ => $.identifier,
 
-    identifier: $ => /[a-zA-Z_]+/
+    identifier: $ => /[a-zA-Z_]+/,
   }
 })
