@@ -75,3 +75,23 @@ end
       (assertion_clause
         (tag_mark (identifier))
         (unlabeled_assertion_clause (comment))))))
+
+===
+Class. Formal generics
+===
+class A [frozen X, K -> {P, Q} create make, construct end]
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (formal_generics
+      (formal_generic (identifier))
+      (formal_generic
+        (identifier)
+        (constraint
+          (constraining_types
+            (multiple_constraint
+              (single_constraint (type (identifier)))
+              (single_constraint (type (identifier)))))
+          (constraint_creators (identifier) (identifier)))))))

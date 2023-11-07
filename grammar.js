@@ -32,7 +32,7 @@ module.exports = grammar({
       optional(field('mark', $.header_mark)),
       'class',
       $.class_name,
-      // TODO: Formal_generics
+      optional($.formal_generics),
       optional($.obsolete),
       // TODO: Inheritance
       // TODO: Creators
@@ -41,6 +41,49 @@ module.exports = grammar({
       optional($.notes),
       optional($.invariant),
       optional($.notes),
+      'end'
+    ),
+
+    formal_generics: $ => seq(
+      '[',
+      $.formal_generic,
+      repeat(seq(',', $.formal_generic)),
+      ']'
+    ),
+
+    formal_generic: $ => seq(
+      optional('frozen'),
+      $.identifier,
+      optional($.constraint)
+    ),
+
+    constraint: $ => seq(
+      '->',
+      $.constraining_types,
+      optional($.constraint_creators)
+    ),
+
+    constraining_types: $ => choice(
+      $.single_constraint,
+      $.multiple_constraint
+    ),
+
+    single_constraint: $ => seq(
+      $.type,
+      // TODO: Renaming
+    ),
+
+    multiple_constraint: $ => seq(
+      '{',
+      $.single_constraint,
+      repeat(seq(',', $.single_constraint)),
+      '}'
+    ),
+
+    constraint_creators: $ => seq(
+      'create',
+      $.identifier,
+      repeat(seq(',', $.identifier)),
       'end'
     ),
 
