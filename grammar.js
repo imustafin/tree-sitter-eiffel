@@ -31,9 +31,44 @@ module.exports = grammar({
       optional(field('notes', $.notes)),
       optional(field('mark', $.header_mark)),
       'class',
-      field('name', $.class_name),
+      $.class_name,
+      // TODO: Formal_generics
+      optional($.obsolete),
+      // TODO: Inheritance
+      // TODO: Creators
+      // TODO: Converters
       optional(field('features', $.features)),
+      optional($.notes),
+      optional($.invariant),
+      optional($.notes),
       'end'
+    ),
+
+    invariant: $ => seq(
+      'invariant',
+      repeat($.assertion_clause)
+    ),
+
+    assertion_clause: $ => seq(
+      optional($.tag_mark),
+      $.unlabeled_assertion_clause
+    ),
+
+    tag_mark: $ => seq(
+      $.identifier,
+      ':'
+    ),
+
+    unlabeled_assertion_clause: $ => choice(
+      $.boolean_expression,
+      $.comment,
+      'class'
+    ),
+
+    boolean_expression: $ => choice(
+      $.basic_expression,
+      $.boolean_constant,
+      // TODO: Object_test
     ),
 
     features: $ => repeat1($.feature_clause),
@@ -60,9 +95,14 @@ module.exports = grammar({
 
       // Feature_value
       // TODO: [Explicit_value]
-      // TODO: [Obsolete]
+      optional($.obsolete),
       optional($.header_comment),
       optional(field('attribute_or_routine', $.attribute_or_routine))
+    ),
+
+    obsolete: $ => seq(
+      'obsolete',
+      $.manifest_string
     ),
 
     attribute_or_routine: $ => seq(
@@ -256,7 +296,7 @@ module.exports = grammar({
     ),
 
     note_entry: $ => seq(
-      field('name', $.identifier),
+      $.identifier,
       ':',
       $.note_values
     ),

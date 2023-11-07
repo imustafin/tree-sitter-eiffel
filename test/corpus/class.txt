@@ -5,21 +5,35 @@ note
   demo_note: True
   multi_note: True, False
 class DEMO_CLASS
+note
+  feature_note: True
+invariant
+  note
+    invriant_note: True
 end
 ---
 (source_file
   (class_declaration
     notes: (notes
       (note_entry
-        name: (identifier)
+        (identifier)
         (note_values
           (note_item (manifest_constant (manifest_value (boolean_constant))))))
       (note_entry
-        name: (identifier)
+        (identifier)
         (note_values
           (note_item (manifest_constant (manifest_value (boolean_constant))))
           (note_item (manifest_constant (manifest_value (boolean_constant)))))))
-    name: (class_name (identifier))))
+    (class_name (identifier))
+    (notes
+      (note_entry
+        (identifier)
+        (note_values (note_item (manifest_constant (manifest_value (boolean_constant)))))))
+    (invariant)
+    (notes
+      (note_entry
+        (identifier)
+        (note_values (note_item (manifest_constant (manifest_value (boolean_constant)))))))))
 
 ===
 Mark
@@ -29,4 +43,35 @@ deferred class DEMO end
 (source_file
   (class_declaration
     mark: (header_mark)
-    name: (class_name (identifier))))
+    (class_name (identifier))))
+
+===
+Obsolete
+===
+class A
+  obsolete "msg"
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (obsolete (manifest_string (basic_manifest_string (string_content))))))
+
+===
+Class invariant
+===
+class A
+invariant
+  True
+  tagged: -- Tagged comment
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause (boolean_expression (boolean_constant))))
+      (assertion_clause
+        (tag_mark (identifier))
+        (unlabeled_assertion_clause (comment))))))
