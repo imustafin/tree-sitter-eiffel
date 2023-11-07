@@ -1,6 +1,7 @@
 const PREC = {
   ACTUALS: 2,
-  TYPE: 2
+  TYPE: 2,
+  HEADER_COMMENT: 2,
 };
 
 SIMPLE_CHARS = '[^@^$\\~\n`#\t|%\'"\\[\\]{}]';
@@ -11,9 +12,20 @@ module.exports = grammar({
   rules: {
     source_file: $ => $.class_declaration,
 
-    comment: $ => seq($.comment_start, /[^\n]*/),
+    // Simple comment is one line
+    comment: $ => /--[^\n]*\n/,
 
-    comment_start: $ => '--',
+    // Header comments are multi-line
+    //
+    // Header comment starts with -- and consumes until end of line.
+    // The next line can be the continuation of this comment.
+    //
+    // Blank line (without --) ends the current comment.
+    // To do that we use [ \t] which matches spaces but does not match \n.
+    header_comment: $ => token(prec(
+      PREC.HEADER_COMMENT,
+      /--[^\n]*\n([ \t]*--[^\n]*\n)*/
+    )),
 
     class_declaration: $ => seq(
       optional(field('notes', $.notes)),
@@ -28,9 +40,15 @@ module.exports = grammar({
 
     feature_clause: $ => seq(
       'feature',
-      // TODO: Clients,
-      // TODO: Header_comment
+      optional($.clients),
+      optional($.header_comment),
       field('declarations', repeat($.feature_declaration))
+    ),
+
+    clients: $ => seq(
+      '{',
+      optional(seq($.identifier, repeat(seq(',', $.identifier)))),
+      '}'
     ),
 
     feature_declaration: $ => seq(
@@ -43,7 +61,7 @@ module.exports = grammar({
       // Feature_value
       // TODO: [Explicit_value]
       // TODO: [Obsolete]
-      // TODO: [Header_comment]
+      optional($.header_comment),
       optional(field('attribute_or_routine', $.attribute_or_routine))
     ),
 

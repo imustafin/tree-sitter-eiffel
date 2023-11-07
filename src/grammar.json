@@ -6,21 +6,19 @@
       "name": "class_declaration"
     },
     "comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "comment_start"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[^\\n]*"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "--[^\\n]*\\n"
     },
-    "comment_start": {
-      "type": "STRING",
-      "value": "--"
+    "header_comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "PATTERN",
+          "value": "--[^\\n]*\\n([ \\t]*--[^\\n]*\\n)*"
+        }
+      }
     },
     "class_declaration": {
       "type": "SEQ",
@@ -106,6 +104,30 @@
           "value": "feature"
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "clients"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "header_comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "declarations",
           "content": {
@@ -115,6 +137,52 @@
               "name": "feature_declaration"
             }
           }
+        }
+      ]
+    },
+    "clients": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "identifier"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },
@@ -155,6 +223,18 @@
                 "type": "SYMBOL",
                 "name": "_type_mark"
               }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "header_comment"
             },
             {
               "type": "BLANK"
