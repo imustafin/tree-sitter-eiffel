@@ -19,21 +19,20 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (assignment
-                        (variable (identifier))
-                        (expression
-                          (special_expression
-                            (manifest_constant
-                              (manifest_value (boolean_constant)))))))
-                    (instruction
-                      (assignment
-                        (variable (identifier))
-                        (expression
-                          (special_expression
-                            (manifest_constant
-                              (manifest_value (boolean_constant)))))))))))))))))
+                  (instruction
+                    (assignment
+                      (variable (identifier))
+                      (expression
+                        (special_expression
+                          (manifest_constant
+                            (manifest_value (boolean_constant)))))))
+                  (instruction
+                    (assignment
+                      (variable (identifier))
+                      (expression
+                        (special_expression
+                          (manifest_constant
+                            (manifest_value (boolean_constant))))))))))))))))
 
 ===
 Creation instruction
@@ -56,24 +55,23 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (creation
-                        (manifest_type (type (identifier)))
-                        (creation_call
-                          (variable (identifier))
-                          (unqualified_call (identifier)))))
-                    (instruction
-                      (creation
-                        (creation_call
-                          (variable (identifier))
-                          (unqualified_call
-                            (identifier)
-                            (actuals
-                              (expression
-                                (special_expression
-                                  (manifest_constant
-                                    (manifest_value (boolean_constant))))))))))))))))))))
+                  (instruction
+                    (creation
+                      (manifest_type (type (identifier)))
+                      (creation_call
+                        (variable (identifier))
+                        (unqualified_call (identifier)))))
+                  (instruction
+                    (creation
+                      (creation_call
+                        (variable (identifier))
+                        (unqualified_call
+                          (identifier)
+                          (actuals
+                            (expression
+                              (special_expression
+                                (manifest_constant
+                                  (manifest_value (boolean_constant)))))))))))))))))))
 
 ===
 Call
@@ -95,14 +93,13 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (call
-                        (object_call
-                          (target
-                            (call
-                              (object_call (unqualified_call (identifier)))))
-                          (unqualified_call (identifier)))))))))))))))
+                  (instruction
+                    (call
+                      (object_call
+                        (target
+                          (call
+                            (object_call (unqualified_call (identifier)))))
+                        (unqualified_call (identifier))))))))))))))
 
 ===
 Arguments on next line
@@ -125,18 +122,17 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (call
-                        (object_call
-                          (target
-                            (call
-                              (object_call
-                                (unqualified_call (identifier)))))
-                          (unqualified_call
-                            (identifier)
-                            (actuals
-                              (expression
-                                (special_expression
-                                  (manifest_constant
-                                    (manifest_value (boolean_constant))))))))))))))))))))
+                  (instruction
+                    (call
+                      (object_call
+                        (target
+                          (call
+                            (object_call
+                              (unqualified_call (identifier)))))
+                        (unqualified_call
+                          (identifier)
+                          (actuals
+                            (expression
+                              (special_expression
+                                (manifest_constant
+                                  (manifest_value (boolean_constant)))))))))))))))))))

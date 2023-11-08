@@ -274,10 +274,30 @@ end
           (attribute_or_routine
             (feature_body (effective_routine (internal (routine_mark))))
             (rescue
-              (compound
-                (instruction
-                  (assignment
-                    (variable (identifier))
-                    (expression
-                      (special_expression
-                        (manifest_constant (manifest_value (boolean_constant)))))))))))))))
+              (instruction
+                (assignment
+                  (variable (identifier))
+                  (expression
+                    (special_expression
+                      (manifest_constant (manifest_value (boolean_constant))))))))))))))
+
+===
+Feature. Attribute
+===
+class A feature
+  x: INTEGER
+    attribute
+    end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature (extended_feature_name (identifier)))
+          (type (identifier))
+          (attribute_or_routine
+            (feature_body
+              (attribute))))))))

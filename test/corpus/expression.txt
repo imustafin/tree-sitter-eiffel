@@ -19,15 +19,14 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (call
-                        (object_call
-                          (unqualified_call
-                            (identifier)
-                            (actuals
-                              (expression
-                                (basic_expression (current))))))))))))))))))
+                  (instruction
+                    (call
+                      (object_call
+                        (unqualified_call
+                          (identifier)
+                          (actuals
+                            (expression
+                              (basic_expression (current)))))))))))))))))
 
 ===
 Void
@@ -50,15 +49,14 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (call
-                        (object_call
-                          (unqualified_call
-                            (identifier)
-                            (actuals
-                              (expression
-                                (special_expression (void))))))))))))))))))
+                  (instruction
+                    (call
+                      (object_call
+                        (unqualified_call
+                          (identifier)
+                          (actuals
+                            (expression
+                              (special_expression (void)))))))))))))))))
 
 ===
 Character constant
@@ -81,18 +79,17 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (call
-                        (object_call
-                          (unqualified_call
-                            (identifier)
-                            (actuals
-                              (expression
-                                (special_expression
-                                  (manifest_constant
-                                    (manifest_value
-                                      (character_constant (character)))))))))))))))))))))
+                  (instruction
+                    (call
+                      (object_call
+                        (unqualified_call
+                          (identifier)
+                          (actuals
+                            (expression
+                              (special_expression
+                                (manifest_constant
+                                  (manifest_value
+                                    (character_constant (character))))))))))))))))))))
 
 ===
 Integer constant
@@ -115,20 +112,19 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (call
-                        (object_call
-                          (unqualified_call
-                            (identifier)
-                            (actuals
-                              (expression
-                                (special_expression
-                                  (manifest_constant
-                                    (manifest_value
-                                      (integer_constant
-                                        (sign)
-                                        (integer)))))))))))))))))))))
+                  (instruction
+                    (call
+                      (object_call
+                        (unqualified_call
+                          (identifier)
+                          (actuals
+                            (expression
+                              (special_expression
+                                (manifest_constant
+                                  (manifest_value
+                                    (integer_constant
+                                      (sign)
+                                      (integer))))))))))))))))))))
 
 ===
 Real
@@ -151,24 +147,23 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (call
-                        (object_call
-                          (unqualified_call
-                            (identifier)
-                            (actuals
-                              (expression
-                                (special_expression
-                                  (manifest_constant
-                                    (manifest_value
-                                      (real_constant
-                                        (sign)
-                                        (real
-                                          (integer)
-                                          (real_exponent
-                                            (sign)
-                                            (integer)))))))))))))))))))))))
+                  (instruction
+                    (call
+                      (object_call
+                        (unqualified_call
+                          (identifier)
+                          (actuals
+                            (expression
+                              (special_expression
+                                (manifest_constant
+                                  (manifest_value
+                                    (real_constant
+                                      (sign)
+                                      (real
+                                        (integer)
+                                        (real_exponent
+                                          (sign)
+                                          (integer))))))))))))))))))))))
 ===
 Basic string
 ===
@@ -190,16 +185,15 @@ end
               (effective_routine
                 (internal
                   (routine_mark)
-                  (compound
-                    (instruction
-                      (call
-                        (object_call
-                          (unqualified_call
-                            (identifier)
-                            (actuals
-                              (expression
-                                (special_expression
-                                  (manifest_constant
-                                    (manifest_value
-                                      (manifest_string
-                                        (basic_manifest_string (string_content))))))))))))))))))))))
+                  (instruction
+                    (call
+                      (object_call
+                        (unqualified_call
+                          (identifier)
+                          (actuals
+                            (expression
+                              (special_expression
+                                (manifest_constant
+                                  (manifest_value
+                                    (manifest_string
+                                      (basic_manifest_string (string_content)))))))))))))))))))))
