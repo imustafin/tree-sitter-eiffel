@@ -1,40 +1,4 @@
 ===
-Assignment
-===
-class A feature x
-  do
-    a := True
-    c := False
-  end
-end
----
-(source_file
-  (class_declaration (class_name (identifier))
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (assignment
-                      (variable (identifier))
-                      (expression
-                        (special_expression
-                          (manifest_constant
-                            (manifest_value (boolean_constant)))))))
-                  (instruction
-                    (assignment
-                      (variable (identifier))
-                      (expression
-                        (special_expression
-                          (manifest_constant
-                            (manifest_value (boolean_constant))))))))))))))))
-
-===
 Creation instruction
 ===
 class A feature x
@@ -59,12 +23,12 @@ end
                     (creation
                       (manifest_type (type (identifier)))
                       (creation_call
-                        (variable (identifier))
+                        (identifier)
                         (unqualified_call (identifier)))))
                   (instruction
                     (creation
                       (creation_call
-                        (variable (identifier))
+                        (identifier)
                         (unqualified_call
                           (identifier)
                           (actuals
@@ -95,11 +59,9 @@ end
                   (routine_mark)
                   (instruction
                     (call
-                      (object_call
-                        (target
-                          (call
-                            (object_call (unqualified_call (identifier)))))
-                        (unqualified_call (identifier))))))))))))))
+                        (call
+                          (unqualified_call (identifier)))
+                      (unqualified_call (identifier)))))))))))))
 
 ===
 Arguments on next line
@@ -124,15 +86,51 @@ end
                   (routine_mark)
                   (instruction
                     (call
-                      (object_call
-                        (target
-                          (call
-                            (object_call
-                              (unqualified_call (identifier)))))
-                        (unqualified_call
-                          (identifier)
-                          (actuals
-                            (expression
-                              (special_expression
-                                (manifest_constant
-                                  (manifest_value (boolean_constant)))))))))))))))))))
+                      (call (unqualified_call (identifier)))
+                      (unqualified_call
+                        (identifier)
+                        (actuals
+                          (expression
+                            (special_expression
+                              (manifest_constant
+                                (manifest_value (boolean_constant))))))))))))))))))
+
+===
+Body. Assigner call
+===
+class A feature x
+  do
+    a := True
+    a.f := True
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature (extended_feature_name (identifier)))
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (instruction
+                    (assigner_call
+                      (call
+                        (unqualified_call (identifier)))
+                      (expression
+                        (special_expression
+                          (manifest_constant
+                            (manifest_value (boolean_constant)))))))
+                  (instruction
+                    (assigner_call
+                      (call
+                        (call (unqualified_call (identifier)))
+                        (unqualified_call (identifier)))
+                      (expression
+                        (special_expression
+                          (manifest_constant
+                            (manifest_value
+                              (boolean_constant))))))))))))))))
