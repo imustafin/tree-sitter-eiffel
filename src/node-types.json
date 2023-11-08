@@ -131,6 +131,10 @@
           "named": true
         },
         {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
           "type": "current",
           "named": true
         },
@@ -330,6 +334,44 @@
       "types": [
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "conditional",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "else_part",
+          "named": true
+        },
+        {
+          "type": "then_part",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "conditional_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "then_part_expression",
           "named": true
         }
       ]
@@ -539,6 +581,21 @@
         },
         {
           "type": "internal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "else_part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "instruction",
           "named": true
         }
       ]
@@ -922,6 +979,10 @@
         },
         {
           "type": "call",
+          "named": true
+        },
+        {
+          "type": "conditional",
           "named": true
         },
         {
@@ -1539,6 +1600,40 @@
     }
   },
   {
+    "type": "then_part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "instruction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "then_part_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "type",
     "named": true,
     "fields": {},
@@ -1800,6 +1895,10 @@
     "named": false
   },
   {
+    "type": "elseif",
+    "named": false
+  },
+  {
     "type": "end",
     "named": false
   },
@@ -1829,11 +1928,11 @@
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "header_comment",
@@ -1842,6 +1941,10 @@
   {
     "type": "identifier",
     "named": true
+  },
+  {
+    "type": "if",
+    "named": false
   },
   {
     "type": "implies",

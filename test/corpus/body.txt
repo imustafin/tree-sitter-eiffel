@@ -169,3 +169,75 @@ end
                    (assigner_call
                      (call (unqualified_call (identifier)))
                      (expression (basic_expression (precursor))))))))))))))
+
+===
+Body. Conditional instruction
+===
+class A feature x
+  do
+    if a then
+      fa
+    elseif b then
+      fb
+    else
+      felse
+    end
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (features
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (conditional
+                    (then_part
+                      (expression (basic_expression (call (unqualified_call (identifier)))))
+                      (instruction (call (unqualified_call (identifier)))))
+                    (then_part
+                      (expression (basic_expression (call (unqualified_call (identifier)))))
+                      (instruction (call (unqualified_call (identifier)))))
+                    (else_part
+                      (instruction (call (unqualified_call (identifier))))))))))))))))
+
+===
+Body. Conditional expression
+===
+class A feature x
+  do
+    a := if a then a elseif b then b else c end
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (features
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (assigner_call
+                    (call (unqualified_call (identifier)))
+                    (expression
+                      (basic_expression
+                        (conditional_expression
+                          (then_part_expression
+                            (expression (basic_expression (call (unqualified_call (identifier)))))
+                            (expression (basic_expression (call (unqualified_call (identifier))))))
+                          (then_part_expression
+                            (expression (basic_expression (call (unqualified_call (identifier)))))
+                            (expression (basic_expression (call (unqualified_call (identifier))))))
+                            (expression (basic_expression (call (unqualified_call (identifier)))))))))))))))))))
+
