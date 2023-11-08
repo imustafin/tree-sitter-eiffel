@@ -143,3 +143,22 @@ end
             (frozen)
             (extended_feature_name (identifier)))
           (type (identifier)))))))
+
+===
+Feature. Explicit value
+===
+class A
+feature
+  x: INTEGER = 1
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature (extended_feature_name (identifier)))
+          (type (identifier))
+          (explicit_value
+            (manifest_constant (manifest_value (integer_constant (integer))))))))))
