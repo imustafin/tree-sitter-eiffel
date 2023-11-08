@@ -34,7 +34,7 @@ module.exports = grammar({
       $.class_name,
       optional($.formal_generics),
       optional($.obsolete),
-      // TODO: Inheritance
+      repeat($.inheritance),
       // TODO: Creators
       // TODO: Converters
       optional(field('features', $.features)),
@@ -42,6 +42,164 @@ module.exports = grammar({
       optional($.invariant),
       optional($.notes),
       'end'
+    ),
+
+    inheritance: $ => seq(
+      'inherit',
+      optional($.non_conformance),
+      repeat($.parent)
+    ),
+
+    non_conformance: $ => seq(
+      '{',
+      'NONE',
+      '}'
+    ),
+
+    parent: $ => seq(
+      $.class_type,
+      optional($.feature_adaptation)
+    ),
+
+    // Just 'end' is not valid, there should be at least one clause before it
+    feature_adaptation: $ => choice(
+      seq(
+        $.undefine,
+        optional($.redefine),
+        optional($.rename),
+        optional($.new_exports),
+        optional($.select),
+        'end',
+      ),
+      seq(
+        $.redefine,
+        optional($.rename),
+        optional($.new_exports),
+        optional($.select),
+        'end'
+      ),
+      seq(
+        $.rename,
+        optional($.new_exports),
+        optional($.select),
+        'end'
+      ),
+      seq(
+        $.new_exports,
+        optional($.select),
+        'end'
+      ),
+      seq(
+        $.select,
+        'end'
+      ),
+    ),
+
+    select: $ => seq(
+      'select',
+      $._feature_list
+    ),
+
+    new_exports: $ => seq(
+      'export',
+      repeat($.new_export_item)
+    ),
+
+    new_export_item: $ => seq(
+      $.clients,
+      optional($.header_comment),
+      choice(
+        alias('all', $.export_all),
+        $._feature_list
+      )
+    ),
+
+    rename: $ => seq(
+      'rename',
+      $.rename_pair,
+      repeat(seq(',', $.rename_pair))
+    ),
+
+    rename_pair: $ => seq(
+      $.identifier,
+      'as',
+      $.extended_feature_name
+    ),
+
+    extended_feature_name: $ => seq(
+      $.identifier,
+      optional(seq(
+        'alias',
+        $.manifest_string, // TODO: Alias_name should be here
+        optional('convert')
+      ))
+    ),
+
+    operator: $ => choice(
+      $.unary,
+      $.binary
+    ),
+
+    unary: $ => choice(
+      'not',
+      '+',
+      '-',
+      // TODO: Free_unary
+    ),
+
+    binary: $ => choice(
+      '+',
+      '-',
+      '*',
+      '/',
+      '//',
+      '\\\\',
+      '^',
+      '..',
+      '<',
+      '>',
+      '<=',
+      '>=',
+      'and',
+      'or',
+      'xor',
+      'and then',
+      'or else',
+      'implies',
+      // TODO: Free_binary
+    ),
+
+    redefine: $ => seq(
+      'redefine',
+      $._feature_list
+    ),
+
+    undefine: $ => seq(
+      'undefine',
+      $._feature_list
+    ),
+
+    _feature_list: $ => seq(
+      $.identifier,
+      repeat(seq(',', $.identifier))
+    ),
+
+    class_type: $ => seq(
+      optional($.attachment_mark),
+      $.class_name,
+      optional($.actual_generics)
+    ),
+
+    attachment_mark: $ => choice(
+      'attached',
+      'detachable'
+    ),
+
+    actual_generics: $ => seq(
+      '[',
+      $.type,
+      repeat(seq(',', $.type)),
+      ']'
     ),
 
     formal_generics: $ => seq(

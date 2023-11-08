@@ -95,3 +95,45 @@ end
               (single_constraint (type (identifier)))
               (single_constraint (type (identifier)))))
           (constraint_creators (identifier) (identifier)))))))
+
+===
+Class. Inherit
+===
+class A
+inherit {NONE}
+  X Y Z
+
+inherit
+  W
+    undefine a
+    redefine c
+    rename e as f
+    export
+      {ANY}
+        -- Header comment
+        all
+    select g
+    end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (inheritance
+      (non_conformance)
+      (parent (class_type (class_name (identifier))))
+      (parent (class_type (class_name (identifier))))
+      (parent (class_type (class_name (identifier)))))
+    (inheritance
+      (parent
+        (class_type (class_name (identifier)))
+        (feature_adaptation
+          (undefine (identifier))
+          (redefine (identifier))
+          (rename (rename_pair (identifier) (extended_feature_name (identifier))))
+          (new_exports
+            (new_export_item
+              (clients (identifier))
+              (header_comment)
+              (export_all)))
+          (select (identifier)))))))
