@@ -152,3 +152,18 @@ end
     (creation_clause (clients (identifier)) (identifier))
     (creation_clause (identifier))))
 
+===
+Class. Converters
+===
+class A
+convert
+  a ({X, Y}),
+  b: {G, H}
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (converters
+      (converter (conversion_procedure (identifier) (type (identifier)) (type (identifier))))
+      (converter (conversion_query (identifier) (type (identifier)) (type (identifier)))))))

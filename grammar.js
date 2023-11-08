@@ -36,12 +36,45 @@ module.exports = grammar({
       optional($.obsolete),
       repeat($.inheritance),
       repeat($.creation_clause),
-      // TODO: Converters
+      optional($.converters),
       optional(field('features', $.features)),
       optional($.notes),
       optional($.invariant),
       optional($.notes),
       'end'
+    ),
+
+    converters: $ => seq(
+      'convert',
+      $.converter,
+      repeat(seq(',', $.converter))
+    ),
+
+    converter: $ => choice(
+      $.conversion_procedure,
+      $.conversion_query
+    ),
+
+    conversion_procedure: $ => seq(
+      $.identifier,
+      '(',
+      '{',
+      $._type_list,
+      '}',
+      ')'
+    ),
+
+    conversion_query: $ => seq(
+      $.identifier,
+      ':',
+      '{',
+      $._type_list,
+      '}'
+    ),
+
+    _type_list: $ => seq(
+      $.type,
+      repeat(seq(',', $.type))
     ),
 
     creation_clause: $ => seq(
@@ -204,8 +237,7 @@ module.exports = grammar({
 
     actual_generics: $ => seq(
       '[',
-      $.type,
-      repeat(seq(',', $.type)),
+      $._type_list,
       ']'
     ),
 
