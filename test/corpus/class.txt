@@ -137,3 +137,18 @@ end
               (header_comment)
               (export_all)))
           (select (identifier)))))))
+
+===
+Class. Create
+===
+class A
+create {NONE} a
+create b
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (creation_clause (clients (identifier)) (identifier))
+    (creation_clause (identifier))))
+
