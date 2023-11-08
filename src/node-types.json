@@ -89,6 +89,10 @@
           "named": true
         },
         {
+          "type": "postcondition",
+          "named": true
+        },
+        {
           "type": "precondition",
           "named": true
         }
@@ -1297,6 +1301,21 @@
     }
   },
   {
+    "type": "postcondition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assertion_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "precondition",
     "named": true,
     "fields": {},
@@ -1811,6 +1830,10 @@
     "named": false
   },
   {
+    "type": "ensure",
+    "named": false
+  },
+  {
     "type": "expanded",
     "named": false
   },
@@ -1901,6 +1924,10 @@
   {
     "type": "string_content",
     "named": true
+  },
+  {
+    "type": "then",
+    "named": false
   },
   {
     "type": "undefine",

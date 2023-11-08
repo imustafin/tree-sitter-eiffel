@@ -360,7 +360,7 @@ module.exports = grammar({
       optional($.precondition),
       optional($.local_declarations),
       $.feature_body,
-      // TODO: [Postcondition]
+      optional($.postcondition),
       // TODO: [Rescue]
       'end'
     ),
@@ -373,6 +373,12 @@ module.exports = grammar({
     precondition: $ => seq(
       'require',
       optional('else'),
+      repeat($.assertion_clause)
+    ),
+
+    postcondition: $ => seq(
+      'ensure',
+      optional('then'),
       repeat($.assertion_clause)
     ),
 
