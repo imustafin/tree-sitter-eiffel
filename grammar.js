@@ -358,11 +358,16 @@ module.exports = grammar({
 
     attribute_or_routine: $ => seq(
       optional($.precondition),
-      // TODO: [Local_declarations]
+      optional($.local_declarations),
       $.feature_body,
       // TODO: [Postcondition]
       // TODO: [Rescue]
       'end'
+    ),
+
+    local_declarations: $ => seq(
+      'local',
+      $.entity_declaration_list
     ),
 
     precondition: $ => seq(
@@ -526,8 +531,9 @@ module.exports = grammar({
       ')'
     ),
 
-    entity_declaration_list: $ =>seq(
-      $.entity_declaration_group, repeat(seq(';', $.entity_declaration_group))
+    entity_declaration_list: $ => seq(
+      $.entity_declaration_group,
+      repeat(seq(optional(';'), $.entity_declaration_group))
     ),
 
     entity_declaration_group: $ => seq(
