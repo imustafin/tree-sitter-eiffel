@@ -300,16 +300,12 @@ module.exports = grammar({
     ),
 
     unlabeled_assertion_clause: $ => choice(
-      $.boolean_expression,
+      $.expression,
       $.comment,
-      'class'
+      $.object_free_assertion
     ),
 
-    boolean_expression: $ => choice(
-      $.basic_expression,
-      $.boolean_constant,
-      // TODO: Object_test
-    ),
+    object_free_assertion: $ => 'class',
 
     features: $ => repeat1($.feature_clause),
 
@@ -422,10 +418,9 @@ module.exports = grammar({
     routine_mark: $ => choice('do'),
 
     instruction: $ => choice(
+      $.assigner_call,
       $.creation,
       $.call,
-      $.assignment,
-      // TODO: Assigner_call
       // TODO: Conditional
       // TODO: Multi_branch
       // TODO: Loop
@@ -435,33 +430,18 @@ module.exports = grammar({
       // TODO: Retry
     ),
 
-    call: $ => choice(
-      $.object_call,
-      $.non_object_call
-    ),
-
-    object_call: $ => seq(
-      optional(seq($.target, '.')),
-      $.unqualified_call
-    ),
-
-    non_object_call: $ => seq(
-      $.manifest_type,
-      '.',
-      $.unqualified_call
-    ),
-
-    target: $ => choice(
-      'Result',
-      'Current',
+    assigner_call: $ => seq(
       $.call,
-      $.parenthesized_target
+      ':=',
+      $.expression
     ),
 
-    parenthesized_target: $ => seq(
-      '(',
-      $.expression,
-      ')'
+    call: $ => seq(
+      optional(seq(
+        choice($.call, seq('(', $.expression, ')')),
+        '.'
+      )),
+      $.unqualified_call
     ),
 
     creation: $ => seq(
@@ -471,7 +451,10 @@ module.exports = grammar({
     ),
 
     creation_call: $ => seq(
-      $.variable,
+      choice(
+        $.identifier,
+        $.result
+      ),
       optional(seq('.', $.unqualified_call))
     ),
 
@@ -487,17 +470,6 @@ module.exports = grammar({
       ')'
     ),
 
-    assignment: $ => seq(
-      $.variable,
-      ':=',
-      $.expression
-    ),
-
-    variable: $ => choice(
-      $.identifier,
-      $.result
-    ),
-
     result: $ => 'Result',
 
     expression: $ => choice(
@@ -509,8 +481,10 @@ module.exports = grammar({
       // Read_only
       $.current,
 
-      $.variable,
-      // TODO: Call
+      // Variable
+      $.result,
+
+      $.call, // Call includes Identifier (possibility in Variable)
       // TODO: Precursor
       // TODO: Equality
       // TODO: Parenthesized
@@ -623,13 +597,13 @@ module.exports = grammar({
 
     real: $ => seq(
       choice(
-        seq($.integer, '.', optional($.integer)), // with integral
-        seq('.', $.integer) // no integral, only fractional
+        prec.left(2, seq($.integer, token.immediate('.'), optional($.integer))), // with integral
+        seq(token.immediate('.'), $.integer) // no integral, only fractional
       ),
       optional($.real_exponent)
     ),
 
-    real_exponent: $ => seq('e', optional($.sign), $.integer),
+    real_exponent: $ => seq(token.immediate('e'), optional($.sign), $.integer),
 
     integer_constant: $ => seq(
       optional($.sign),

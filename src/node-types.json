@@ -49,7 +49,7 @@
     }
   },
   {
-    "type": "assignment",
+    "type": "assigner_call",
     "named": true,
     "fields": {},
     "children": {
@@ -57,11 +57,11 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "call",
           "named": true
         },
         {
-          "type": "variable",
+          "type": "expression",
           "named": true
         }
       ]
@@ -127,11 +127,15 @@
       "required": true,
       "types": [
         {
+          "type": "call",
+          "named": true
+        },
+        {
           "type": "current",
           "named": true
         },
         {
-          "type": "variable",
+          "type": "result",
           "named": true
         }
       ]
@@ -163,38 +167,23 @@
     "fields": {}
   },
   {
-    "type": "boolean_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "basic_expression",
-          "named": true
-        },
-        {
-          "type": "boolean_constant",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "call",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "non_object_call",
+          "type": "call",
           "named": true
         },
         {
-          "type": "object_call",
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "unqualified_call",
           "named": true
         }
       ]
@@ -495,11 +484,15 @@
       "required": true,
       "types": [
         {
-          "type": "unqualified_call",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "variable",
+          "type": "result",
+          "named": true
+        },
+        {
+          "type": "unqualified_call",
           "named": true
         }
       ]
@@ -527,11 +520,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "current",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "effective_routine",
@@ -925,7 +913,7 @@
       "required": true,
       "types": [
         {
-          "type": "assignment",
+          "type": "assigner_call",
           "named": true
         },
         {
@@ -1173,25 +1161,6 @@
     "fields": {}
   },
   {
-    "type": "non_object_call",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "manifest_type",
-          "named": true
-        },
-        {
-          "type": "unqualified_call",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "note_entry",
     "named": true,
     "fields": {},
@@ -1260,23 +1229,9 @@
     }
   },
   {
-    "type": "object_call",
+    "type": "object_free_assertion",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "target",
-          "named": true
-        },
-        {
-          "type": "unqualified_call",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "obsolete",
@@ -1307,21 +1262,6 @@
         },
         {
           "type": "feature_adaptation",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "parenthesized_target",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
           "named": true
         }
       ]
@@ -1479,11 +1419,6 @@
     }
   },
   {
-    "type": "result",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "routine_mark",
     "named": true,
     "fields": {}
@@ -1577,25 +1512,6 @@
     }
   },
   {
-    "type": "target",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "parenthesized_target",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "type",
     "named": true,
     "fields": {},
@@ -1636,14 +1552,18 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "boolean_expression",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "object_free_assertion",
           "named": true
         }
       ]
@@ -1663,25 +1583,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "variable",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "result",
           "named": true
         }
       ]
@@ -1772,19 +1673,11 @@
     "named": false
   },
   {
-    "type": "Current",
-    "named": false
-  },
-  {
     "type": "False",
     "named": false
   },
   {
     "type": "NONE",
-    "named": false
-  },
-  {
-    "type": "Result",
     "named": false
   },
   {
@@ -1850,6 +1743,10 @@
   {
     "type": "create",
     "named": false
+  },
+  {
+    "type": "current",
+    "named": true
   },
   {
     "type": "deferred",
@@ -1970,6 +1867,10 @@
   {
     "type": "rescue",
     "named": false
+  },
+  {
+    "type": "result",
+    "named": true
   },
   {
     "type": "select",

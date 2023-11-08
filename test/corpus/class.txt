@@ -71,7 +71,11 @@ end
     (class_name (identifier))
     (invariant
       (assertion_clause
-        (unlabeled_assertion_clause (boolean_expression (boolean_constant))))
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (manifest_constant
+                (manifest_value (boolean_constant)))))))
       (assertion_clause
         (tag_mark (identifier))
         (unlabeled_assertion_clause (comment))))))
