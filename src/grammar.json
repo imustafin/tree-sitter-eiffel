@@ -1448,7 +1448,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "manifest_constant"
+          "name": "_manifest_constant"
         }
       ]
     },
@@ -1763,7 +1763,130 @@
         },
         {
           "type": "SYMBOL",
+          "name": "multi_branch"
+        },
+        {
+          "type": "SYMBOL",
           "name": "precursor"
+        }
+      ]
+    },
+    "multi_branch": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "inspect"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "when_part"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "else_part"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "end"
+        }
+      ]
+    },
+    "when_part": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "when"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "choice"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "choice"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "then"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "instruction"
+          }
+        }
+      ]
+    },
+    "choice": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_constant"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "constant_interval"
+        }
+      ]
+    },
+    "_constant": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_manifest_constant"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "constant_interval": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_constant"
+        },
+        {
+          "type": "STRING",
+          "value": ".."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_constant"
         }
       ]
     },
@@ -2235,7 +2358,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "manifest_constant"
+          "name": "_manifest_constant"
         },
         {
           "type": "SYMBOL",
@@ -2246,32 +2369,6 @@
     "void": {
       "type": "STRING",
       "value": "Void"
-    },
-    "manifest_constant": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "manifest_value"
-        },
-        {
-          "type": "PREC_LEFT",
-          "value": 2,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "manifest_type"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "manifest_value"
-              }
-            ]
-          }
-        }
-      ]
     },
     "_type_mark": {
       "type": "SEQ",
@@ -2504,7 +2601,33 @@
         },
         {
           "type": "SYMBOL",
-          "name": "manifest_constant"
+          "name": "_manifest_constant"
+        }
+      ]
+    },
+    "_manifest_constant": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_manifest_value"
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 2,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "manifest_type"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_manifest_value"
+              }
+            ]
+          }
         }
       ]
     },
@@ -2525,7 +2648,7 @@
         }
       ]
     },
-    "manifest_value": {
+    "_manifest_value": {
       "type": "CHOICE",
       "members": [
         {

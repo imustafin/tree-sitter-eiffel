@@ -84,9 +84,7 @@ end
                         (actuals
                           (expression
                             (special_expression
-                              (manifest_constant
-                                (manifest_value
-                                  (character_constant (character)))))))))))))))))))
+                              (character_constant (character)))))))))))))))))
 
 ===
 Integer constant
@@ -116,11 +114,9 @@ end
                         (actuals
                           (expression
                             (special_expression
-                              (manifest_constant
-                                (manifest_value
-                                  (integer_constant
-                                    (sign)
-                                    (integer)))))))))))))))))))
+                              (integer_constant
+                                (sign)
+                                (integer)))))))))))))))))
 
 ===
 Real
@@ -150,15 +146,13 @@ end
                         (actuals
                           (expression
                             (special_expression
-                              (manifest_constant
-                                (manifest_value
-                                  (real_constant
+                              (real_constant
+                                (sign)
+                                (real
+                                  (integer)
+                                  (real_exponent
                                     (sign)
-                                    (real
-                                      (integer)
-                                      (real_exponent
-                                        (sign)
-                                        (integer)))))))))))))))))))))
+                                    (integer)))))))))))))))))))
 ===
 Basic string
 ===
@@ -187,7 +181,5 @@ end
                         (actuals
                           (expression
                             (special_expression
-                              (manifest_constant
-                                (manifest_value
-                                  (manifest_string
-                                    (basic_manifest_string (string_content))))))))))))))))))))
+                              (manifest_string
+                                (basic_manifest_string (string_content))))))))))))))))))
