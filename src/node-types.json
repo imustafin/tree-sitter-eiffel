@@ -213,6 +213,49 @@
     }
   },
   {
+    "type": "choice",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_constant",
+          "named": true
+        },
+        {
+          "type": "character_constant",
+          "named": true
+        },
+        {
+          "type": "constant_interval",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_string",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "real_constant",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "class_declaration",
     "named": true,
     "fields": {
@@ -372,6 +415,45 @@
         },
         {
           "type": "then_part_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant_interval",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_constant",
+          "named": true
+        },
+        {
+          "type": "character_constant",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_string",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "real_constant",
           "named": true
         }
       ]
@@ -647,11 +729,31 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "manifest_constant",
+          "type": "boolean_constant",
+          "named": true
+        },
+        {
+          "type": "character_constant",
+          "named": true
+        },
+        {
+          "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_string",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "real_constant",
           "named": true
         }
       ]
@@ -990,6 +1092,10 @@
           "named": true
         },
         {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
           "type": "precursor",
           "named": true
         }
@@ -1065,25 +1171,6 @@
     }
   },
   {
-    "type": "manifest_constant",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "manifest_type",
-          "named": true
-        },
-        {
-          "type": "manifest_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "manifest_string",
     "named": true,
     "fields": {},
@@ -1114,35 +1201,23 @@
     }
   },
   {
-    "type": "manifest_value",
+    "type": "multi_branch",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "boolean_constant",
+          "type": "else_part",
           "named": true
         },
         {
-          "type": "character_constant",
+          "type": "expression",
           "named": true
         },
         {
-          "type": "integer_constant",
-          "named": true
-        },
-        {
-          "type": "manifest_string",
-          "named": true
-        },
-        {
-          "type": "manifest_type",
-          "named": true
-        },
-        {
-          "type": "real_constant",
+          "type": "when_part",
           "named": true
         }
       ]
@@ -1253,15 +1328,35 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "boolean_constant",
+          "named": true
+        },
+        {
+          "type": "character_constant",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "manifest_constant",
+          "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_string",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "real_constant",
           "named": true
         }
       ]
@@ -1570,11 +1665,31 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "manifest_constant",
+          "type": "boolean_constant",
+          "named": true
+        },
+        {
+          "type": "character_constant",
+          "named": true
+        },
+        {
+          "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_string",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "real_constant",
           "named": true
         },
         {
@@ -1705,6 +1820,25 @@
         },
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "when_part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "choice",
+          "named": true
+        },
+        {
+          "type": "instruction",
           "named": true
         }
       ]
@@ -1928,11 +2062,11 @@
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "header_comment",
@@ -1952,6 +2086,10 @@
   },
   {
     "type": "inherit",
+    "named": false
+  },
+  {
+    "type": "inspect",
     "named": false
   },
   {
@@ -2025,6 +2163,10 @@
   {
     "type": "void",
     "named": true
+  },
+  {
+    "type": "when",
+    "named": false
   },
   {
     "type": "xor",

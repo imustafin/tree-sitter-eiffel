@@ -339,7 +339,7 @@ module.exports = grammar({
 
     explicit_value: $ => seq(
       '=',
-      $.manifest_constant
+      $._manifest_constant
     ),
 
     new_feature: $ => seq(
@@ -422,12 +422,44 @@ module.exports = grammar({
       $.creation,
       $.call,
       $.conditional,
-      // TODO: Multi_branch
+      $.multi_branch,
       // TODO: Loop
       // TODO: Debug
       $.precursor
       // TODO: Check
       // TODO: Retry
+    ),
+
+    multi_branch: $ => seq(
+      'inspect',
+      $.expression,
+      repeat($.when_part),
+      optional($.else_part),
+      'end'
+    ),
+
+    when_part: $ => seq(
+      'when',
+      $.choice,
+      repeat(seq(',', $.choice)),
+      'then',
+      repeat($.instruction)
+    ),
+
+    choice: $ => choice(
+      $._constant,
+      $.constant_interval,
+    ),
+
+    _constant: $ => choice(
+      $._manifest_constant,
+      $.identifier
+    ),
+
+    constant_interval: $ => seq(
+      $._constant,
+      '..',
+      $._constant
     ),
 
     conditional: $ => seq(
@@ -541,7 +573,7 @@ module.exports = grammar({
     current: $ => 'Current',
 
     special_expression: $ => choice(
-      $.manifest_constant,
+      $._manifest_constant,
       $.void,
       // TODO: Manifest_array
       // TODO: Manifest_tuple
@@ -552,11 +584,6 @@ module.exports = grammar({
     ),
 
     void: $ => 'Void',
-
-    manifest_constant: $ => seq(
-      optional($.manifest_type),
-      $.manifest_value
-    ),
 
     _type_mark: $ => seq(
       ":",
@@ -606,16 +633,16 @@ module.exports = grammar({
 
     note_values: $ => seq($.note_item, repeat(seq(',', $.note_item))),
 
-    note_item: $ => choice($.identifier, $.manifest_constant),
+    note_item: $ => choice($.identifier, $._manifest_constant),
 
-    manifest_constant: $ => choice(
-      $.manifest_value,
-      prec.left(PREC.TYPE, seq($.manifest_type, $.manifest_value))
+    _manifest_constant: $ => choice(
+      $._manifest_value,
+      prec.left(PREC.TYPE, seq($.manifest_type, $._manifest_value))
     ),
 
     manifest_type: $ => seq('{', $.type, '}'),
 
-    manifest_value: $ => choice(
+    _manifest_value: $ => choice(
       $.boolean_constant,
       $.character_constant,
       $.integer_constant,

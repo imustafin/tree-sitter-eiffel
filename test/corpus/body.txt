@@ -34,8 +34,7 @@ end
                           (actuals
                             (expression
                               (special_expression
-                                (manifest_constant
-                                  (manifest_value (boolean_constant)))))))))))))))))))
+                                (boolean_constant)))))))))))))))))
 
 ===
 Call
@@ -92,8 +91,7 @@ end
                         (actuals
                           (expression
                             (special_expression
-                              (manifest_constant
-                                (manifest_value (boolean_constant))))))))))))))))))
+                              (boolean_constant))))))))))))))))
 
 ===
 Body. Assigner call
@@ -121,19 +119,14 @@ end
                       (call
                         (unqualified_call (identifier)))
                       (expression
-                        (special_expression
-                          (manifest_constant
-                            (manifest_value (boolean_constant)))))))
+                        (special_expression (boolean_constant)))))
                   (instruction
                     (assigner_call
                       (call
                         (call (unqualified_call (identifier)))
                         (unqualified_call (identifier)))
                       (expression
-                        (special_expression
-                          (manifest_constant
-                            (manifest_value
-                              (boolean_constant))))))))))))))))
+                        (special_expression (boolean_constant))))))))))))))
 
 ===
 Body. Precursor instruction and Precursor expression
@@ -162,9 +155,7 @@ end
                     (actuals
                       (expression
                         (special_expression
-                          (manifest_constant
-                            (manifest_value
-                              (boolean_constant))))))))
+                          (boolean_constant))))))
                  (instruction
                    (assigner_call
                      (call (unqualified_call (identifier)))
@@ -240,4 +231,39 @@ end
                             (expression (basic_expression (call (unqualified_call (identifier)))))
                             (expression (basic_expression (call (unqualified_call (identifier))))))
                             (expression (basic_expression (call (unqualified_call (identifier)))))))))))))))))))
+
+===
+Body. Multi-branch
+===
+class A feature x
+  do
+    inspect a
+    when 1 then
+    when 1..2 then
+    else
+    end
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (features
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (multi_branch
+                    (expression (basic_expression (call (unqualified_call (identifier)))))
+                    (when_part (choice (integer_constant (integer))))
+                    (when_part
+                      (choice
+                        (constant_interval
+                          (integer_constant (integer))
+                          (integer_constant (integer)))))
+                    (else_part))))))))))))
 

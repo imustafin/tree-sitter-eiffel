@@ -160,8 +160,7 @@ end
         (feature_declaration
           (new_feature (extended_feature_name (identifier)))
           (type (identifier))
-          (explicit_value
-            (manifest_constant (manifest_value (integer_constant (integer))))))))))
+          (explicit_value (integer_constant (integer))))))))
 
 ===
 Feature. Precondition
@@ -191,9 +190,7 @@ end
               (assertion_clause
                 (unlabeled_assertion_clause
                   (expression
-                    (special_expression
-                      (manifest_constant
-                        (manifest_value (boolean_constant))))))))
+                    (special_expression (boolean_constant))))))
             (feature_body (effective_routine (internal (routine_mark))))))
          (feature_declaration
            (new_feature (extended_feature_name (identifier)))
@@ -256,9 +253,7 @@ end
               (assertion_clause
                 (unlabeled_assertion_clause
                   (expression
-                    (special_expression
-                      (manifest_constant
-                        (manifest_value (boolean_constant))))))))))))))
+                    (special_expression (boolean_constant))))))))))))
 
 ===
 Feature. Rescue
@@ -285,8 +280,7 @@ end
                 (assigner_call
                   (call (unqualified_call (identifier)))
                   (expression
-                    (special_expression
-                      (manifest_constant (manifest_value (boolean_constant))))))))))))))
+                    (special_expression (boolean_constant))))))))))))
 
 ===
 Feature. Attribute
