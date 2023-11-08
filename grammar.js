@@ -367,7 +367,7 @@ module.exports = grammar({
 
     rescue: $ => seq(
       'rescue',
-      $.compound
+      repeat($.instruction)
     ),
 
     local_declarations: $ => seq(
@@ -390,7 +390,12 @@ module.exports = grammar({
     feature_body: $ => choice(
       'deferred',
       $.effective_routine,
-      // TODO: Attribute
+      $.attribute,
+    ),
+
+    attribute: $ => seq(
+      'attribute',
+      repeat($.instruction)
     ),
 
     effective_routine: $ => choice(
@@ -400,16 +405,10 @@ module.exports = grammar({
 
     internal: $ => seq(
       $.routine_mark,
-      optional($.compound)
+      repeat($.instruction)
     ),
 
     routine_mark: $ => choice('do'),
-
-    // This rule requires at least one instruction.
-    // To accept empty compunds, use optional($.compound)
-    compound: $ => repeat1(
-      seq($.instruction, optional(';'))
-    ),
 
     instruction: $ => choice(
       $.creation,

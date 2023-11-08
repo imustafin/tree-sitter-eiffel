@@ -1569,8 +1569,11 @@
           "value": "rescue"
         },
         {
-          "type": "SYMBOL",
-          "name": "compound"
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "instruction"
+          }
         }
       ]
     },
@@ -1653,6 +1656,26 @@
         {
           "type": "SYMBOL",
           "name": "effective_routine"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "attribute"
+        }
+      ]
+    },
+    "attribute": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "attribute"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "instruction"
+          }
         }
       ]
     },
@@ -1673,16 +1696,11 @@
           "name": "routine_mark"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "compound"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "instruction"
+          }
         }
       ]
     },
@@ -1694,30 +1712,6 @@
           "value": "do"
         }
       ]
-    },
-    "compound": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "instruction"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ";"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        ]
-      }
     },
     "instruction": {
       "type": "CHOICE",
