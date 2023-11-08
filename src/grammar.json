@@ -1685,6 +1685,44 @@
         {
           "type": "SYMBOL",
           "name": "internal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "external"
+        }
+      ]
+    },
+    "external": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "external"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "manifest_string"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "alias"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "manifest_string"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

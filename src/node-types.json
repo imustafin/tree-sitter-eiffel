@@ -542,6 +542,10 @@
       "required": true,
       "types": [
         {
+          "type": "external",
+          "named": true
+        },
+        {
           "type": "internal",
           "named": true
         }
@@ -635,6 +639,21 @@
           "type": "identifier",
           "named": true
         },
+        {
+          "type": "manifest_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "external",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
         {
           "type": "manifest_string",
           "named": true
@@ -1871,6 +1890,10 @@
   {
     "type": "export_all",
     "named": true
+  },
+  {
+    "type": "external",
+    "named": false
   },
   {
     "type": "feature",

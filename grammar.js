@@ -400,7 +400,18 @@ module.exports = grammar({
 
     effective_routine: $ => choice(
       $.internal,
-      // TODO: External
+      $.external
+    ),
+
+    external: $ => seq(
+      'external',
+      $.manifest_string, // TODO: External_language
+      optional(
+        seq(
+          'alias',
+          $.manifest_string
+        )
+      )
     ),
 
     internal: $ => seq(

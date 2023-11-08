@@ -301,3 +301,29 @@ end
           (attribute_or_routine
             (feature_body
               (attribute))))))))
+
+===
+Feature. External
+===
+class A feature
+  x
+    external
+      "C"
+    alias
+      "c_function"
+    end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature (extended_feature_name (identifier)))
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (external
+                  (manifest_string (basic_manifest_string (string_content)))
+                  (manifest_string (basic_manifest_string (string_content))))))))))))
