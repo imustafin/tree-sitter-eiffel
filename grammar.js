@@ -327,7 +327,8 @@ module.exports = grammar({
     ),
 
     feature_declaration: $ => seq(
-      field('name', $.identifier), // TODO: replace with New_feature_list
+      $.new_feature,
+      repeat(seq(',', $.new_feature)),
 
       // Declaration_body
       optional(field('arguments', $.formal_arguments)),
@@ -338,6 +339,11 @@ module.exports = grammar({
       optional($.obsolete),
       optional($.header_comment),
       optional(field('attribute_or_routine', $.attribute_or_routine))
+    ),
+
+    new_feature: $ => seq(
+      optional(alias('frozen', $.frozen)),
+      $.extended_feature_name
     ),
 
     obsolete: $ => seq(

@@ -13,7 +13,7 @@ end
     (features
       (feature_clause
         (feature_declaration
-          (identifier)
+          (new_feature (extended_feature_name (identifier)))
           (attribute_or_routine
             (feature_body
               (effective_routine
@@ -50,7 +50,7 @@ end
     (features
       (feature_clause
         (feature_declaration
-          (identifier)
+          (new_feature (extended_feature_name (identifier)))
           (attribute_or_routine
             (feature_body
               (effective_routine
@@ -89,7 +89,7 @@ end
     (features
       (feature_clause
         (feature_declaration
-          (identifier)
+          (new_feature (extended_feature_name (identifier)))
           (attribute_or_routine
             (feature_body
               (effective_routine
@@ -119,7 +119,7 @@ end
     (features
       (feature_clause
         (feature_declaration
-          (identifier)
+          (new_feature (extended_feature_name (identifier)))
           (attribute_or_routine
             (feature_body
               (effective_routine
