@@ -335,10 +335,15 @@ module.exports = grammar({
       optional(field('query_mark', $._type_mark)),
 
       // Feature_value
-      // TODO: [Explicit_value]
+      optional($.explicit_value),
       optional($.obsolete),
       optional($.header_comment),
       optional(field('attribute_or_routine', $.attribute_or_routine))
+    ),
+
+    explicit_value: $ => seq(
+      '=',
+      $.manifest_constant
     ),
 
     new_feature: $ => seq(
