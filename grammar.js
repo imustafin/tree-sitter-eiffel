@@ -35,13 +35,20 @@ module.exports = grammar({
       optional($.formal_generics),
       optional($.obsolete),
       repeat($.inheritance),
-      // TODO: Creators
+      repeat($.creation_clause),
       // TODO: Converters
       optional(field('features', $.features)),
       optional($.notes),
       optional($.invariant),
       optional($.notes),
       'end'
+    ),
+
+    creation_clause: $ => seq(
+      'create',
+      optional($.clients),
+      optional($.header_comment),
+      $._feature_list
     ),
 
     inheritance: $ => seq(
