@@ -361,8 +361,13 @@ module.exports = grammar({
       optional($.local_declarations),
       $.feature_body,
       optional($.postcondition),
-      // TODO: [Rescue]
+      optional($.rescue),
       'end'
+    ),
+
+    rescue: $ => seq(
+      'rescue',
+      $.compound
     ),
 
     local_declarations: $ => seq(

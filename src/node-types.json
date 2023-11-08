@@ -95,6 +95,10 @@
         {
           "type": "precondition",
           "named": true
+        },
+        {
+          "type": "rescue",
+          "named": true
         }
       ]
     }
@@ -1437,6 +1441,21 @@
     }
   },
   {
+    "type": "rescue",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "compound",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "result",
     "named": true,
     "fields": {}
@@ -1851,11 +1870,11 @@
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "header_comment",
@@ -1915,6 +1934,10 @@
   },
   {
     "type": "require",
+    "named": false
+  },
+  {
+    "type": "rescue",
     "named": false
   },
   {
