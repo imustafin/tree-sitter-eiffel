@@ -357,12 +357,18 @@ module.exports = grammar({
     ),
 
     attribute_or_routine: $ => seq(
-      // TODO: [Precondition]
+      optional($.precondition),
       // TODO: [Local_declarations]
       $.feature_body,
       // TODO: [Postcondition]
       // TODO: [Rescue]
       'end'
+    ),
+
+    precondition: $ => seq(
+      'require',
+      optional('else'),
+      repeat($.assertion_clause)
     ),
 
     feature_body: $ => choice(
