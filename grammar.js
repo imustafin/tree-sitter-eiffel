@@ -267,7 +267,7 @@ module.exports = grammar({
 
     single_constraint: $ => seq(
       $.type,
-      // TODO: Renaming
+      optional(seq($.rename, 'end'))
     ),
 
     multiple_constraint: $ => seq(

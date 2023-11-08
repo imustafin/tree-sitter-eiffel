@@ -79,7 +79,7 @@ end
 ===
 Class. Formal generics
 ===
-class A [frozen X, K -> {P, Q} create make, construct end]
+class A [frozen X, K -> {P, Q} create make, construct end, T -> S rename a as b end]
 end
 ---
 (source_file
@@ -94,7 +94,17 @@ end
             (multiple_constraint
               (single_constraint (type (identifier)))
               (single_constraint (type (identifier)))))
-          (constraint_creators (identifier) (identifier)))))))
+          (constraint_creators (identifier) (identifier))))
+      (formal_generic
+        (identifier)
+        (constraint
+          (constraining_types
+            (single_constraint
+              (type (identifier))
+              (rename
+                (rename_pair
+                  (identifier)
+                  (extended_feature_name (identifier)))))))))))
 
 ===
 Class. Inherit
