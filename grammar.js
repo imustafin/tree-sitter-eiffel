@@ -425,7 +425,7 @@ module.exports = grammar({
       // TODO: Multi_branch
       // TODO: Loop
       // TODO: Debug
-      // TODO: Precursor
+      $.precursor
       // TODO: Check
       // TODO: Retry
     ),
@@ -485,7 +485,7 @@ module.exports = grammar({
       $.result,
 
       $.call, // Call includes Identifier (possibility in Variable)
-      // TODO: Precursor
+      $.precursor,
       // TODO: Equality
       // TODO: Parenthesized
       // TODO: Old
@@ -493,6 +493,15 @@ module.exports = grammar({
       // TODO: Bracket_expression
       // TODO: Creation_expression
       // TODO: Conditional_expression
+    ),
+
+    precursor: $ => choice(
+      prec.left(PREC.ACTUALS, seq('Precursor', $.actuals)),
+      prec.left(PREC.ACTUALS, seq('Precursor',
+                                  seq('{', $.class_name, '}'),
+                                  $.actuals)),
+      seq('Precursor', seq('{', $.class_name, '}')),
+      'Precursor'
     ),
 
     current: $ => 'Current',

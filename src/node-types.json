@@ -135,6 +135,10 @@
           "named": true
         },
         {
+          "type": "precursor",
+          "named": true
+        },
+        {
           "type": "result",
           "named": true
         }
@@ -923,6 +927,10 @@
         {
           "type": "creation",
           "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
         }
       ]
     }
@@ -1292,6 +1300,25 @@
       "types": [
         {
           "type": "assertion_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "precursor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "actuals",
+          "named": true
+        },
+        {
+          "type": "class_name",
           "named": true
         }
       ]
@@ -1681,6 +1708,10 @@
     "named": false
   },
   {
+    "type": "Precursor",
+    "named": false
+  },
+  {
     "type": "True",
     "named": false
   },
@@ -1798,11 +1829,11 @@
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "header_comment",
