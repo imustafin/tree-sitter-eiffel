@@ -228,3 +228,27 @@ end
             (feature_body
               (effective_routine (internal (routine_mark))))))))))
 
+===
+Feature. Postcondition
+===
+class A feature
+  x
+    do
+    ensure then
+      True
+    end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature (extended_feature_name (identifier)))
+          (attribute_or_routine
+            (feature_body (effective_routine (internal (routine_mark))))
+            (postcondition
+              (assertion_clause
+                (unlabeled_assertion_clause
+                  (boolean_expression (boolean_constant)))))))))))
