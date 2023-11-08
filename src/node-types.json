@@ -1382,9 +1382,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "rename",
+          "named": true
+        },
         {
           "type": "type",
           "named": true
