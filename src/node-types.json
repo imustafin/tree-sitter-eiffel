@@ -77,11 +77,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "feature_body",
+          "named": true
+        },
+        {
+          "type": "precondition",
           "named": true
         }
       ]
@@ -1274,6 +1278,21 @@
     }
   },
   {
+    "type": "precondition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assertion_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "real",
     "named": true,
     "fields": {},
@@ -1765,6 +1784,10 @@
     "named": false
   },
   {
+    "type": "else",
+    "named": false
+  },
+  {
     "type": "end",
     "named": false
   },
@@ -1786,11 +1809,11 @@
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "header_comment",
@@ -1842,6 +1865,10 @@
   },
   {
     "type": "rename",
+    "named": false
+  },
+  {
+    "type": "require",
     "named": false
   },
   {

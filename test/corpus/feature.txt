@@ -162,3 +162,37 @@ end
           (type (identifier))
           (explicit_value
             (manifest_constant (manifest_value (integer_constant (integer))))))))))
+
+===
+Feature. Precondition
+===
+class A feature
+  x
+    require
+      True
+    do
+    end
+
+  y
+    require else
+    do
+    end
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature (extended_feature_name (identifier)))
+          (attribute_or_routine
+            (precondition
+              (assertion_clause
+                (unlabeled_assertion_clause (boolean_expression (boolean_constant)))))
+            (feature_body (effective_routine (internal (routine_mark))))))
+         (feature_declaration
+           (new_feature (extended_feature_name (identifier)))
+           (attribute_or_routine
+             (precondition)
+             (feature_body (effective_routine (internal (routine_mark))))))))))
