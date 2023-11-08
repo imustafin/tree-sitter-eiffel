@@ -8,13 +8,13 @@ end
 ---
 (source_file
   (class_declaration
-    name: (class_name (identifier))
+    (class_name (identifier))
     features: (features
         (feature_clause)
         (feature_clause))))
 
 ===
-Field
+Feature field
 ===
 class A
 feature
@@ -23,7 +23,7 @@ end
 ---
 (source_file
   (class_declaration
-    name: (class_name (identifier))
+    (class_name (identifier))
     features: (features
       (feature_clause
         declarations: (feature_declaration
@@ -31,7 +31,7 @@ end
           type: (type (identifier)))))))
 
 ===
-Arguments
+Feature arguments
 ===
 class A
 feature
@@ -40,7 +40,7 @@ end
 ---
 (source_file
   (class_declaration
-    name: (class_name (identifier))
+    (class_name (identifier))
     features: (features
       (feature_clause
         declarations: (feature_declaration
@@ -53,3 +53,74 @@ end
                 (entity_declaration_group
                   identifiers: (identifier_list (identifier))
                   type: (type (identifier))))))))))
+
+===
+Clients
+===
+class A
+feature {NONE, ANY, A, B}
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (clients (identifier) (identifier) (identifier) (identifier))))))
+
+===
+Feature header comment
+===
+class A
+feature
+  -- Header comment
+  -- continuation
+
+  -- Normal comment
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (header_comment)))
+    (comment)))
+
+===
+Feature declaration header comment
+===
+class A
+feature
+  x: INTEGER
+    -- Header comment
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (type (identifier))
+          (header_comment))))))
+
+===
+Obsolete
+===
+class A
+feature
+  x
+    obsolete "msg"
+end
+---
+(source_file
+  (class_declaration
+    (class_name (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (identifier)
+          (obsolete
+            (manifest_string (basic_manifest_string (string_content)))))))))

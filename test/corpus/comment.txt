@@ -2,9 +2,14 @@
 Comment right after class
 ===
 class A
--- this is comment
+  -- Comment
+  -- continuation
+
+  -- New comment
 end
 ---
 (source_file
   (class_declaration (class_name (identifier))
-  (comment (comment_start))))
+  (comment)
+  (comment)
+  (comment)))
