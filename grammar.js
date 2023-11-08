@@ -421,13 +421,47 @@ module.exports = grammar({
       $.assigner_call,
       $.creation,
       $.call,
-      // TODO: Conditional
+      $.conditional,
       // TODO: Multi_branch
       // TODO: Loop
       // TODO: Debug
       $.precursor
       // TODO: Check
       // TODO: Retry
+    ),
+
+    conditional: $ => seq(
+      'if',
+      $.then_part,
+      repeat(seq('elseif', $.then_part)),
+      optional($.else_part),
+      'end'
+    ),
+
+    then_part: $ => seq(
+      $.expression,
+      'then',
+      repeat($.instruction)
+    ),
+
+    else_part: $ => seq(
+      'else',
+      repeat($.instruction)
+    ),
+
+    conditional_expression: $ => seq(
+      'if',
+      $.then_part_expression,
+      repeat(seq('elseif', $.then_part_expression)),
+      'else',
+      $.expression,
+      'end'
+    ),
+
+    then_part_expression: $ => seq(
+      $.expression,
+      'then',
+      $.expression
     ),
 
     assigner_call: $ => seq(
@@ -492,7 +526,7 @@ module.exports = grammar({
       // TODO: Operator_expression
       // TODO: Bracket_expression
       // TODO: Creation_expression
-      // TODO: Conditional_expression
+      $.conditional_expression
     ),
 
     precursor: $ => choice(
