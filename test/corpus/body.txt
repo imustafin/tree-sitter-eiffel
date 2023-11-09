@@ -335,3 +335,34 @@ end
                 (instruction
                   (debug
                     (manifest_string (basic_manifest_string (string_content))))))))))))))
+
+===
+Body. Check
+===
+class A feature x
+  do
+    check a b end
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (features
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (check
+                    (assertion_clause
+                      (unlabeled_assertion_clause
+                        (expression
+                          (basic_expression (call (unqualified_call (identifier)))))))
+                    (assertion_clause
+                      (unlabeled_assertion_clause
+                        (expression
+                          (basic_expression (call (unqualified_call (identifier))))))))))))))))))

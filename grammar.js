@@ -425,9 +425,16 @@ module.exports = grammar({
       $.multi_branch,
       $.loop,
       $.debug,
-      $.precursor
-      // TODO: Check
+      $.precursor,
+      $.check,
       // TODO: Retry
+    ),
+
+    check: $ => seq(
+      'check',
+      repeat($.assertion_clause),
+      optional($.notes),
+      'end'
     ),
 
     debug: $ => seq(
