@@ -311,3 +311,27 @@ end
                       (expression
                         (basic_expression
                           (call (unqualified_call (identifier)))))))))))))))))
+===
+Body. Debug
+===
+class A feature x
+  do
+    debug ("a")
+    end
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (features
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (debug
+                    (manifest_string (basic_manifest_string (string_content))))))))))))))
