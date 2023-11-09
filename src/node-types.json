@@ -1871,6 +1871,29 @@
     "fields": {}
   },
   {
+    "type": "object_test",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "obsolete",
     "named": true,
     "fields": {},
@@ -2282,6 +2305,10 @@
         },
         {
           "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "object_test",
           "named": true
         },
         {

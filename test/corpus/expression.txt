@@ -290,3 +290,25 @@ end
             (special_expression
               (address
                 (identifier)))))))))
+
+===
+Expression. Object test
+===
+class A
+invariant
+attached {X} y as t
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (object_test
+                (manifest_type (type (identifier)))
+                (expression
+                  (basic_expression
+                    (call (unqualified_call (identifier)))))
+                (identifier)))))))))
