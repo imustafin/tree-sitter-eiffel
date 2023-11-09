@@ -685,12 +685,17 @@ module.exports = grammar({
     special_expression: $ => choice(
       $._manifest_constant,
       $.void,
-      // TODO: Manifest_array
+      $.manifest_array,
       $.manifest_tuple,
       // TODO: Agent
       // TODO: Object_test
       $.once_string,
       // TODO: Address
+    ),
+
+    manifest_array: $ => choice(
+      seq('<<', optional(join1($.expression, ',')), '>>'),
+      prec.left(2, seq($.manifest_type, '<<', optional(join1($.expression, ',')), '>>'))
     ),
 
     void: $ => 'Void',
