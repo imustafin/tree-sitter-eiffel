@@ -116,3 +116,72 @@ end
                             (special_expression
                               (manifest_string
                                 (basic_manifest_string (string_content))))))))))))))))))
+
+===
+Expression. Bracket expression
+===
+class A
+invariant
+  f[1]
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (basic_expression
+              (bracket_expression
+                (call (unqualified_call (identifier)))
+                (expression (special_expression (integer_constant (integer))))))))))))
+
+===
+Expression. Once string
+===
+class A
+invariant
+  once "a"
+end
+---
+(source_file
+  (class_declaration
+    (class_name
+      (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (once_string
+                (manifest_string
+                  (basic_manifest_string
+                    (string_content)))))))))))
+
+===
+Expression. Manifest tuple
+===
+class A
+invariant
+  [1, "a"]
+end
+---
+(source_file
+  (class_declaration
+    (class_name
+      (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (manifest_tuple
+                (expression
+                  (special_expression
+                    (integer_constant
+                      (integer))))
+                (expression
+                  (special_expression
+                    (manifest_string
+                      (basic_manifest_string
+                        (string_content)))))))))))))
