@@ -423,11 +423,50 @@ module.exports = grammar({
       $.call,
       $.conditional,
       $.multi_branch,
-      // TODO: Loop
+      $.loop,
       // TODO: Debug
       $.precursor
       // TODO: Check
       // TODO: Retry
+    ),
+
+    loop: $ => seq(
+      optional($.iteration),
+      optional($.initialization),
+      optional($.invariant),
+      optional($.exit_condition),
+      $.loop_body,
+      optional($.variant),
+      'end'
+    ),
+
+    iteration: $ => seq(
+      'across',
+      $.expression,
+      'as',
+      $.identifier
+    ),
+
+    initialization: $ => prec.left(2, seq(
+      'from',
+      repeat($.instruction)
+    )),
+
+    exit_condition: $ => seq(
+      'until',
+      $.expression
+    ),
+
+    loop_body: $ => choice(
+      seq('loop', repeat($.instruction)),
+      seq('all', $.expression),
+      seq('some', $.expression)
+    ),
+
+    variant: $ => seq(
+      'variant',
+      optional($.tag_mark),
+      $.expression
     ),
 
     multi_branch: $ => seq(
