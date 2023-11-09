@@ -1780,8 +1780,16 @@
         {
           "type": "SYMBOL",
           "name": "check"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "retry"
         }
       ]
+    },
+    "retry": {
+      "type": "STRING",
+      "value": "retry"
     },
     "check": {
       "type": "SEQ",

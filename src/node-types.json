@@ -1178,6 +1178,10 @@
         {
           "type": "precursor",
           "named": true
+        },
+        {
+          "type": "retry",
+          "named": true
         }
       ]
     }
@@ -2338,6 +2342,10 @@
   },
   {
     "type": "result",
+    "named": true
+  },
+  {
+    "type": "retry",
     "named": true
   },
   {
