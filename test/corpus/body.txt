@@ -267,3 +267,47 @@ end
                           (integer_constant (integer)))))
                     (else_part))))))))))))
 
+===
+Body. Loop
+===
+class A feature x
+  do
+    across
+      a as i
+    from
+    invariant
+    until
+      e
+    loop
+    variant
+      j
+    end
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (features
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (loop
+                    (iteration
+                      (expression
+                        (basic_expression (call (unqualified_call (identifier)))))
+                        (identifier))
+                    (initialization)
+                    (invariant)
+                    (exit_condition
+                      (expression (basic_expression (call (unqualified_call (identifier))))))
+                    (loop_body)
+                    (variant
+                      (expression
+                        (basic_expression
+                          (call (unqualified_call (identifier)))))))))))))))))
