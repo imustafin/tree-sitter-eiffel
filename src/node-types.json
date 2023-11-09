@@ -650,6 +650,25 @@
     }
   },
   {
+    "type": "debug",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "instruction",
+          "named": true
+        },
+        {
+          "type": "manifest_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "effective_routine",
     "named": true,
     "fields": {},
@@ -1119,6 +1138,10 @@
         },
         {
           "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
           "named": true
         },
         {
@@ -2141,6 +2164,10 @@
   {
     "type": "current",
     "named": true
+  },
+  {
+    "type": "debug",
+    "named": false
   },
   {
     "type": "deferred",

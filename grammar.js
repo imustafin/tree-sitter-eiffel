@@ -424,10 +424,19 @@ module.exports = grammar({
       $.conditional,
       $.multi_branch,
       $.loop,
-      // TODO: Debug
+      $.debug,
       $.precursor
       // TODO: Check
       // TODO: Retry
+    ),
+
+    debug: $ => seq(
+      prec.left(2, seq(
+        'debug',
+        optional(seq('(', $.manifest_string, repeat(seq(',', $.manifest_string)), ')')),
+      )),
+      repeat($.instruction),
+      'end'
     ),
 
     loop: $ => seq(
