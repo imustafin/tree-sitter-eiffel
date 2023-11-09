@@ -420,3 +420,32 @@ end
                           (comparison)
                           (expression (special_expression (integer_constant (integer))))))))))))))))))
 
+===
+Body. Parenthesized
+===
+class A feature x
+  do
+    a := (1)
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (features
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (assigner_call
+                    (call (unqualified_call (identifier)))
+                    (expression
+                      (basic_expression
+                        (parenthesized
+                          (expression
+                            (special_expression
+                              (integer_constant (integer))))))))))))))))))
