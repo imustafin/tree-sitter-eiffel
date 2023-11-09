@@ -688,10 +688,17 @@ module.exports = grammar({
       $.manifest_array,
       $.manifest_tuple,
       $.agent,
-      // TODO: Object_test
+      $.object_test,
       $.once_string,
       $.address
     ),
+
+    object_test: $ => prec.left(2, seq(
+      'attached',
+      optional($.manifest_type),
+      $.expression,
+      optional(seq('as', $.identifier))
+    )),
 
     address: $ => seq('$', $.identifier),
 
