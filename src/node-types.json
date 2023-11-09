@@ -139,6 +139,10 @@
           "named": true
         },
         {
+          "type": "creation_expression",
+          "named": true
+        },
+        {
           "type": "current",
           "named": true
         },
@@ -289,6 +293,10 @@
         },
         {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
           "named": true
         },
         {
@@ -769,6 +777,25 @@
         },
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "creation_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "unqualified_call",
           "named": true
         }
       ]
@@ -2506,11 +2533,11 @@
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "header_comment",

@@ -9,6 +9,7 @@ SIMPLE_CHARS = '[^@^$\\~\n`#\t|%\'"\\[\\]{}]';
 
 const target = $ => choice(
   $.call,
+  $.manifest_type,
   seq('(', $.expression, ')')
 );
 
@@ -543,10 +544,10 @@ module.exports = grammar({
       $.expression
     ),
 
-    call: $ => seq(
+    call: $ => prec.left(2, seq(
       optional(seq(target($), '.')),
       $.unqualified_call
-    ),
+    )),
 
     creation: $ => seq(
       'create',
@@ -595,8 +596,13 @@ module.exports = grammar({
       $.old,
       $.operator_expression,
       $.bracket_expression,
-      // TODO: Creation_expression
+      $.creation_expression,
       $.conditional_expression
+    ),
+
+    creation_expression: $ => choice(
+      seq('create', $.manifest_type),
+      prec.left(2, seq('create', $.manifest_type, '.', $.unqualified_call))
     ),
 
     bracket_expression: $ => prec.left(2, seq(
@@ -741,7 +747,7 @@ module.exports = grammar({
 
     _manifest_constant: $ => choice(
       $._manifest_value,
-      prec.left(PREC.TYPE, seq($.manifest_type, $._manifest_value))
+      prec.left(2, seq($.manifest_type, $._manifest_value))
     ),
 
     manifest_type: $ => seq('{', $.type, '}'),
@@ -772,7 +778,7 @@ module.exports = grammar({
     real: $ => seq(
       choice(
         prec.left(2, seq($.integer, token.immediate('.'), optional($.integer))), // with integral
-        seq(token.immediate('.'), $.integer) // no integral, only fractional
+        seq('.', $.integer) // no integral, only fractional
       ),
       optional($.real_exponent)
     ),
