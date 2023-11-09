@@ -611,11 +611,16 @@ module.exports = grammar({
       $.precursor,
       $.equality,
       $.parenthesized,
-      // TODO: Old
+      $.old,
       // TODO: Operator_expression
       // TODO: Bracket_expression
       // TODO: Creation_expression
       $.conditional_expression
+    ),
+
+    old: $ => seq(
+      'old',
+      $.expression
     ),
 
     parenthesized: $ => seq(

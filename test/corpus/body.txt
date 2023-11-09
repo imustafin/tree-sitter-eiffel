@@ -449,3 +449,32 @@ end
                           (expression
                             (special_expression
                               (integer_constant (integer))))))))))))))))))
+
+===
+Body. Old
+===
+class A feature x
+  deferred
+  ensure
+    old x
+  end
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+  (features
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body)
+          (postcondition
+            (assertion_clause
+              (unlabeled_assertion_clause
+                (expression
+                  (basic_expression
+                    (old
+                      (expression
+                        (basic_expression
+                          (call
+                            (unqualified_call (identifier)))))))))))))))))

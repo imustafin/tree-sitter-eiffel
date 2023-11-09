@@ -2588,7 +2588,24 @@
         },
         {
           "type": "SYMBOL",
+          "name": "old"
+        },
+        {
+          "type": "SYMBOL",
           "name": "conditional_expression"
+        }
+      ]
+    },
+    "old": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "old"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
         }
       ]
     },
