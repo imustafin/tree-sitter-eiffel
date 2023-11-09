@@ -690,8 +690,10 @@ module.exports = grammar({
       $.agent,
       // TODO: Object_test
       $.once_string,
-      // TODO: Address
+      $.address
     ),
+
+    address: $ => seq('$', $.identifier),
 
     agent: $ => choice(
       $.call_agent,
