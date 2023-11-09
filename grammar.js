@@ -7,6 +7,16 @@ const PREC = {
 
 SIMPLE_CHARS = '[^@^$\\~\n`#\t|%\'"\\[\\]{}]';
 
+const target = $ => choice(
+  $.call,
+  seq('(', $.expression, ')')
+);
+
+const join1 = (node, separator)  => seq(
+  node,
+  repeat(seq(separator, node))
+);
+
 module.exports = grammar({
   name: 'eiffel',
   extras: $ => [/\s+/, $.comment],
@@ -534,10 +544,7 @@ module.exports = grammar({
     ),
 
     call: $ => seq(
-      optional(seq(
-        choice($.call, seq('(', $.expression, ')')),
-        '.'
-      )),
+      optional(seq(target($), '.')),
       $.unqualified_call
     ),
 
@@ -587,9 +594,33 @@ module.exports = grammar({
       $.parenthesized,
       $.old,
       $.operator_expression,
-      // TODO: Bracket_expression
+      $.bracket_expression,
       // TODO: Creation_expression
       $.conditional_expression
+    ),
+
+    bracket_expression: $ => prec.left(2, seq(
+      choice(
+        target($),
+        $.once_string,
+        $._manifest_constant,
+        $.manifest_tuple
+      ),
+      '[',
+      join1($.expression, ','),
+      ']'
+    )),
+
+    manifest_tuple: $ => seq(
+      '[',
+      $.expression,
+      repeat(seq(',', $.expression)),
+      ']'
+    ),
+
+    once_string: $ => seq(
+      'once',
+      $.manifest_string
     ),
 
     // Priorities from http://www.gobosoft.com/eiffel/syntax/#Operator
@@ -649,10 +680,10 @@ module.exports = grammar({
       $._manifest_constant,
       $.void,
       // TODO: Manifest_array
-      // TODO: Manifest_tuple
+      $.manifest_tuple,
       // TODO: Agent
       // TODO: Object_test
-      // TODO: Once_string
+      $.once_string,
       // TODO: Address
     ),
 

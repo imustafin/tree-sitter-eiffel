@@ -127,6 +127,10 @@
       "required": true,
       "types": [
         {
+          "type": "bracket_expression",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -219,6 +223,57 @@
     "type": "boolean_constant",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "bracket_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_constant",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "character_constant",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_string",
+          "named": true
+        },
+        {
+          "type": "manifest_tuple",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "once_string",
+          "named": true
+        },
+        {
+          "type": "real_constant",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "call",
@@ -1413,6 +1468,21 @@
     }
   },
   {
+    "type": "manifest_tuple",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "manifest_type",
     "named": true,
     "fields": {},
@@ -1649,6 +1719,21 @@
       "types": [
         {
           "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "once_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "manifest_string",
           "named": true
         }
       ]
@@ -1989,7 +2074,15 @@
           "named": true
         },
         {
+          "type": "manifest_tuple",
+          "named": true
+        },
+        {
           "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "once_string",
           "named": true
         },
         {
@@ -2413,11 +2506,11 @@
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "header_comment",
@@ -2473,6 +2566,10 @@
   },
   {
     "type": "old",
+    "named": false
+  },
+  {
+    "type": "once",
     "named": false
   },
   {
