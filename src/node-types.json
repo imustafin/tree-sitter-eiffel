@@ -40,6 +40,10 @@
         {
           "type": "call_agent",
           "named": true
+        },
+        {
+          "type": "inline_agent",
+          "named": true
         }
       ]
     }
@@ -1362,6 +1366,37 @@
       "types": [
         {
           "type": "instruction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "inline_agent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_or_routine",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "formal_arguments",
+          "named": true
+        },
+        {
+          "type": "placeholder",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
