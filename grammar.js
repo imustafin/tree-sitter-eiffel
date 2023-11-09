@@ -695,8 +695,23 @@ module.exports = grammar({
 
     agent: $ => choice(
       $.call_agent,
-      // TODO: Inline_agent
+      $.inline_agent
     ),
+
+    inline_agent: $ => prec.left(2, seq(
+      'agent',
+      optional($.formal_arguments),
+      optional(seq(':', $.type)),
+      $.attribute_or_routine,
+      optional(
+        // Agent_actuals
+        seq(
+          '(',
+          optional(join1($._agent_actual, ',')),
+          ')'
+        )
+      )
+    )),
 
     call_agent: $ => choice(
       prec.left(2, seq('agent', $.agent_target, '.', $.agent_unqualified)),
@@ -711,7 +726,14 @@ module.exports = grammar({
 
     agent_unqualified: $ => choice(
       $.identifier,
-      prec.left(2, seq($.identifier, '(', optional(join1($._agent_actual, ',')), ')'))
+      prec.left(2, seq(
+        $.identifier,
+
+        // Agent_actuals
+        '(',
+        optional(join1($._agent_actual, ',')),
+        ')'
+      ))
     ),
 
     _agent_actual: $ => choice($.expression, $.placeholder),

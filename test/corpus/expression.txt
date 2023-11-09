@@ -245,3 +245,28 @@ end
                   (agent_unqualified
                     (identifier)
                     (placeholder (manifest_type (type (identifier))))))))))))))
+
+===
+Expression. Inline agent
+===
+class A
+invariant
+  agent do end
+end
+---
+(source_file
+  (class_declaration
+    (class_name
+      (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (agent
+                (inline_agent
+                  (attribute_or_routine
+                    (feature_body
+                      (effective_routine
+                        (internal
+                          (routine_mark))))))))))))))
