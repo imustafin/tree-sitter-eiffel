@@ -223,3 +223,25 @@ end
               (manifest_array
                 (manifest_type (type (identifier)))
                 (expression (special_expression (integer_constant (integer))))))))))))
+
+===
+Expression. Call agent
+===
+class A
+invariant
+  agent x.f({A}?)
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (agent
+                (call_agent
+                  (agent_target (identifier))
+                  (agent_unqualified
+                    (identifier)
+                    (placeholder (manifest_type (type (identifier))))))))))))))

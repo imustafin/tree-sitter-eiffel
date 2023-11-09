@@ -30,6 +30,67 @@
     }
   },
   {
+    "type": "agent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "call_agent",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "agent_target",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "agent_unqualified",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "placeholder",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assertion_clause",
     "named": true,
     "fields": {},
@@ -301,6 +362,25 @@
         },
         {
           "type": "unqualified_call",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "call_agent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "agent_target",
+          "named": true
+        },
+        {
+          "type": "agent_unqualified",
           "named": true
         }
       ]
@@ -1867,6 +1947,21 @@
     }
   },
   {
+    "type": "placeholder",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "manifest_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "postcondition",
     "named": true,
     "fields": {},
@@ -2103,6 +2198,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "agent",
+          "named": true
+        },
         {
           "type": "boolean_constant",
           "named": true
@@ -2411,6 +2510,10 @@
     "named": false
   },
   {
+    "type": "?",
+    "named": false
+  },
+  {
     "type": "False",
     "named": false
   },
@@ -2444,6 +2547,10 @@
   },
   {
     "type": "across",
+    "named": false
+  },
+  {
+    "type": "agent",
     "named": false
   },
   {

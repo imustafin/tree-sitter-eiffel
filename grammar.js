@@ -687,10 +687,38 @@ module.exports = grammar({
       $.void,
       $.manifest_array,
       $.manifest_tuple,
-      // TODO: Agent
+      $.agent,
       // TODO: Object_test
       $.once_string,
       // TODO: Address
+    ),
+
+    agent: $ => choice(
+      $.call_agent,
+      // TODO: Inline_agent
+    ),
+
+    call_agent: $ => choice(
+      prec.left(2, seq('agent', $.agent_target, '.', $.agent_unqualified)),
+      prec.left(2, seq('agent', $.agent_unqualified))
+    ),
+
+    agent_target: $ => prec(2, choice(
+      $.identifier,
+      $.parenthesized,
+      $.manifest_type
+    )),
+
+    agent_unqualified: $ => choice(
+      $.identifier,
+      prec.left(2, seq($.identifier, '(', optional(join1($._agent_actual, ',')), ')'))
+    ),
+
+    _agent_actual: $ => choice($.expression, $.placeholder),
+
+    placeholder: $ => seq(
+      optional($.manifest_type),
+      '?'
     ),
 
     manifest_array: $ => choice(
