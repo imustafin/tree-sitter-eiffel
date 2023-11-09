@@ -139,6 +139,10 @@
           "named": true
         },
         {
+          "type": "equality",
+          "named": true
+        },
+        {
           "type": "precursor",
           "named": true
         },
@@ -400,6 +404,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "comparison",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "conditional",
@@ -757,6 +766,25 @@
       "types": [
         {
           "type": "entity_declaration_group",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "equality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -2073,6 +2101,14 @@
     "named": false
   },
   {
+    "type": "/=",
+    "named": false
+  },
+  {
+    "type": "/~",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -2258,11 +2294,11 @@
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "header_comment",
@@ -2394,6 +2430,10 @@
   },
   {
     "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
     "named": false
   }
 ]

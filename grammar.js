@@ -609,7 +609,7 @@ module.exports = grammar({
 
       $.call, // Call includes Identifier (possibility in Variable)
       $.precursor,
-      // TODO: Equality
+      $.equality,
       // TODO: Parenthesized
       // TODO: Old
       // TODO: Operator_expression
@@ -617,6 +617,14 @@ module.exports = grammar({
       // TODO: Creation_expression
       $.conditional_expression
     ),
+
+    equality: $ => prec.left(2, seq(
+      $.expression,
+      $.comparison,
+      $.expression
+    )),
+
+    comparison: $ => choice('=', '/=', '~', '/~'),
 
     precursor: $ => choice(
       prec.left(PREC.ACTUALS, seq('Precursor', $.actuals)),
