@@ -213,6 +213,25 @@
     }
   },
   {
+    "type": "check",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assertion_clause",
+          "named": true
+        },
+        {
+          "type": "notes",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "choice",
     "named": true,
     "fields": {},
@@ -1130,6 +1149,10 @@
         },
         {
           "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
           "named": true
         },
         {
@@ -2144,6 +2167,10 @@
   {
     "type": "character",
     "named": true
+  },
+  {
+    "type": "check",
+    "named": false
   },
   {
     "type": "class",
