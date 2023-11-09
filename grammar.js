@@ -427,8 +427,10 @@ module.exports = grammar({
       $.debug,
       $.precursor,
       $.check,
-      // TODO: Retry
+      $.retry
     ),
+
+    retry: $ => 'retry',
 
     check: $ => seq(
       'check',
