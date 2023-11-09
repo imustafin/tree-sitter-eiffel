@@ -204,3 +204,22 @@ end
               (creation_expression
                 (manifest_type (type (identifier)))
                 (unqualified_call (identifier))))))))))
+
+===
+Expression. Manifest array
+===
+class A
+invariant
+  {A} <<1>>
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (manifest_array
+                (manifest_type (type (identifier)))
+                (expression (special_expression (integer_constant (integer))))))))))))

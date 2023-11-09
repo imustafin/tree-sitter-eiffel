@@ -1480,6 +1480,25 @@
     }
   },
   {
+    "type": "manifest_array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "manifest_string",
     "named": true,
     "fields": {},
@@ -2097,6 +2116,10 @@
           "named": true
         },
         {
+          "type": "manifest_array",
+          "named": true
+        },
+        {
           "type": "manifest_string",
           "named": true
         },
@@ -2364,6 +2387,10 @@
     "named": false
   },
   {
+    "type": "<<",
+    "named": false
+  },
+  {
     "type": "<=",
     "named": false
   },
@@ -2377,6 +2404,10 @@
   },
   {
     "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">>",
     "named": false
   },
   {
@@ -2533,11 +2564,11 @@
   },
   {
     "type": "frozen",
-    "named": false
+    "named": true
   },
   {
     "type": "frozen",
-    "named": true
+    "named": false
   },
   {
     "type": "header_comment",
