@@ -147,6 +147,10 @@
           "named": true
         },
         {
+          "type": "operator_expression",
+          "named": true
+        },
+        {
           "type": "parenthesized",
           "named": true
         },
@@ -177,7 +181,37 @@
     }
   },
   {
-    "type": "binary",
+    "type": "binary_and",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_caret",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_comparison",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_implies",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_mul_div",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_or",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_plus_minus",
     "named": true,
     "fields": {}
   },
@@ -1615,6 +1649,53 @@
       "types": [
         {
           "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operator_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_and",
+          "named": true
+        },
+        {
+          "type": "binary_caret",
+          "named": true
+        },
+        {
+          "type": "binary_comparison",
+          "named": true
+        },
+        {
+          "type": "binary_implies",
+          "named": true
+        },
+        {
+          "type": "binary_mul_div",
+          "named": true
+        },
+        {
+          "type": "binary_or",
+          "named": true
+        },
+        {
+          "type": "binary_plus_minus",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "unary",
           "named": true
         }
       ]

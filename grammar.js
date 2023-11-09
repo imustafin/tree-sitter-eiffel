@@ -1,4 +1,5 @@
 const PREC = {
+  UNARY: 2, // UNARY > SIGN so that -1 is parsed as (unary (-) (1))
   ACTUALS: 2,
   TYPE: 2,
   HEADER_COMMENT: 2,
@@ -175,39 +176,12 @@ module.exports = grammar({
       ))
     ),
 
-    operator: $ => choice(
-      $.unary,
-      $.binary
-    ),
-
-    unary: $ => choice(
+    unary: $ => prec(PREC.UNARY, choice(
       'not',
       '+',
       '-',
       // TODO: Free_unary
-    ),
-
-    binary: $ => choice(
-      '+',
-      '-',
-      '*',
-      '/',
-      '//',
-      '\\\\',
-      '^',
-      '..',
-      '<',
-      '>',
-      '<=',
-      '>=',
-      'and',
-      'or',
-      'xor',
-      'and then',
-      'or else',
-      'implies',
-      // TODO: Free_binary
-    ),
+    )),
 
     redefine: $ => seq(
       'redefine',
@@ -300,7 +274,7 @@ module.exports = grammar({
     ),
 
     unlabeled_assertion_clause: $ => choice(
-      $.expression,
+      prec.right(2, $.expression),
       $.comment,
       $.object_free_assertion
     ),
@@ -612,16 +586,39 @@ module.exports = grammar({
       $.equality,
       $.parenthesized,
       $.old,
-      // TODO: Operator_expression
+      $.operator_expression,
       // TODO: Bracket_expression
       // TODO: Creation_expression
       $.conditional_expression
     ),
 
-    old: $ => seq(
+    // Priorities from http://www.gobosoft.com/eiffel/syntax/#Operator
+    operator_expression: $ => choice(
+      prec.left(2, seq($.unary, $.expression)),
+
+      // TODO: Free_binary as the highest priority binary
+      prec.right(90, seq($.expression, $.binary_caret, $.expression)), // ^ is right-assoc.!
+      prec.left(80, seq($.expression, $.binary_mul_div, $.expression)),
+      prec.left(70, seq($.expression, $.binary_plus_minus, $.expression)),
+      prec.left(60, seq($.expression, $.binary_comparison, $.expression)),
+      prec.left(50, seq($.expression, $.binary_and, $.expression)),
+      prec.left(40, seq($.expression, $.binary_or, $.expression)),
+      prec.left(30, seq($.expression, $.binary_implies, $.expression))
+    ),
+
+    binary_plus_minus: $ => choice('+', '-'),
+    binary_mul_div: $ => choice('*', '/', '//', '\\\\'),
+    binary_caret: $ => choice('^'),
+    binary_dot_dot: $ => choice('..'),
+    binary_comparison: $ => choice('<', '<=', '>=', '>'),
+    binary_and: $ => choice('and', 'and then'),
+    binary_or: $ => choice('or', 'or else', 'xor'),
+    binary_implies: $ => choice('implies'),
+
+    old: $ => prec.left(2, seq(
       'old',
       $.expression
-    ),
+    )),
 
     parenthesized: $ => seq(
       '(',
