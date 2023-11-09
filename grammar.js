@@ -610,12 +610,18 @@ module.exports = grammar({
       $.call, // Call includes Identifier (possibility in Variable)
       $.precursor,
       $.equality,
-      // TODO: Parenthesized
+      $.parenthesized,
       // TODO: Old
       // TODO: Operator_expression
       // TODO: Bracket_expression
       // TODO: Creation_expression
       $.conditional_expression
+    ),
+
+    parenthesized: $ => seq(
+      '(',
+      $.expression,
+      ')'
     ),
 
     equality: $ => prec.left(2, seq(
