@@ -2286,56 +2286,64 @@
       ]
     },
     "call": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "call"
-                    },
-                    {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "STRING",
-                          "value": "("
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "expression"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": ")"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "STRING",
-                  "value": "."
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "unqualified_call"
-        }
-      ]
+      "type": "PREC_LEFT",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "call"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "manifest_type"
+                      },
+                      {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "("
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "expression"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": ")"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "."
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "unqualified_call"
+          }
+        ]
+      }
     },
     "creation": {
       "type": "SEQ",
@@ -2518,7 +2526,54 @@
         },
         {
           "type": "SYMBOL",
+          "name": "creation_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "conditional_expression"
+        }
+      ]
+    },
+    "creation_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "create"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "manifest_type"
+            }
+          ]
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 2,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "create"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "manifest_type"
+              },
+              {
+                "type": "STRING",
+                "value": "."
+              },
+              {
+                "type": "SYMBOL",
+                "name": "unqualified_call"
+              }
+            ]
+          }
         }
       ]
     },
@@ -2537,6 +2592,10 @@
                   {
                     "type": "SYMBOL",
                     "name": "call"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "manifest_type"
                   },
                   {
                     "type": "SEQ",
@@ -3525,11 +3584,8 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "STRING",
-                    "value": "."
-                  }
+                  "type": "STRING",
+                  "value": "."
                 },
                 {
                   "type": "SYMBOL",

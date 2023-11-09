@@ -505,3 +505,35 @@ end
                       (unary)
                       (expression
                         (special_expression (integer_constant (integer)))))))))))))))
+
+===
+Body. Non-object call
+===
+class A feature x
+  do
+    {A}.f
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name
+      (identifier))
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature
+            (extended_feature_name
+              (identifier)))
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (instruction
+                    (call
+                      (manifest_type
+                        (type
+                          (identifier)))
+                      (unqualified_call
+                        (identifier)))))))))))))

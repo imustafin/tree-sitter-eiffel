@@ -185,3 +185,22 @@ end
                     (manifest_string
                       (basic_manifest_string
                         (string_content)))))))))))))
+
+===
+Expression. Creation expression
+===
+class A
+invariant
+  create {A}.x
+end
+---
+(source_file
+  (class_declaration (class_name (identifier))
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (basic_expression
+              (creation_expression
+                (manifest_type (type (identifier)))
+                (unqualified_call (identifier))))))))))
