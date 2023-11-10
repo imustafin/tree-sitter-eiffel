@@ -1,13 +1,13 @@
 [
-  (notes)
+  (class_declaration)
+  (attribute_or_routine)
   (feature_declaration)
 ] @indent
 
 [
-  (feature_clause)
-  (internal) 
+  (internal)
 ] @indent @extend
 
-[
-  "end"
-] @outdent.always @extend.prevent_once
+;[                                                                                                                                                                                                                                                       │
+;  (comment)                                                                                                                                                                                                                                             │
+;] @indent.always (set! "scope" "all")   
