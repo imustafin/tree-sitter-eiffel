@@ -334,7 +334,7 @@ end
                 (routine_mark)
                 (instruction
                   (debug
-                    (manifest_string (basic_manifest_string (string_content))))))))))))))
+                    (basic_manifest_string (string_content)))))))))))))
 
 ===
 Body. Check

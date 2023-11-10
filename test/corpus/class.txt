@@ -54,7 +54,7 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (obsolete (manifest_string (basic_manifest_string (string_content))))))
+    (obsolete (basic_manifest_string (string_content)))))
 
 ===
 Class invariant
