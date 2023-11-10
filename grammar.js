@@ -7,6 +7,8 @@ const PREC = {
 
 SIMPLE_CHARS = '[^@^$\\~\n`#\t|%\'"\\[\\]{}]';
 
+IDENTIFIER = /[a-zA-Z_]+/;
+
 const target = $ => choice(
   $.call,
   $.manifest_type,
@@ -21,6 +23,10 @@ const join1 = (node, separator)  => seq(
 module.exports = grammar({
   name: 'eiffel',
   extras: $ => [/\s+/, $.comment],
+  conflicts: $ => [
+    // In Tuple_type parameters: 'TUPLE' '[' (identifier_token) ','
+    [$.class_name, $.identifier]
+  ],
   rules: {
     source_file: $ => $.class_declaration,
 
@@ -85,8 +91,8 @@ module.exports = grammar({
     ),
 
     _type_list: $ => seq(
-      $.type,
-      repeat(seq(',', $.type))
+      $._type,
+      repeat(seq(',', $._type))
     ),
 
     creation_clause: $ => seq(
@@ -251,7 +257,7 @@ module.exports = grammar({
     ),
 
     single_constraint: $ => seq(
-      $.type,
+      $._type,
       optional(seq($.rename, 'end'))
     ),
 
@@ -313,7 +319,7 @@ module.exports = grammar({
 
       // Declaration_body
       optional(field('arguments', $.formal_arguments)),
-      optional(field('query_mark', $._type_mark)),
+      optional(seq(':', $._type)),
 
       // Feature_value
       optional($.explicit_value),
@@ -710,7 +716,7 @@ module.exports = grammar({
     inline_agent: $ => prec.left(2, seq(
       'agent',
       optional($.formal_arguments),
-      optional(seq(':', $.type)),
+      optional(seq(':', $._type)),
       $.attribute_or_routine,
       optional(
         // Agent_actuals
@@ -759,11 +765,6 @@ module.exports = grammar({
 
     void: $ => 'Void',
 
-    _type_mark: $ => seq(
-      ":",
-      field('type', $.type)
-    ),
-
     formal_arguments: $ => seq(
       '(',
       optional($.entity_declaration_list),
@@ -778,15 +779,40 @@ module.exports = grammar({
     entity_declaration_group: $ => seq(
       field('identifiers', $.identifier_list),
       ':',
-      field('type', $.type)
+      $._type
     ),
 
     identifier_list: $ => seq(
       $.identifier, repeat(seq(',', $.identifier))
     ),
 
-    // TODO: specify more
-    type: $ => $.identifier,
+    _type: $ => choice(
+      $.class_type,
+      $.tuple_type,
+      $.anchored,
+    ),
+
+    class_type: $ => seq(
+      optional($.attachment_mark),
+      $.class_name,
+      optional($.actual_generics)
+    ),
+
+    tuple_type: $ => seq(
+      'TUPLE',
+      optional(seq('[', $.tuple_parameter_list, ']')),
+    ),
+
+    tuple_parameter_list: $ => choice(
+      $._type_list,
+      $.entity_declaration_list
+    ),
+
+    anchored: $ => seq(
+      optional($.attachment_mark),
+      'like',
+      choice($.identifier, $.current)
+    ),
 
     header_mark: $ => choice('deferred', 'expanded', 'frozen'),
 
@@ -814,7 +840,7 @@ module.exports = grammar({
       prec.left(2, seq($.manifest_type, $._manifest_value))
     ),
 
-    manifest_type: $ => seq('{', $.type, '}'),
+    manifest_type: $ => seq('{', $._type, '}'),
 
     _manifest_value: $ => choice(
       $.boolean_constant,
@@ -864,8 +890,8 @@ module.exports = grammar({
 
     boolean_constant: $ => choice('True', 'False'),
 
-    class_name: $ => $.identifier,
+    class_name: $ => IDENTIFIER,
 
-    identifier: $ => /[a-zA-Z_]+/,
+    identifier: $ => IDENTIFIER,
   }
 })

@@ -8,7 +8,15 @@
       "required": true,
       "types": [
         {
-          "type": "type",
+          "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
+        {
+          "type": "tuple_type",
           "named": true
         }
       ]
@@ -104,6 +112,29 @@
         },
         {
           "type": "placeholder",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "anchored",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attachment_mark",
+          "named": true
+        },
+        {
+          "type": "current",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -559,17 +590,7 @@
   {
     "type": "class_name",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "class_type",
@@ -753,11 +774,19 @@
       "required": true,
       "types": [
         {
+          "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "type",
+          "type": "tuple_type",
           "named": true
         }
       ]
@@ -772,11 +801,19 @@
       "required": true,
       "types": [
         {
+          "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
         {
-          "type": "type",
+          "type": "tuple_type",
           "named": true
         }
       ]
@@ -966,17 +1003,25 @@
             "named": true
           }
         ]
-      },
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
+        {
+          "type": "tuple_type",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1219,36 +1264,20 @@
             "named": true
           }
         ]
-      },
-      "query_mark": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
       }
     },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
         {
           "type": "explicit_value",
           "named": true
@@ -1263,6 +1292,10 @@
         },
         {
           "type": "obsolete",
+          "named": true
+        },
+        {
+          "type": "tuple_type",
           "named": true
         }
       ]
@@ -1338,6 +1371,11 @@
     "fields": {}
   },
   {
+    "type": "identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "identifier_list",
     "named": true,
     "fields": {},
@@ -1395,7 +1433,15 @@
       "required": true,
       "types": [
         {
+          "type": "anchored",
+          "named": true
+        },
+        {
           "type": "attribute_or_routine",
+          "named": true
+        },
+        {
+          "type": "class_type",
           "named": true
         },
         {
@@ -1411,7 +1457,7 @@
           "named": true
         },
         {
-          "type": "type",
+          "type": "tuple_type",
           "named": true
         }
       ]
@@ -1667,7 +1713,15 @@
       "required": true,
       "types": [
         {
-          "type": "type",
+          "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
+        {
+          "type": "tuple_type",
           "named": true
         }
       ]
@@ -2238,11 +2292,19 @@
       "required": true,
       "types": [
         {
+          "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
+        {
           "type": "rename",
           "named": true
         },
         {
-          "type": "type",
+          "type": "tuple_type",
           "named": true
         }
       ]
@@ -2376,15 +2438,42 @@
     }
   },
   {
-    "type": "type",
+    "type": "tuple_parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "class_type",
+          "named": true
+        },
+        {
+          "type": "entity_declaration_list",
+          "named": true
+        },
+        {
+          "type": "tuple_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tuple_type",
     "named": true,
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "tuple_parameter_list",
           "named": true
         }
       ]
@@ -2611,6 +2700,10 @@
     "named": false
   },
   {
+    "type": "TUPLE",
+    "named": false
+  },
+  {
     "type": "True",
     "named": false
   },
@@ -2767,10 +2860,6 @@
     "named": true
   },
   {
-    "type": "identifier",
-    "named": true
-  },
-  {
     "type": "if",
     "named": false
   },
@@ -2792,6 +2881,10 @@
   },
   {
     "type": "invariant",
+    "named": false
+  },
+  {
+    "type": "like",
     "named": false
   },
   {

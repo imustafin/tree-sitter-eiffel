@@ -6,7 +6,7 @@
 ] @keyword
 
 [
- (type)
+ (class_name)
 ] @type
 
 (extended_feature_name (identifier) @function)

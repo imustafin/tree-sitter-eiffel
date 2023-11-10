@@ -24,7 +24,7 @@ end
         (note_values
           (note_item (boolean_constant))
           (note_item (boolean_constant)))))
-    (class_name (identifier))
+    (class_name)
     (notes
       (note_entry
         (identifier)
@@ -43,7 +43,7 @@ deferred class DEMO end
 (source_file
   (class_declaration
     mark: (header_mark)
-    (class_name (identifier))))
+    (class_name)))
 
 ===
 Obsolete
@@ -53,8 +53,7 @@ class A
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (obsolete (manifest_string (basic_manifest_string (string_content))))))
 
 ===
@@ -67,8 +66,7 @@ invariant
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (invariant
       (assertion_clause
         (unlabeled_assertion_clause
@@ -85,8 +83,7 @@ class A [frozen X, K -> {P, Q} create make, construct end, T -> S rename a as b 
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (formal_generics
       (formal_generic (identifier))
       (formal_generic
@@ -94,15 +91,15 @@ end
         (constraint
           (constraining_types
             (multiple_constraint
-              (single_constraint (type (identifier)))
-              (single_constraint (type (identifier)))))
+              (single_constraint (class_type (class_name)))
+              (single_constraint (class_type (class_name)))))
           (constraint_creators (identifier) (identifier))))
       (formal_generic
         (identifier)
         (constraint
           (constraining_types
             (single_constraint
-              (type (identifier))
+              (class_type (class_name))
               (rename
                 (rename_pair
                   (identifier)
@@ -129,16 +126,15 @@ inherit
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (inheritance
       (non_conformance)
-      (parent (class_type (class_name (identifier))))
-      (parent (class_type (class_name (identifier))))
-      (parent (class_type (class_name (identifier)))))
+      (parent (class_type (class_name)))
+      (parent (class_type (class_name)))
+      (parent (class_type (class_name))))
     (inheritance
       (parent
-        (class_type (class_name (identifier)))
+        (class_type (class_name))
         (feature_adaptation
           (undefine (identifier))
           (redefine (identifier))
@@ -159,8 +155,7 @@ create b
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (creation_clause (clients (identifier)) (identifier))
     (creation_clause (identifier))))
 
@@ -174,8 +169,15 @@ convert
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (converters
-      (converter (conversion_procedure (identifier) (type (identifier)) (type (identifier))))
-      (converter (conversion_query (identifier) (type (identifier)) (type (identifier)))))))
+      (converter
+        (conversion_procedure
+          (identifier)
+          (class_type (class_name))
+          (class_type (class_name))))
+      (converter
+        (conversion_query
+          (identifier)
+          (class_type (class_name))
+          (class_type (class_name)))))))

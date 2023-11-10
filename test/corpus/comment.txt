@@ -9,7 +9,7 @@ class A
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (comment)
   (comment)
   (comment)))
