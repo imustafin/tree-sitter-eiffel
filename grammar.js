@@ -5,9 +5,13 @@ const PREC = {
   HEADER_COMMENT: 2,
 };
 
-SIMPLE_CHARS = '[^@^$\\~\n`#\t|%\'"\\[\\]{}]';
+const SIMPLE_CHARS = '[^@^$\\~\n`#\t|%\'"\\[\\]{}]';
 
-IDENTIFIER = /[a-zA-Z_]+/;
+const SIMPLE_CHARS_PLUS = new RegExp(SIMPLE_CHARS + '+');
+
+const SIMPLE_CHARS_STAR = new RegExp(SIMPLE_CHARS + '*');
+
+const IDENTIFIER = /[a-zA-Z_]+/;
 
 const target = $ => choice(
   $.call,
@@ -25,7 +29,7 @@ module.exports = grammar({
   extras: $ => [/\s+/, $.comment],
   conflicts: $ => [
     // In Tuple_type parameters: 'TUPLE' '[' (identifier_token) ','
-    [$.class_name, $.identifier]
+    [$.class_name, $.identifier],
   ],
   rules: {
     source_file: $ => $.class_declaration,
@@ -188,7 +192,7 @@ module.exports = grammar({
       $.identifier,
       optional(seq(
         'alias',
-        $.manifest_string, // TODO: Alias_name should be here
+        $._manifest_string, // TODO: Alias_name should be here
         optional('convert')
       ))
     ),
@@ -340,7 +344,7 @@ module.exports = grammar({
 
     obsolete: $ => seq(
       'obsolete',
-      $.manifest_string
+      $._manifest_string
     ),
 
     attribute_or_routine: $ => seq(
@@ -392,11 +396,11 @@ module.exports = grammar({
 
     external: $ => seq(
       'external',
-      $.manifest_string, // TODO: External_language
+      $._manifest_string, // TODO: External_language
       optional(
         seq(
           'alias',
-          $.manifest_string
+          $._manifest_string
         )
       )
     ),
@@ -433,7 +437,7 @@ module.exports = grammar({
     debug: $ => seq(
       prec.left(2, seq(
         'debug',
-        optional(seq('(', $.manifest_string, repeat(seq(',', $.manifest_string)), ')')),
+        optional(seq('(', $._manifest_string, repeat(seq(',', $._manifest_string)), ')')),
       )),
       repeat($.instruction),
       'end'
@@ -632,7 +636,7 @@ module.exports = grammar({
 
     once_string: $ => seq(
       'once',
-      $.manifest_string
+      $._manifest_string
     ),
 
     // Priorities from http://www.gobosoft.com/eiffel/syntax/#Operator
@@ -847,18 +851,37 @@ module.exports = grammar({
       $.character_constant,
       $.integer_constant,
       $.real_constant,
-      $.manifest_string,
+      $._manifest_string,
       $.manifest_type
     ),
 
-    manifest_string: $ => choice(
+    _manifest_string: $ => choice(
       $.basic_manifest_string,
-      // TODO: Verbatim_string
+      $.verbatim_string,
     ),
 
-    basic_manifest_string: $ => seq('"', $.string_content, '"'),
+    // TODO: Support {} brackets
+    // TODO: Support tagged brackets ("named[ ... ]named")
+    verbatim_string: $ => seq(
+      $.verbatim_string_opener,
+      alias(token(repeat(
+        seq(token.immediate('\n'), token.immediate(SIMPLE_CHARS_PLUS)),
+      )), $.verbatim_string_content),
+      $.verbatim_string_closer,
+    ),
 
-    string_content: $ => new RegExp(SIMPLE_CHARS + '*'),
+    verbatim_string_opener: $ => seq('"', token.immediate('[')),
+    verbatim_string_closer: $ => ']"',
+
+    basic_manifest_string: $ => seq(
+      '"',
+      alias(token(repeat(choice(
+        token.immediate('['),
+        token.immediate(']'),
+        token.immediate(SIMPLE_CHARS_PLUS),
+      ))), $.string_content),
+      '"'
+    ),
 
     real_constant: $ => seq(
       optional($.sign),

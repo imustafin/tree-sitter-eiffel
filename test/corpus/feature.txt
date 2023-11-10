@@ -116,7 +116,7 @@ end
         (feature_declaration
           (new_feature (extended_feature_name (identifier)))
           (obsolete
-            (manifest_string (basic_manifest_string (string_content)))))))))
+            (basic_manifest_string (string_content))))))))
 
 ===
 Feature. Frozen
@@ -311,5 +311,5 @@ end
             (feature_body
               (effective_routine
                 (external
-                  (manifest_string (basic_manifest_string (string_content)))
-                  (manifest_string (basic_manifest_string (string_content))))))))))))
+                  (basic_manifest_string (string_content))
+                  (basic_manifest_string (string_content)))))))))))

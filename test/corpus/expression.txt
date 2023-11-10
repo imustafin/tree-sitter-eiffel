@@ -110,8 +110,7 @@ end
                         (actuals
                           (expression
                             (special_expression
-                              (manifest_string
-                                (basic_manifest_string (string_content))))))))))))))))))
+                              (basic_manifest_string (string_content)))))))))))))))))
 
 ===
 Expression. Bracket expression
@@ -148,9 +147,8 @@ end
           (expression
             (special_expression
               (once_string
-                (manifest_string
-                  (basic_manifest_string
-                    (string_content)))))))))))
+                (basic_manifest_string
+                  (string_content))))))))))
 
 ===
 Expression. Manifest tuple
@@ -174,9 +172,8 @@ end
                       (integer))))
                 (expression
                   (special_expression
-                    (manifest_string
-                      (basic_manifest_string
-                        (string_content)))))))))))))
+                    (basic_manifest_string
+                      (string_content))))))))))))
 
 ===
 Expression. Creation expression
@@ -365,3 +362,43 @@ end
             (special_expression
               (manifest_type
                 (anchored (current))))))))))
+
+===
+Expression. Verbatim string
+===
+class A
+invariant
+  "[
+    a
+    b
+  ]"
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (verbatim_string
+                (verbatim_string_opener)
+                (verbatim_string_content)
+                (verbatim_string_closer)))))))))
+===
+Expression. One line string is not Verbatim
+===
+class A
+invariant
+  "[ ]"
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (basic_manifest_string
+                (string_content)))))))))
