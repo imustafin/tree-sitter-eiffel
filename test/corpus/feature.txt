@@ -7,8 +7,7 @@ feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     features: (features
         (feature_clause)
         (feature_clause))))
@@ -22,13 +21,12 @@ feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     features: (features
       (feature_clause
         declarations: (feature_declaration
           (new_feature (extended_feature_name (identifier)))
-          type: (type (identifier)))))))
+          (class_type (class_name)))))))
 
 ===
 Feature arguments
@@ -39,8 +37,7 @@ f(x, y: INTEGER; z: BOOLEAN)
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     features: (features
       (feature_clause
         declarations: (feature_declaration
@@ -49,10 +46,10 @@ end
               (entity_declaration_list
                 (entity_declaration_group
                   identifiers: (identifier_list (identifier) (identifier))
-                  type: (type (identifier)))
+                  (class_type (class_name)))
                 (entity_declaration_group
                   identifiers: (identifier_list (identifier))
-                  type: (type (identifier))))))))))
+                  (class_type (class_name))))))))))
 
 ===
 Clients
@@ -62,8 +59,7 @@ feature {NONE, ANY, A, B}
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (clients (identifier) (identifier) (identifier) (identifier))))))
@@ -80,8 +76,7 @@ feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (header_comment)))
@@ -97,13 +92,12 @@ feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
           (new_feature (extended_feature_name (identifier)))
-          (type (identifier))
+          (class_type (class_name))
           (header_comment))))))
 
 ===
@@ -116,8 +110,7 @@ feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -134,15 +127,14 @@ feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
           (new_feature
             (frozen)
             (extended_feature_name (identifier)))
-          (type (identifier)))))))
+          (class_type (class_name)))))))
 
 ===
 Feature. Explicit value
@@ -153,13 +145,12 @@ feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
           (new_feature (extended_feature_name (identifier)))
-          (type (identifier))
+          (class_type (class_name))
           (explicit_value (integer_constant (integer))))))))
 
 ===
@@ -179,8 +170,7 @@ class A feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -211,8 +201,7 @@ class A feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -222,10 +211,10 @@ end
               (entity_declaration_list
                 (entity_declaration_group
                   (identifier_list (identifier))
-                  (type (identifier)))
+                  (class_type (class_name)))
                 (entity_declaration_group
                   (identifier_list (identifier))
-                  (type (identifier)))))
+                  (class_type (class_name)))))
             (feature_body
               (effective_routine (internal (routine_mark))))))))))
 
@@ -241,8 +230,7 @@ class A feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -267,8 +255,7 @@ class A feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -292,13 +279,12 @@ class A feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
           (new_feature (extended_feature_name (identifier)))
-          (type (identifier))
+          (class_type (class_name))
           (attribute_or_routine
             (feature_body
               (attribute))))))))
@@ -316,8 +302,7 @@ class A feature
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration

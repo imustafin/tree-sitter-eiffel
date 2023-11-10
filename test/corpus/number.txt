@@ -8,7 +8,7 @@ invariant
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
     (invariant
       (assertion_clause
         (unlabeled_assertion_clause
@@ -40,17 +40,14 @@ x: INTEGER = -1
 end
 ---
 (source_file
-  (class_declaration
-    (class_name
-      (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
           (new_feature
             (extended_feature_name
               (identifier)))
-          (type
-            (identifier))
+          (class_type (class_name))
           (explicit_value
             (integer_constant
               (sign)
@@ -65,8 +62,7 @@ invariant
 end
 ---
 (source_file
-  (class_declaration
-    (class_name (identifier))
+  (class_declaration (class_name)
     (invariant
       (assertion_clause
         (unlabeled_assertion_clause
@@ -90,7 +86,7 @@ invariant
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
     (invariant
       (assertion_clause
         (unlabeled_assertion_clause

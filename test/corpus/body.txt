@@ -9,7 +9,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -21,7 +21,7 @@ end
                   (routine_mark)
                   (instruction
                     (creation
-                      (manifest_type (type (identifier)))
+                      (manifest_type (class_type (class_name)))
                       (creation_call
                         (identifier)
                         (unqualified_call (identifier)))))
@@ -46,7 +46,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -73,7 +73,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -104,7 +104,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -139,7 +139,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -151,7 +151,7 @@ end
                 (routine_mark)
                 (instruction
                   (precursor
-                    (class_name (identifier))
+                    (class_name)
                     (actuals
                       (expression
                         (special_expression
@@ -177,7 +177,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -208,7 +208,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -246,7 +246,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -286,7 +286,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -322,7 +322,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -346,7 +346,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -377,7 +377,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -400,7 +400,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -430,7 +430,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -461,7 +461,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
   (features
     (feature_clause
       (feature_declaration
@@ -488,7 +488,7 @@ invariant
 end
 ---
 (source_file
-  (class_declaration (class_name (identifier))
+  (class_declaration (class_name)
     (invariant
       (assertion_clause
         (unlabeled_assertion_clause
@@ -516,9 +516,7 @@ class A feature x
 end
 ---
 (source_file
-  (class_declaration
-    (class_name
-      (identifier))
+  (class_declaration (class_name)
     (features
       (feature_clause
         (feature_declaration
@@ -532,8 +530,6 @@ end
                   (routine_mark)
                   (instruction
                     (call
-                      (manifest_type
-                        (type
-                          (identifier)))
+                      (manifest_type (class_type (class_name)))
                       (unqualified_call
                         (identifier)))))))))))))
