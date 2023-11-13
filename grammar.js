@@ -857,7 +857,8 @@ module.exports = grammar({
       $.verbatim_string_opener,
       alias(repeat(choice(
         seq(EAT_SPACES, ']', token.immediate(/[^"]/), /[^\n]*\n/),
-        seq(EAT_SPACES, /[^\]\n]/, /[^\n]*\n/),
+        seq(EAT_SPACES, ']', token.immediate('\n')),
+        seq(EAT_SPACES, /[^\]\n]/, token.immediate(/[^\n]*\n/)),
         seq(EAT_SPACES, '\n'),
       )), $.verbatim_string_content),
       $.verbatim_string_closer,
