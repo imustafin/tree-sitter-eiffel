@@ -105,7 +105,7 @@ module.exports = grammar({
       'create',
       optional($.clients),
       optional($.header_comment),
-      $._feature_list
+      join1($.identifier, ',')
     ),
 
     inheritance: $ => seq(
@@ -161,7 +161,7 @@ module.exports = grammar({
 
     select: $ => seq(
       'select',
-      $._feature_list
+      join1($.identifier, ',')
     ),
 
     new_exports: $ => seq(
@@ -174,7 +174,7 @@ module.exports = grammar({
       optional($.header_comment),
       choice(
         alias('all', $.export_all),
-        $._feature_list
+        join1($.identifier, ',')
       )
     ),
 
@@ -208,17 +208,12 @@ module.exports = grammar({
 
     redefine: $ => seq(
       'redefine',
-      $._feature_list
+      join1($.identifier, ',')
     ),
 
     undefine: $ => seq(
       'undefine',
-      $._feature_list
-    ),
-
-    _feature_list: $ => seq(
-      $.identifier,
-      repeat(seq(',', $.identifier))
+      join1($.identifier, ',')
     ),
 
     class_type: $ => seq(
@@ -247,7 +242,7 @@ module.exports = grammar({
 
     formal_generic: $ => seq(
       optional('frozen'),
-      $.identifier,
+      $.class_name,
       optional($.constraint)
     ),
 
@@ -276,8 +271,7 @@ module.exports = grammar({
 
     constraint_creators: $ => seq(
       'create',
-      $.identifier,
-      repeat(seq(',', $.identifier)),
+      join1($.identifier, ','),
       'end'
     ),
 
@@ -292,7 +286,7 @@ module.exports = grammar({
     ),
 
     tag_mark: $ => seq(
-      $.identifier,
+      $.tag,
       ':'
     ),
 
@@ -315,7 +309,7 @@ module.exports = grammar({
 
     clients: $ => seq(
       '{',
-      optional(seq($.identifier, repeat(seq(',', $.identifier)))),
+      optional(seq($.class_name, repeat(seq(',', $.class_name)))),
       '}'
     ),
 
@@ -784,13 +778,9 @@ module.exports = grammar({
     ),
 
     entity_declaration_group: $ => seq(
-      field('identifiers', $.identifier_list),
+      join1($.identifier, ','),
       ':',
       $._type
-    ),
-
-    identifier_list: $ => seq(
-      $.identifier, repeat(seq(',', $.identifier))
     ),
 
     _type: $ => choice(
@@ -831,12 +821,10 @@ module.exports = grammar({
     ),
 
     note_entry: $ => seq(
-      $.identifier,
+      $.tag,
       ':',
       $.note_values
     ),
-
-    note_name: $ => seq($.identifier, ':'),
 
     note_values: $ => seq($.note_item, repeat(seq(',', $.note_item))),
 
@@ -920,7 +908,7 @@ module.exports = grammar({
     boolean_constant: $ => choice('True', 'False'),
 
     class_name: $ => IDENTIFIER,
-
     identifier: $ => IDENTIFIER,
+    tag: $ => IDENTIFIER
   }
 })

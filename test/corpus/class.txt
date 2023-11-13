@@ -16,23 +16,23 @@ end
   (class_declaration
     notes: (notes
       (note_entry
-        (identifier)
+        (tag)
         (note_values
           (note_item (boolean_constant))))
       (note_entry
-        (identifier)
+        (tag)
         (note_values
           (note_item (boolean_constant))
           (note_item (boolean_constant)))))
     (class_name)
     (notes
       (note_entry
-        (identifier)
+        (tag)
         (note_values (note_item (boolean_constant)))))
     (invariant)
     (notes
       (note_entry
-        (identifier)
+        (tag)
         (note_values (note_item (boolean_constant)))))))
 
 ===
@@ -73,7 +73,7 @@ end
           (expression
             (special_expression (boolean_constant)))))
       (assertion_clause
-        (tag_mark (identifier))
+        (tag_mark (tag))
         (unlabeled_assertion_clause (comment))))))
 
 ===
@@ -85,9 +85,9 @@ end
 (source_file
   (class_declaration (class_name)
     (formal_generics
-      (formal_generic (identifier))
+      (formal_generic (class_name))
       (formal_generic
-        (identifier)
+        (class_name)
         (constraint
           (constraining_types
             (multiple_constraint
@@ -95,7 +95,7 @@ end
               (single_constraint (class_type (class_name)))))
           (constraint_creators (identifier) (identifier))))
       (formal_generic
-        (identifier)
+        (class_name)
         (constraint
           (constraining_types
             (single_constraint
@@ -141,7 +141,7 @@ end
           (rename (rename_pair (identifier) (extended_feature_name (identifier))))
           (new_exports
             (new_export_item
-              (clients (identifier))
+              (clients (class_name))
               (header_comment)
               (export_all)))
           (select (identifier)))))))
@@ -156,7 +156,7 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (creation_clause (clients (identifier)) (identifier))
+    (creation_clause (clients (class_name)) (identifier))
     (creation_clause (identifier))))
 
 ===
