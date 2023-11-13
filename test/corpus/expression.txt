@@ -371,6 +371,12 @@ invariant
   "[
     a
     b
+    "
+    " ]
+    ]
+    ] "
+
+    end should be on its own line]"
   ]"
 end
 ---
@@ -402,3 +408,23 @@ end
             (special_expression
               (basic_manifest_string
                 (string_content)))))))))
+
+===
+Expression. Empty content Verbatim string
+===
+class A
+invariant
+"[
+]"
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (verbatim_string
+                (verbatim_string_opener)
+                (verbatim_string_closer)))))))))
