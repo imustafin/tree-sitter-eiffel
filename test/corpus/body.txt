@@ -115,18 +115,49 @@ end
                 (internal
                   (routine_mark)
                   (instruction
-                    (assigner_call
+                    (assignment
                       (call
                         (unqualified_call (identifier)))
                       (expression
                         (special_expression (boolean_constant)))))
                   (instruction
-                    (assigner_call
+                    (assignment
                       (call
                         (call (unqualified_call (identifier)))
                         (unqualified_call (identifier)))
                       (expression
                         (special_expression (boolean_constant))))))))))))))
+
+===
+Body. Assign to Result
+===
+class A feature x
+  do
+    Result := 1
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature
+            (extended_feature_name
+              (identifier)))
+          (attribute_or_routine
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark)
+                  (instruction
+                    (assignment
+                      (result)
+                      (expression
+                        (special_expression
+                          (integer_constant
+                            (integer)))))))))))))))
 
 ===
 Body. Precursor instruction and Precursor expression
@@ -157,7 +188,7 @@ end
                         (special_expression
                           (boolean_constant))))))
                  (instruction
-                   (assigner_call
+                   (assignment
                      (call (unqualified_call (identifier)))
                      (expression (basic_expression (precursor))))))))))))))
 
@@ -219,7 +250,7 @@ end
               (internal
                 (routine_mark)
                 (instruction
-                  (assigner_call
+                  (assignment
                     (call (unqualified_call (identifier)))
                     (expression
                       (basic_expression
@@ -411,7 +442,7 @@ end
               (internal
                 (routine_mark)
                 (instruction
-                  (assigner_call
+                  (assignment
                     (call (unqualified_call (identifier)))
                     (expression
                       (basic_expression
@@ -441,7 +472,7 @@ end
               (internal
                 (routine_mark)
                 (instruction
-                  (assigner_call
+                  (assignment
                     (call (unqualified_call (identifier)))
                     (expression
                       (basic_expression

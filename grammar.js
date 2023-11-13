@@ -413,7 +413,7 @@ module.exports = grammar({
     routine_mark: $ => choice('do'),
 
     instruction: $ => choice(
-      $.assigner_call,
+      $.assignment,
       $.creation,
       $.call,
       $.conditional,
@@ -548,8 +548,9 @@ module.exports = grammar({
       $.expression
     ),
 
-    assigner_call: $ => seq(
-      $.call,
+    // Covers normal Assignment and Assigner_call
+    assignment: $ => seq(
+      choice($.call, $.result),
       ':=',
       $.expression
     ),
