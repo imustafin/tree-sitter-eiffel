@@ -1829,15 +1829,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "extended_feature_name",
-          "named": true
-        },
-        {
-          "type": "frozen",
           "named": true
         }
       ]
@@ -2907,10 +2903,6 @@
   {
     "type": "from",
     "named": false
-  },
-  {
-    "type": "frozen",
-    "named": true
   },
   {
     "type": "frozen",

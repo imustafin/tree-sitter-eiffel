@@ -132,7 +132,6 @@ end
       (feature_clause
         (feature_declaration
           (new_feature
-            (frozen)
             (extended_feature_name (identifier)))
           (class_type (class_name)))))))
 

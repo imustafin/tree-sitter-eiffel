@@ -1382,12 +1382,7 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "ALIAS",
-              "content": {
-                "type": "STRING",
-                "value": "frozen"
-              },
-              "named": true,
+              "type": "STRING",
               "value": "frozen"
             },
             {
