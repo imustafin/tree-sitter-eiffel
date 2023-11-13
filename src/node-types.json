@@ -294,7 +294,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "string_content",
@@ -2418,6 +2418,11 @@
     }
   },
   {
+    "type": "string_content",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "tag_mark",
     "named": true,
     "fields": {},
@@ -2613,6 +2618,16 @@
     }
   },
   {
+    "type": "verbatim_string_closer",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "verbatim_string_content",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "verbatim_string_opener",
     "named": true,
     "fields": {}
@@ -2635,6 +2650,10 @@
         }
       ]
     }
+  },
+  {
+    "type": "\n",
+    "named": false
   },
   {
     "type": "\"",
@@ -2774,6 +2793,10 @@
   },
   {
     "type": "]",
+    "named": false
+  },
+  {
+    "type": "]\"",
     "named": false
   },
   {
@@ -3009,10 +3032,6 @@
     "named": false
   },
   {
-    "type": "string_content",
-    "named": true
-  },
-  {
     "type": "then",
     "named": false
   },
@@ -3027,14 +3046,6 @@
   {
     "type": "variant",
     "named": false
-  },
-  {
-    "type": "verbatim_string_closer",
-    "named": true
-  },
-  {
-    "type": "verbatim_string_content",
-    "named": true
   },
   {
     "type": "void",

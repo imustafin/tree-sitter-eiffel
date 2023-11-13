@@ -13,6 +13,8 @@ const SIMPLE_CHARS_STAR = new RegExp(SIMPLE_CHARS + '*');
 
 const IDENTIFIER = /[a-zA-Z_]+/;
 
+const EAT_SPACES = token.immediate(/[ \t]*/);
+
 const target = $ => choice(
   $.call,
   $.manifest_type,
@@ -865,22 +867,25 @@ module.exports = grammar({
     // TODO: Support tagged brackets ("named[ ... ]named")
     verbatim_string: $ => seq(
       $.verbatim_string_opener,
-      alias(token(repeat(
-        seq(token.immediate('\n'), token.immediate(SIMPLE_CHARS_PLUS)),
+      alias(repeat(choice(
+        seq(EAT_SPACES, ']', token.immediate(/[^"]/), /[^\n]*\n/),
+        seq(EAT_SPACES, /[^\]\n]/, /[^\n]*\n/),
+        seq(EAT_SPACES, '\n'),
       )), $.verbatim_string_content),
       $.verbatim_string_closer,
     ),
 
-    verbatim_string_opener: $ => seq('"', token.immediate('[')),
-    verbatim_string_closer: $ => ']"',
+    verbatim_string_opener: $ => seq(/"\[[ \t]*\n/),
+
+    verbatim_string_closer: $ => seq(EAT_SPACES, ']"'),
 
     basic_manifest_string: $ => seq(
       '"',
-      alias(token(repeat(choice(
+      alias(repeat(choice(
         token.immediate('['),
         token.immediate(']'),
         token.immediate(SIMPLE_CHARS_PLUS),
-      ))), $.string_content),
+      )), $.string_content),
       '"'
     ),
 
