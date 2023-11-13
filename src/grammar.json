@@ -1670,7 +1670,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "assigner_call"
+          "name": "assignment"
         },
         {
           "type": "SYMBOL",
@@ -2273,12 +2273,21 @@
         }
       ]
     },
-    "assigner_call": {
+    "assignment": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "call"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "call"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "result"
+            }
+          ]
         },
         {
           "type": "STRING",

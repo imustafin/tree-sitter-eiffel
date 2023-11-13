@@ -264,7 +264,7 @@ end
             (feature_body (effective_routine (internal (routine_mark))))
             (rescue
               (instruction
-                (assigner_call
+                (assignment
                   (call (unqualified_call (identifier)))
                   (expression
                     (special_expression (boolean_constant))))))))))))
