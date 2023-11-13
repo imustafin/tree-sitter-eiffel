@@ -636,7 +636,7 @@
       "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "class_name",
           "named": true
         }
       ]
@@ -1013,20 +1013,9 @@
   {
     "type": "entity_declaration_group",
     "named": true,
-    "fields": {
-      "identifiers": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier_list",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -1035,6 +1024,10 @@
         },
         {
           "type": "class_type",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -1372,11 +1365,11 @@
       "required": true,
       "types": [
         {
-          "type": "constraint",
+          "type": "class_name",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "constraint",
           "named": true
         }
       ]
@@ -1406,21 +1399,6 @@
     "type": "identifier",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "identifier_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "inheritance",
@@ -1853,11 +1831,11 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "note_values",
           "named": true
         },
         {
-          "type": "note_values",
+          "type": "tag",
           "named": true
         }
       ]
@@ -2423,6 +2401,11 @@
     "fields": {}
   },
   {
+    "type": "tag",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "tag_mark",
     "named": true,
     "fields": {},
@@ -2431,7 +2414,7 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "tag",
           "named": true
         }
       ]

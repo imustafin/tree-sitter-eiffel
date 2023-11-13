@@ -318,10 +318,10 @@ end
                   (tuple_parameter_list
                     (entity_declaration_list
                       (entity_declaration_group
-                        (identifier_list (identifier))
+                        (identifier)
                         (class_type (class_name)))
                       (entity_declaration_group
-                        (identifier_list (identifier))
+                        (identifier)
                         (class_type (class_name))))))))))))))
 
 ===
