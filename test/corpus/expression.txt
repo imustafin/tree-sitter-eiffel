@@ -428,3 +428,47 @@ end
               (verbatim_string
                 (verbatim_string_opener)
                 (verbatim_string_closer)))))))))
+
+===
+Expression. Single closing bracket in Verbatim string
+===
+class A
+invariant
+  "[
+]
+  ]"
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (verbatim_string
+                (verbatim_string_opener)
+                (verbatim_string_content)
+                (verbatim_string_closer)))))))))
+
+===
+Expression. One line Verbatim string
+===
+class A
+invariant
+  "[
+  a
+  ]"
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (special_expression
+              (verbatim_string
+                (verbatim_string_opener)
+                (verbatim_string_content)
+                (verbatim_string_closer)))))))))

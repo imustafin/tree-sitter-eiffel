@@ -4168,12 +4168,38 @@
                       }
                     },
                     {
+                      "type": "STRING",
+                      "value": "]"
+                    },
+                    {
+                      "type": "IMMEDIATE_TOKEN",
+                      "content": {
+                        "type": "STRING",
+                        "value": "\n"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "IMMEDIATE_TOKEN",
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "[ \\t]*"
+                      }
+                    },
+                    {
                       "type": "PATTERN",
                       "value": "[^\\]\\n]"
                     },
                     {
-                      "type": "PATTERN",
-                      "value": "[^\\n]*\\n"
+                      "type": "IMMEDIATE_TOKEN",
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "[^\\n]*\\n"
+                      }
                     }
                   ]
                 },
