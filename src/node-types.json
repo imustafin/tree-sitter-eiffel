@@ -219,6 +219,10 @@
           "named": true
         },
         {
+          "type": "notes",
+          "named": true
+        },
+        {
           "type": "postcondition",
           "named": true
         },
@@ -1279,16 +1283,6 @@
             "named": true
           }
         ]
-      },
-      "attribute_or_routine": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "attribute_or_routine",
-            "named": true
-          }
-        ]
       }
     },
     "children": {
@@ -1297,6 +1291,10 @@
       "types": [
         {
           "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "attribute_or_routine",
           "named": true
         },
         {

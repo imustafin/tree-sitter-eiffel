@@ -313,3 +313,28 @@ end
                 (external
                   (basic_manifest_string (string_content))
                   (basic_manifest_string (string_content)))))))))))
+
+===
+Feature. Notes
+===
+class A feature
+  x
+    note
+    do
+    end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (features
+      (feature_clause
+        (feature_declaration
+          (new_feature
+            (extended_feature_name
+              (identifier)))
+          (attribute_or_routine
+            (notes)
+            (feature_body
+              (effective_routine
+                (internal
+                  (routine_mark))))))))))
