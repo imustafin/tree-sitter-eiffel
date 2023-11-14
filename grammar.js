@@ -61,7 +61,7 @@ module.exports = grammar({
       repeat($.inheritance),
       repeat($.creation_clause),
       optional($.converters),
-      optional(field('features', $.features)),
+      optional(repeat($.feature_clause)),
       optional($.invariant),
       optional($.notes),
       'end'
@@ -296,8 +296,6 @@ module.exports = grammar({
     ),
 
     object_free_assertion: $ => 'class',
-
-    features: $ => repeat1($.feature_clause),
 
     feature_clause: $ => seq(
       'feature',

@@ -10,31 +10,30 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (creation
-                      (manifest_type (class_type (class_name)))
-                      (creation_call
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (creation
+                    (manifest_type (class_type (class_name)))
+                    (creation_call
+                      (identifier)
+                      (unqualified_call (identifier)))))
+                (instruction
+                  (creation
+                    (creation_call
+                      (identifier)
+                      (unqualified_call
                         (identifier)
-                        (unqualified_call (identifier)))))
-                  (instruction
-                    (creation
-                      (creation_call
-                        (identifier)
-                        (unqualified_call
-                          (identifier)
-                          (actuals
-                            (expression
-                              (special_expression
-                                (boolean_constant)))))))))))))))))
+                        (actuals
+                          (expression
+                            (special_expression
+                              (boolean_constant))))))))))))))))
 
 ===
 Call
@@ -47,20 +46,19 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (call
-                        (call
-                          (unqualified_call (identifier)))
-                      (unqualified_call (identifier)))))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (call
+                      (call
+                        (unqualified_call (identifier)))
+                    (unqualified_call (identifier))))))))))))
 
 ===
 Arguments on next line
@@ -74,24 +72,23 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (call
-                      (call (unqualified_call (identifier)))
-                      (unqualified_call
-                        (identifier)
-                        (actuals
-                          (expression
-                            (special_expression
-                              (boolean_constant))))))))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (call
+                    (call (unqualified_call (identifier)))
+                    (unqualified_call
+                      (identifier)
+                      (actuals
+                        (expression
+                          (special_expression
+                            (boolean_constant)))))))))))))))
 
 ===
 Body. Assigner call
@@ -105,28 +102,27 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (assignment
-                      (call
-                        (unqualified_call (identifier)))
-                      (expression
-                        (special_expression (boolean_constant)))))
-                  (instruction
-                    (assignment
-                      (call
-                        (call (unqualified_call (identifier)))
-                        (unqualified_call (identifier)))
-                      (expression
-                        (special_expression (boolean_constant))))))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (assignment
+                    (call
+                      (unqualified_call (identifier)))
+                    (expression
+                      (special_expression (boolean_constant)))))
+                (instruction
+                  (assignment
+                    (call
+                      (call (unqualified_call (identifier)))
+                      (unqualified_call (identifier)))
+                    (expression
+                      (special_expression (boolean_constant)))))))))))))
 
 ===
 Body. Assign to Result
@@ -140,24 +136,23 @@ end
 (source_file
   (class_declaration
     (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature
-            (extended_feature_name
-              (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (assignment
-                      (result)
-                      (expression
-                        (special_expression
-                          (integer_constant
-                            (integer)))))))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (assignment
+                    (result)
+                    (expression
+                      (special_expression
+                        (integer_constant
+                          (integer))))))))))))))
 
 ===
 Body. Precursor instruction and Precursor expression
@@ -171,26 +166,25 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (precursor
+                  (class_name)
+                  (actuals
+                    (expression
+                      (special_expression
+                        (boolean_constant))))))
                 (instruction
-                  (precursor
-                    (class_name)
-                    (actuals
-                      (expression
-                        (special_expression
-                          (boolean_constant))))))
-                 (instruction
-                   (assignment
-                     (call (unqualified_call (identifier)))
-                     (expression (basic_expression (precursor))))))))))))))
+                  (assignment
+                    (call (unqualified_call (identifier)))
+                    (expression (basic_expression (precursor)))))))))))))
 
 ===
 Body. Conditional instruction
@@ -209,25 +203,24 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (conditional
-                    (then_part
-                      (expression (basic_expression (call (unqualified_call (identifier)))))
-                      (instruction (call (unqualified_call (identifier)))))
-                    (then_part
-                      (expression (basic_expression (call (unqualified_call (identifier)))))
-                      (instruction (call (unqualified_call (identifier)))))
-                    (else_part
-                      (instruction (call (unqualified_call (identifier))))))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (conditional
+                  (then_part
+                    (expression (basic_expression (call (unqualified_call (identifier)))))
+                    (instruction (call (unqualified_call (identifier)))))
+                  (then_part
+                    (expression (basic_expression (call (unqualified_call (identifier)))))
+                    (instruction (call (unqualified_call (identifier)))))
+                  (else_part
+                    (instruction (call (unqualified_call (identifier)))))))))))))))
 
 ===
 Body. Conditional expression
@@ -240,28 +233,27 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (assignment
-                    (call (unqualified_call (identifier)))
-                    (expression
-                      (basic_expression
-                        (conditional_expression
-                          (then_part_expression
-                            (expression (basic_expression (call (unqualified_call (identifier)))))
-                            (expression (basic_expression (call (unqualified_call (identifier))))))
-                          (then_part_expression
-                            (expression (basic_expression (call (unqualified_call (identifier)))))
-                            (expression (basic_expression (call (unqualified_call (identifier))))))
-                            (expression (basic_expression (call (unqualified_call (identifier)))))))))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (assignment
+                  (call (unqualified_call (identifier)))
+                  (expression
+                    (basic_expression
+                      (conditional_expression
+                        (then_part_expression
+                          (expression (basic_expression (call (unqualified_call (identifier)))))
+                          (expression (basic_expression (call (unqualified_call (identifier))))))
+                        (then_part_expression
+                          (expression (basic_expression (call (unqualified_call (identifier)))))
+                          (expression (basic_expression (call (unqualified_call (identifier))))))
+                          (expression (basic_expression (call (unqualified_call (identifier))))))))))))))))))
 
 ===
 Body. Multi-branch
@@ -278,25 +270,24 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (multi_branch
-                    (expression (basic_expression (call (unqualified_call (identifier)))))
-                    (when_part (choice (integer_constant (integer))))
-                    (when_part
-                      (choice
-                        (constant_interval
-                          (integer_constant (integer))
-                          (integer_constant (integer)))))
-                    (else_part))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (multi_branch
+                  (expression (basic_expression (call (unqualified_call (identifier)))))
+                  (when_part (choice (integer_constant (integer))))
+                  (when_part
+                    (choice
+                      (constant_interval
+                        (integer_constant (integer))
+                        (integer_constant (integer)))))
+                  (else_part)))))))))))
 
 ===
 Body. Loop
@@ -318,30 +309,29 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (loop
-                    (iteration
-                      (expression
-                        (basic_expression (call (unqualified_call (identifier)))))
-                        (identifier))
-                    (initialization)
-                    (invariant)
-                    (exit_condition
-                      (expression (basic_expression (call (unqualified_call (identifier))))))
-                    (loop_body)
-                    (variant
-                      (expression
-                        (basic_expression
-                          (call (unqualified_call (identifier)))))))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (loop
+                  (iteration
+                    (expression
+                      (basic_expression (call (unqualified_call (identifier)))))
+                      (identifier))
+                  (initialization)
+                  (invariant)
+                  (exit_condition
+                    (expression (basic_expression (call (unqualified_call (identifier))))))
+                  (loop_body)
+                  (variant
+                    (expression
+                      (basic_expression
+                        (call (unqualified_call (identifier))))))))))))))))
 ===
 Body. Debug
 ===
@@ -354,18 +344,17 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (debug
-                    (basic_manifest_string (string_content)))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (debug
+                  (basic_manifest_string (string_content))))))))))))
 
 ===
 Body. Check
@@ -378,25 +367,24 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (check
-                    (assertion_clause
-                      (unlabeled_assertion_clause
-                        (expression
-                          (basic_expression (call (unqualified_call (identifier)))))))
-                    (assertion_clause
-                      (unlabeled_assertion_clause
-                        (expression
-                          (basic_expression (call (unqualified_call (identifier))))))))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (check
+                  (assertion_clause
+                    (unlabeled_assertion_clause
+                      (expression
+                        (basic_expression (call (unqualified_call (identifier)))))))
+                  (assertion_clause
+                    (unlabeled_assertion_clause
+                      (expression
+                        (basic_expression (call (unqualified_call (identifier)))))))))))))))))
 
 ===
 Body. Retry
@@ -409,17 +397,16 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (retry)))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (retry))))))))))
 
 ===
 Body. Equality
@@ -432,24 +419,23 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (assignment
-                    (call (unqualified_call (identifier)))
-                    (expression
-                      (basic_expression
-                        (equality
-                          (expression (special_expression (integer_constant (integer))))
-                          (comparison)
-                          (expression (special_expression (integer_constant (integer))))))))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (assignment
+                  (call (unqualified_call (identifier)))
+                  (expression
+                    (basic_expression
+                      (equality
+                        (expression (special_expression (integer_constant (integer))))
+                        (comparison)
+                        (expression (special_expression (integer_constant (integer)))))))))))))))))
 
 ===
 Body. Parenthesized
@@ -462,24 +448,23 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body
-            (effective_routine
-              (internal
-                (routine_mark)
-                (instruction
-                  (assignment
-                    (call (unqualified_call (identifier)))
-                    (expression
-                      (basic_expression
-                        (parenthesized
-                          (expression
-                            (special_expression
-                              (integer_constant (integer))))))))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body
+          (effective_routine
+            (internal
+              (routine_mark)
+              (instruction
+                (assignment
+                  (call (unqualified_call (identifier)))
+                  (expression
+                    (basic_expression
+                      (parenthesized
+                        (expression
+                          (special_expression
+                            (integer_constant (integer)))))))))))))))))
 
 ===
 Body. Old
@@ -493,22 +478,21 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-  (features
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (attribute_or_routine
-          (feature_body)
-          (postcondition
-            (assertion_clause
-              (unlabeled_assertion_clause
-                (expression
-                  (basic_expression
-                    (old
-                      (expression
-                        (basic_expression
-                          (call
-                            (unqualified_call (identifier)))))))))))))))))
+  (feature_clause
+    (feature_declaration
+      (new_feature (extended_feature_name (identifier)))
+      (attribute_or_routine
+        (feature_body)
+        (postcondition
+          (assertion_clause
+            (unlabeled_assertion_clause
+              (expression
+                (basic_expression
+                  (old
+                    (expression
+                      (basic_expression
+                        (call
+                          (unqualified_call (identifier))))))))))))))))
 
 ===
 Body. Operator expressions
@@ -548,19 +532,18 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature
-            (extended_feature_name
-              (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (call
-                      (manifest_type (class_type (class_name)))
-                      (unqualified_call
-                        (identifier)))))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (call
+                    (manifest_type (class_type (class_name)))
+                    (unqualified_call
+                      (identifier))))))))))))

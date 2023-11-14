@@ -9,23 +9,22 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (call
-                      (unqualified_call
-                        (identifier)
-                        (actuals
-                          (expression
-                            (special_expression
-                              (basic_manifest_string (string_content)))))))))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (call
+                    (unqualified_call
+                      (identifier)
+                      (actuals
+                        (expression
+                          (special_expression
+                            (basic_manifest_string (string_content))))))))))))))))
 
 ===
 String. Once string

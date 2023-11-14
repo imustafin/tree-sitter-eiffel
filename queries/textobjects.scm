@@ -11,5 +11,5 @@
 (attribute_or_routine) @function.around
 (feature_body) @function.inside
 (class_declaration) @class.around
-(features) @class.inside
+(feature_clause) @class.inside
 

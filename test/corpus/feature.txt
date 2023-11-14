@@ -8,9 +8,8 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    features: (features
-        (feature_clause)
-        (feature_clause))))
+      (feature_clause)
+      (feature_clause)))
 
 ===
 Feature field
@@ -22,11 +21,10 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    features: (features
-      (feature_clause
-        declarations: (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (class_type (class_name)))))))
+    (feature_clause
+      declarations: (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (class_type (class_name))))))
 
 ===
 Feature arguments
@@ -38,19 +36,18 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    features: (features
-      (feature_clause
-        declarations: (feature_declaration
-            (new_feature (extended_feature_name (identifier)))
-            arguments: (formal_arguments
-              (entity_declaration_list
-                (entity_declaration_group
-                  (identifier)
-                  (identifier)
-                  (class_type (class_name)))
-                (entity_declaration_group
-                  (identifier)
-                  (class_type (class_name))))))))))
+    (feature_clause
+      declarations: (feature_declaration
+          (new_feature (extended_feature_name (identifier)))
+          arguments: (formal_arguments
+            (entity_declaration_list
+              (entity_declaration_group
+                (identifier)
+                (identifier)
+                (class_type (class_name)))
+              (entity_declaration_group
+                (identifier)
+                (class_type (class_name)))))))))
 
 ===
 Clients
@@ -61,9 +58,8 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (clients (class_name) (class_name) (class_name) (class_name))))))
+    (feature_clause
+      (clients (class_name) (class_name) (class_name) (class_name)))))
 
 ===
 Feature header comment
@@ -78,9 +74,8 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (header_comment)))
+    (feature_clause
+      (header_comment))
     (comment)))
 
 ===
@@ -94,12 +89,11 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (class_type (class_name))
-          (header_comment))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (class_type (class_name))
+        (header_comment)))))
 
 ===
 Obsolete
@@ -112,12 +106,11 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (obsolete
-            (basic_manifest_string (string_content))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (obsolete
+          (basic_manifest_string (string_content)))))))
 
 ===
 Feature. Frozen
@@ -129,12 +122,11 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature
-            (extended_feature_name (identifier)))
-          (class_type (class_name)))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name (identifier)))
+        (class_type (class_name))))))
 
 ===
 Feature. Explicit value
@@ -146,12 +138,11 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (class_type (class_name))
-          (explicit_value (integer_constant (integer))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (class_type (class_name))
+        (explicit_value (integer_constant (integer)))))))
 
 ===
 Feature. Precondition
@@ -171,22 +162,21 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (precondition
+            (assertion_clause
+              (unlabeled_assertion_clause
+                (expression
+                  (special_expression (boolean_constant))))))
+          (feature_body (effective_routine (internal (routine_mark))))))
         (feature_declaration
           (new_feature (extended_feature_name (identifier)))
           (attribute_or_routine
-            (precondition
-              (assertion_clause
-                (unlabeled_assertion_clause
-                  (expression
-                    (special_expression (boolean_constant))))))
-            (feature_body (effective_routine (internal (routine_mark))))))
-         (feature_declaration
-           (new_feature (extended_feature_name (identifier)))
-           (attribute_or_routine
-             (precondition)
-             (feature_body (effective_routine (internal (routine_mark))))))))))
+            (precondition)
+            (feature_body (effective_routine (internal (routine_mark)))))))))
 
 ===
 Feature. Locals
@@ -202,21 +192,20 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (local_declarations
-              (entity_declaration_list
-                (entity_declaration_group
-                  (identifier)
-                  (class_type (class_name)))
-                (entity_declaration_group
-                  (identifier)
-                  (class_type (class_name)))))
-            (feature_body
-              (effective_routine (internal (routine_mark))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (local_declarations
+            (entity_declaration_list
+              (entity_declaration_group
+                (identifier)
+                (class_type (class_name)))
+              (entity_declaration_group
+                (identifier)
+                (class_type (class_name)))))
+          (feature_body
+            (effective_routine (internal (routine_mark)))))))))
 
 ===
 Feature. Postcondition
@@ -231,17 +220,16 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body (effective_routine (internal (routine_mark))))
-            (postcondition
-              (assertion_clause
-                (unlabeled_assertion_clause
-                  (expression
-                    (special_expression (boolean_constant))))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body (effective_routine (internal (routine_mark))))
+          (postcondition
+            (assertion_clause
+              (unlabeled_assertion_clause
+                (expression
+                  (special_expression (boolean_constant)))))))))))
 
 ===
 Feature. Rescue
@@ -256,18 +244,17 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body (effective_routine (internal (routine_mark))))
-            (rescue
-              (instruction
-                (assignment
-                  (call (unqualified_call (identifier)))
-                  (expression
-                    (special_expression (boolean_constant))))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body (effective_routine (internal (routine_mark))))
+          (rescue
+            (instruction
+              (assignment
+                (call (unqualified_call (identifier)))
+                (expression
+                  (special_expression (boolean_constant)))))))))))
 
 ===
 Feature. Attribute
@@ -280,14 +267,13 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (class_type (class_name))
-          (attribute_or_routine
-            (feature_body
-              (attribute))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (class_type (class_name))
+        (attribute_or_routine
+          (feature_body
+            (attribute)))))))
 
 ===
 Feature. External
@@ -303,16 +289,15 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (external
-                  (basic_manifest_string (string_content))
-                  (basic_manifest_string (string_content)))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature (extended_feature_name (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (external
+                (basic_manifest_string (string_content))
+                (basic_manifest_string (string_content))))))))))
 
 ===
 Feature. Notes
@@ -326,15 +311,14 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature
-            (extended_feature_name
-              (identifier)))
-          (attribute_or_routine
-            (notes)
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark))))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (notes)
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)))))))))
