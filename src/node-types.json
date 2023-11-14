@@ -533,16 +533,6 @@
     "type": "class_declaration",
     "named": true,
     "fields": {
-      "features": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "features",
-            "named": true
-          }
-        ]
-      },
       "mark": {
         "multiple": false,
         "required": false,
@@ -578,6 +568,10 @@
         },
         {
           "type": "creation_clause",
+          "named": true
+        },
+        {
+          "type": "feature_clause",
           "named": true
         },
         {
@@ -1319,21 +1313,6 @@
         },
         {
           "type": "tuple_type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "features",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "feature_clause",
           "named": true
         }
       ]

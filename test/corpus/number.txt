@@ -41,17 +41,16 @@ end
 ---
 (source_file
   (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature
-            (extended_feature_name
-              (identifier)))
-          (class_type (class_name))
-          (explicit_value
-            (integer_constant
-              (sign)
-              (integer))))))))
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (class_type (class_name))
+        (explicit_value
+          (integer_constant
+            (sign)
+            (integer)))))))
 
 ===
 Number. Real

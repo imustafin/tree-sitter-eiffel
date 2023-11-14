@@ -117,11 +117,10 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "FIELD",
-              "name": "features",
+              "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
-                "name": "features"
+                "name": "feature_clause"
               }
             },
             {
@@ -1223,13 +1222,6 @@
     "object_free_assertion": {
       "type": "STRING",
       "value": "class"
-    },
-    "features": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SYMBOL",
-        "name": "feature_clause"
-      }
     },
     "feature_clause": {
       "type": "SEQ",
