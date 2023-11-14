@@ -3861,8 +3861,13 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "TUPLE"
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "TUPLE"
+          },
+          "named": true,
+          "value": "class_name"
         },
         {
           "type": "CHOICE",
@@ -4282,6 +4287,20 @@
                   "content": {
                     "type": "STRING",
                     "value": "]"
+                  }
+                },
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "{"
+                  }
+                },
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "}"
                   }
                 },
                 {

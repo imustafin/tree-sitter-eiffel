@@ -796,7 +796,7 @@ module.exports = grammar({
     ),
 
     tuple_type: $ => seq(
-      'TUPLE',
+      alias('TUPLE', $.class_name),
       optional(seq('[', $.tuple_parameter_list, ']')),
     ),
 
@@ -873,6 +873,8 @@ module.exports = grammar({
       alias(repeat(choice(
         token.immediate('['),
         token.immediate(']'),
+        token.immediate('{'),
+        token.immediate('}'),
         token.immediate(SIMPLE_CHARS_PLUS),
       )), $.string_content),
       '"'
