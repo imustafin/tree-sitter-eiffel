@@ -62,7 +62,6 @@ module.exports = grammar({
       repeat($.creation_clause),
       optional($.converters),
       optional(field('features', $.features)),
-      optional($.notes),
       optional($.invariant),
       optional($.notes),
       'end'
@@ -313,9 +312,8 @@ module.exports = grammar({
       '}'
     ),
 
-    feature_declaration: $ => seq(
-      $.new_feature,
-      repeat(seq(',', $.new_feature)),
+    feature_declaration: $ => prec.right(2, seq(
+      join1($.new_feature, ','),
 
       // Declaration_body
       optional(field('arguments', $.formal_arguments)),
@@ -325,8 +323,8 @@ module.exports = grammar({
       optional($.explicit_value),
       optional($.obsolete),
       optional($.header_comment),
-      optional(field('attribute_or_routine', $.attribute_or_routine))
-    ),
+      optional($.attribute_or_routine)
+    )),
 
     explicit_value: $ => seq(
       '=',
@@ -344,6 +342,7 @@ module.exports = grammar({
     ),
 
     attribute_or_routine: $ => seq(
+      optional($.notes),
       optional($.precondition),
       optional($.local_declarations),
       $.feature_body,

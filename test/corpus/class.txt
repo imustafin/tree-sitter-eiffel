@@ -1,15 +1,13 @@
 ===
-Notes
+Class. Note after Invariant
 ===
 note
   demo_note: True
   multi_note: True, False
 class DEMO_CLASS
-note
-  feature_note: True
 invariant
   note
-    invriant_note: True
+    note_after_invariant: True
 end
 ---
 (source_file
@@ -25,15 +23,22 @@ end
           (note_item (boolean_constant))
           (note_item (boolean_constant)))))
     (class_name)
-    (notes
-      (note_entry
-        (tag)
-        (note_values (note_item (boolean_constant)))))
     (invariant)
     (notes
       (note_entry
         (tag)
         (note_values (note_item (boolean_constant)))))))
+
+===
+Class. End Note without Invariant
+===
+class A
+note
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (notes)))
 
 ===
 Mark
