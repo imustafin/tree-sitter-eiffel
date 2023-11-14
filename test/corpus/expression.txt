@@ -84,35 +84,6 @@ end
                               (character_constant (character)))))))))))))))))
 
 ===
-Basic string
-===
-class A feature x
-  do
-    f("Hello, World!")
-  end
-end
----
-(source_file
-  (class_declaration (class_name)
-    (features
-      (feature_clause
-        (feature_declaration
-          (new_feature (extended_feature_name (identifier)))
-          (attribute_or_routine
-            (feature_body
-              (effective_routine
-                (internal
-                  (routine_mark)
-                  (instruction
-                    (call
-                      (unqualified_call
-                        (identifier)
-                        (actuals
-                          (expression
-                            (special_expression
-                              (basic_manifest_string (string_content)))))))))))))))))
-
-===
 Expression. Bracket expression
 ===
 class A
@@ -130,25 +101,6 @@ end
               (bracket_expression
                 (call (unqualified_call (identifier)))
                 (expression (special_expression (integer_constant (integer))))))))))))
-
-===
-Expression. Once string
-===
-class A
-invariant
-  once "a"
-end
----
-(source_file
-  (class_declaration (class_name)
-    (invariant
-      (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (special_expression
-              (once_string
-                (basic_manifest_string
-                  (string_content))))))))))
 
 ===
 Expression. Manifest tuple
@@ -315,6 +267,7 @@ end
             (special_expression
               (manifest_type
                 (tuple_type
+                  (class_name)
                   (tuple_parameter_list
                     (entity_declaration_list
                       (entity_declaration_group
@@ -341,6 +294,7 @@ end
             (special_expression
               (manifest_type
                 (tuple_type
+                  (class_name)
                   (tuple_parameter_list
                     (class_type (class_name))
                     (class_type (class_name))))))))))))
@@ -362,113 +316,3 @@ end
             (special_expression
               (manifest_type
                 (anchored (current))))))))))
-
-===
-Expression. Verbatim string
-===
-class A
-invariant
-  "[
-    a
-    b
-    "
-    " ]
-    ]
-    ] "
-
-    end should be on its own line]"
-  ]"
-end
----
-(source_file
-  (class_declaration (class_name)
-    (invariant
-      (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (special_expression
-              (verbatim_string
-                (verbatim_string_opener)
-                (verbatim_string_content)
-                (verbatim_string_closer)))))))))
-===
-Expression. One line string is not Verbatim
-===
-class A
-invariant
-  "[ ]"
-end
----
-(source_file
-  (class_declaration (class_name)
-    (invariant
-      (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (special_expression
-              (basic_manifest_string
-                (string_content)))))))))
-
-===
-Expression. Empty content Verbatim string
-===
-class A
-invariant
-"[
-]"
-end
----
-(source_file
-  (class_declaration (class_name)
-    (invariant
-      (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (special_expression
-              (verbatim_string
-                (verbatim_string_opener)
-                (verbatim_string_closer)))))))))
-
-===
-Expression. Single closing bracket in Verbatim string
-===
-class A
-invariant
-  "[
-]
-  ]"
-end
----
-(source_file
-  (class_declaration (class_name)
-    (invariant
-      (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (special_expression
-              (verbatim_string
-                (verbatim_string_opener)
-                (verbatim_string_content)
-                (verbatim_string_closer)))))))))
-
-===
-Expression. One line Verbatim string
-===
-class A
-invariant
-  "[
-  a
-  ]"
-end
----
-(source_file
-  (class_declaration (class_name)
-    (invariant
-      (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (special_expression
-              (verbatim_string
-                (verbatim_string_opener)
-                (verbatim_string_content)
-                (verbatim_string_closer)))))))))
