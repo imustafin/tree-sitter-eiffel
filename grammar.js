@@ -11,7 +11,7 @@ const SIMPLE_CHARS_PLUS = new RegExp(SIMPLE_CHARS + '+');
 
 const SIMPLE_CHARS_STAR = new RegExp(SIMPLE_CHARS + '*');
 
-const IDENTIFIER = /[a-zA-Z_]+/;
+const IDENTIFIER = /[a-zA-Z_][a-zA-Z0-9_]*/;
 
 const EAT_SPACES = token.immediate(/[ \t]*/);
 
@@ -37,7 +37,7 @@ module.exports = grammar({
     source_file: $ => $.class_declaration,
 
     // Simple comment is one line
-    comment: $ => /--[^\n]*\n/,
+    comment: $ => token(seq(/--/, token.immediate(/[^\n]*/))),
 
     // Header comments are multi-line
     //
@@ -48,7 +48,11 @@ module.exports = grammar({
     // To do that we use [ \t] which matches spaces but does not match \n.
     header_comment: $ => token(prec(
       PREC.HEADER_COMMENT,
-      /--[^\n]*\n([ \t]*--[^\n]*\n)*/
+      seq(
+        /--/,
+        token.immediate(/[^\n]*/),
+        token.immediate(/(\n[ \t]*--[^\n]*)*/)
+      )
     )),
 
     class_declaration: $ => seq(
@@ -356,7 +360,7 @@ module.exports = grammar({
 
     local_declarations: $ => seq(
       'local',
-      $.entity_declaration_list
+      optional($.entity_declaration_list)
     ),
 
     precondition: $ => seq(
