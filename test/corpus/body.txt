@@ -31,9 +31,7 @@ end
                       (unqualified_call
                         (identifier)
                         (actuals
-                          (expression
-                            (special_expression
-                              (boolean_constant))))))))))))))))
+                          (expression (boolean_constant)))))))))))))))
 
 ===
 Call
@@ -86,9 +84,7 @@ end
                     (unqualified_call
                       (identifier)
                       (actuals
-                        (expression
-                          (special_expression
-                            (boolean_constant)))))))))))))))
+                        (expression (boolean_constant))))))))))))))
 
 ===
 Body. Assigner call
@@ -114,15 +110,13 @@ end
                   (assignment
                     (call
                       (unqualified_call (identifier)))
-                    (expression
-                      (special_expression (boolean_constant)))))
+                    (expression (boolean_constant))))
                 (instruction
                   (assignment
                     (call
                       (call (unqualified_call (identifier)))
                       (unqualified_call (identifier)))
-                    (expression
-                      (special_expression (boolean_constant)))))))))))))
+                    (expression (boolean_constant))))))))))))
 
 ===
 Body. Assign to Result
@@ -149,10 +143,7 @@ end
                 (instruction
                   (assignment
                     (result)
-                    (expression
-                      (special_expression
-                        (integer_constant
-                          (integer))))))))))))))
+                    (expression (integer_constant (integer)))))))))))))
 
 ===
 Body. Precursor instruction and Precursor expression
@@ -178,13 +169,11 @@ end
                 (precursor
                   (class_name)
                   (actuals
-                    (expression
-                      (special_expression
-                        (boolean_constant))))))
+                    (expression (boolean_constant)))))
                 (instruction
                   (assignment
                     (call (unqualified_call (identifier)))
-                    (expression (basic_expression (precursor)))))))))))))
+                    (expression (precursor))))))))))))
 
 ===
 Body. Conditional instruction
@@ -214,10 +203,10 @@ end
               (instruction
                 (conditional
                   (then_part
-                    (expression (basic_expression (call (unqualified_call (identifier)))))
+                    (expression (call (unqualified_call (identifier))))
                     (instruction (call (unqualified_call (identifier)))))
                   (then_part
-                    (expression (basic_expression (call (unqualified_call (identifier)))))
+                    (expression (call (unqualified_call (identifier))))
                     (instruction (call (unqualified_call (identifier)))))
                   (else_part
                     (instruction (call (unqualified_call (identifier)))))))))))))))
@@ -245,15 +234,14 @@ end
                 (assignment
                   (call (unqualified_call (identifier)))
                   (expression
-                    (basic_expression
-                      (conditional_expression
-                        (then_part_expression
-                          (expression (basic_expression (call (unqualified_call (identifier)))))
-                          (expression (basic_expression (call (unqualified_call (identifier))))))
-                        (then_part_expression
-                          (expression (basic_expression (call (unqualified_call (identifier)))))
-                          (expression (basic_expression (call (unqualified_call (identifier))))))
-                          (expression (basic_expression (call (unqualified_call (identifier))))))))))))))))))
+                    (conditional_expression
+                      (then_part_expression
+                        (expression (call (unqualified_call (identifier))))
+                        (expression (call (unqualified_call (identifier)))))
+                      (then_part_expression
+                        (expression (call (unqualified_call (identifier))))
+                        (expression (call (unqualified_call (identifier)))))
+                        (expression (call (unqualified_call (identifier))))))))))))))))
 
 ===
 Body. Multi-branch
@@ -280,7 +268,7 @@ end
               (routine_mark)
               (instruction
                 (multi_branch
-                  (expression (basic_expression (call (unqualified_call (identifier)))))
+                  (expression (call (unqualified_call (identifier))))
                   (when_part (choice (integer_constant (integer))))
                   (when_part
                     (choice
@@ -321,17 +309,16 @@ end
                 (loop
                   (iteration
                     (expression
-                      (basic_expression (call (unqualified_call (identifier)))))
+                      (call (unqualified_call (identifier))))
                       (identifier))
                   (initialization)
                   (invariant)
                   (exit_condition
-                    (expression (basic_expression (call (unqualified_call (identifier))))))
+                    (expression (call (unqualified_call (identifier)))))
                   (loop_body)
                   (variant
                     (expression
-                      (basic_expression
-                        (call (unqualified_call (identifier))))))))))))))))
+                      (call (unqualified_call (identifier)))))))))))))))
 ===
 Body. Debug
 ===
@@ -380,11 +367,11 @@ end
                   (assertion_clause
                     (unlabeled_assertion_clause
                       (expression
-                        (basic_expression (call (unqualified_call (identifier)))))))
+                        (call (unqualified_call (identifier))))))
                   (assertion_clause
                     (unlabeled_assertion_clause
                       (expression
-                        (basic_expression (call (unqualified_call (identifier)))))))))))))))))
+                        (call (unqualified_call (identifier))))))))))))))))
 
 ===
 Body. Retry
@@ -431,11 +418,10 @@ end
                 (assignment
                   (call (unqualified_call (identifier)))
                   (expression
-                    (basic_expression
-                      (equality
-                        (expression (special_expression (integer_constant (integer))))
-                        (comparison)
-                        (expression (special_expression (integer_constant (integer)))))))))))))))))
+                    (equality
+                      (expression (integer_constant (integer)))
+                      (comparison)
+                      (expression (integer_constant (integer)))))))))))))))
 
 ===
 Body. Parenthesized
@@ -460,11 +446,9 @@ end
                 (assignment
                   (call (unqualified_call (identifier)))
                   (expression
-                    (basic_expression
-                      (parenthesized
-                        (expression
-                          (special_expression
-                            (integer_constant (integer)))))))))))))))))
+                    (parenthesized
+                      (expression
+                        (integer_constant (integer)))))))))))))))
 
 ===
 Body. Old
@@ -487,12 +471,10 @@ end
           (assertion_clause
             (unlabeled_assertion_clause
               (expression
-                (basic_expression
-                  (old
-                    (expression
-                      (basic_expression
-                        (call
-                          (unqualified_call (identifier))))))))))))))))
+                (old
+                  (expression
+                    (call
+                      (unqualified_call (identifier))))))))))))))
 
 ===
 Body. Operator expressions
@@ -508,18 +490,13 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (basic_expression
-              (operator_expression
-                (expression
-                  (special_expression
-                    (integer_constant (integer))))
-                (binary_plus_minus)
-                (expression
-                  (basic_expression
-                    (operator_expression
-                      (unary)
-                      (expression
-                        (special_expression (integer_constant (integer)))))))))))))))
+            (operator_expression
+              (expression (integer_constant (integer)))
+              (binary_plus_minus)
+              (expression
+                (operator_expression
+                  (unary)
+                  (expression (integer_constant (integer))))))))))))
 
 ===
 Body. Non-object call

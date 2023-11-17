@@ -602,11 +602,7 @@ module.exports = grammar({
     result: $ => 'Result',
 
     expression: $ => choice(
-      $.basic_expression,
-      $.special_expression
-    ),
-
-    basic_expression: $ => choice(
+      /// Basic_expression
       // Read_only
       $.current,
 
@@ -623,6 +619,16 @@ module.exports = grammar({
       $.creation_expression,
       $.conditional_expression,
       $.quantifier_loop,
+
+      /// Special_expression
+      $._manifest_constant,
+      $.void,
+      $.manifest_array,
+      $.manifest_tuple,
+      $.agent,
+      $.object_test,
+      $.once_string,
+      $.address
     ),
 
     creation_expression: $ => choice(
@@ -706,17 +712,6 @@ module.exports = grammar({
     ),
 
     current: $ => 'Current',
-
-    special_expression: $ => choice(
-      $._manifest_constant,
-      $.void,
-      $.manifest_array,
-      $.manifest_tuple,
-      $.agent,
-      $.object_test,
-      $.once_string,
-      $.address
-    ),
 
     object_test: $ => prec.left(2, seq(
       'attached',

@@ -75,8 +75,7 @@ end
     (invariant
       (assertion_clause
         (unlabeled_assertion_clause
-          (expression
-            (special_expression (boolean_constant)))))
+          (expression (boolean_constant))))
       (assertion_clause
         (tag_mark (tag))
         (unlabeled_assertion_clause (comment))))))

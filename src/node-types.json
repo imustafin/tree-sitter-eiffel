@@ -238,65 +238,6 @@
     }
   },
   {
-    "type": "basic_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "bracket_expression",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "conditional_expression",
-          "named": true
-        },
-        {
-          "type": "creation_expression",
-          "named": true
-        },
-        {
-          "type": "current",
-          "named": true
-        },
-        {
-          "type": "equality",
-          "named": true
-        },
-        {
-          "type": "old",
-          "named": true
-        },
-        {
-          "type": "operator_expression",
-          "named": true
-        },
-        {
-          "type": "parenthesized",
-          "named": true
-        },
-        {
-          "type": "precursor",
-          "named": true
-        },
-        {
-          "type": "quantifier_loop",
-          "named": true
-        },
-        {
-          "type": "result",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "basic_manifest_string",
     "named": true,
     "fields": {},
@@ -1132,15 +1073,111 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "basic_expression",
+          "type": "address",
           "named": true
         },
         {
-          "type": "special_expression",
+          "type": "agent",
+          "named": true
+        },
+        {
+          "type": "basic_manifest_string",
+          "named": true
+        },
+        {
+          "type": "boolean_constant",
+          "named": true
+        },
+        {
+          "type": "bracket_expression",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "character_constant",
+          "named": true
+        },
+        {
+          "type": "conditional_expression",
+          "named": true
+        },
+        {
+          "type": "creation_expression",
+          "named": true
+        },
+        {
+          "type": "current",
+          "named": true
+        },
+        {
+          "type": "equality",
+          "named": true
+        },
+        {
+          "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_array",
+          "named": true
+        },
+        {
+          "type": "manifest_tuple",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "object_test",
+          "named": true
+        },
+        {
+          "type": "old",
+          "named": true
+        },
+        {
+          "type": "once_string",
+          "named": true
+        },
+        {
+          "type": "operator_expression",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "quantifier_loop",
+          "named": true
+        },
+        {
+          "type": "real_constant",
+          "named": true
+        },
+        {
+          "type": "result",
+          "named": true
+        },
+        {
+          "type": "verbatim_string",
+          "named": true
+        },
+        {
+          "type": "void",
           "named": true
         }
       ]
@@ -2342,73 +2379,6 @@
       "types": [
         {
           "type": "class_declaration",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "special_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "address",
-          "named": true
-        },
-        {
-          "type": "agent",
-          "named": true
-        },
-        {
-          "type": "basic_manifest_string",
-          "named": true
-        },
-        {
-          "type": "boolean_constant",
-          "named": true
-        },
-        {
-          "type": "character_constant",
-          "named": true
-        },
-        {
-          "type": "integer_constant",
-          "named": true
-        },
-        {
-          "type": "manifest_array",
-          "named": true
-        },
-        {
-          "type": "manifest_tuple",
-          "named": true
-        },
-        {
-          "type": "manifest_type",
-          "named": true
-        },
-        {
-          "type": "object_test",
-          "named": true
-        },
-        {
-          "type": "once_string",
-          "named": true
-        },
-        {
-          "type": "real_constant",
-          "named": true
-        },
-        {
-          "type": "verbatim_string",
-          "named": true
-        },
-        {
-          "type": "void",
           "named": true
         }
       ]
