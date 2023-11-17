@@ -13,23 +13,19 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (basic_expression
-              (parenthesized
-                (expression
-                  (basic_expression
-                    (operator_expression
-                      (unary)
-                      (expression (special_expression (integer_constant (integer))))))))))))
+            (parenthesized
+              (expression
+                (operator_expression
+                  (unary)
+                  (expression (integer_constant (integer)))))))))
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (basic_expression
-              (parenthesized
-                (expression
-                  (basic_expression
-                    (operator_expression
-                      (unary)
-                      (expression (special_expression (real_constant (real (integer))))))))))))))))
+            (parenthesized
+              (expression
+                (operator_expression
+                  (unary)
+                  (expression (real_constant (real (integer)))))))))))))
 
 ===
 Number. Sign in Constant is (sign)
@@ -66,15 +62,13 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (basic_expression
-              (operator_expression
-                (unary)
-                (expression
-                  (special_expression
-                    (real_constant
-                      (real
-                        (integer)
-                        (real_exponent (sign) (integer))))))))))))))
+            (operator_expression
+              (unary)
+              (expression
+                (real_constant
+                  (real
+                    (integer)
+                    (real_exponent (sign) (integer))))))))))))
 
 ===
 Number. Integer
@@ -89,5 +83,4 @@ end
     (invariant
       (assertion_clause
         (unlabeled_assertion_clause
-          (expression
-            (special_expression (integer_constant (integer)))))))))
+          (expression (integer_constant (integer))))))))

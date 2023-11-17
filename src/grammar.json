@@ -2670,19 +2670,6 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "basic_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "special_expression"
-        }
-      ]
-    },
-    "basic_expression": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
           "name": "current"
         },
         {
@@ -2728,6 +2715,38 @@
         {
           "type": "SYMBOL",
           "name": "quantifier_loop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_manifest_constant"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "void"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "manifest_array"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "manifest_tuple"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "agent"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "object_test"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "once_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "address"
         }
       ]
     },
@@ -3355,43 +3374,6 @@
     "current": {
       "type": "STRING",
       "value": "Current"
-    },
-    "special_expression": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_manifest_constant"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "void"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "manifest_array"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "manifest_tuple"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "agent"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "object_test"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "once_string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "address"
-        }
-      ]
     },
     "object_test": {
       "type": "PREC_LEFT",

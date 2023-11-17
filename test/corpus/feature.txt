@@ -169,8 +169,7 @@ end
           (precondition
             (assertion_clause
               (unlabeled_assertion_clause
-                (expression
-                  (special_expression (boolean_constant))))))
+                (expression (boolean_constant)))))
           (feature_body (effective_routine (internal (routine_mark))))))
         (feature_declaration
           (new_feature (extended_feature_name (identifier)))
@@ -228,8 +227,7 @@ end
           (postcondition
             (assertion_clause
               (unlabeled_assertion_clause
-                (expression
-                  (special_expression (boolean_constant)))))))))))
+                (expression (boolean_constant))))))))))
 
 ===
 Feature. Rescue
@@ -253,8 +251,7 @@ end
             (instruction
               (assignment
                 (call (unqualified_call (identifier)))
-                (expression
-                  (special_expression (boolean_constant)))))))))))
+                (expression (boolean_constant))))))))))
 
 ===
 Feature. Attribute

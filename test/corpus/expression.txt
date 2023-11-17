@@ -22,8 +22,7 @@ end
                     (unqualified_call
                       (identifier)
                       (actuals
-                        (expression
-                          (basic_expression (current)))))))))))))))
+                        (expression (current))))))))))))))
 
 ===
 Void
@@ -49,8 +48,7 @@ end
                     (unqualified_call
                       (identifier)
                       (actuals
-                        (expression
-                          (special_expression (void)))))))))))))))
+                        (expression (void))))))))))))))
 
 ===
 Character constant
@@ -76,9 +74,7 @@ end
                     (unqualified_call
                       (identifier)
                       (actuals
-                        (expression
-                          (special_expression
-                            (character_constant (character))))))))))))))))
+                        (expression (character_constant (character)))))))))))))))
 
 ===
 Expression. Bracket expression
@@ -94,10 +90,9 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (basic_expression
-              (bracket_expression
-                (call (unqualified_call (identifier)))
-                (expression (special_expression (integer_constant (integer))))))))))))
+            (bracket_expression
+              (call (unqualified_call (identifier)))
+              (expression (integer_constant (integer))))))))))
 
 ===
 Expression. Manifest tuple
@@ -113,16 +108,13 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (manifest_tuple
-                (expression
-                  (special_expression
-                    (integer_constant
-                      (integer))))
-                (expression
-                  (special_expression
-                    (basic_manifest_string
-                      (string_content))))))))))))
+            (manifest_tuple
+              (expression
+                (integer_constant
+                  (integer)))
+              (expression
+                (basic_manifest_string
+                  (string_content))))))))))
 
 ===
 Expression. Creation expression
@@ -138,10 +130,9 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (basic_expression
-              (creation_expression
-                (manifest_type (class_type (class_name)))
-                (unqualified_call (identifier))))))))))
+            (creation_expression
+              (manifest_type (class_type (class_name)))
+              (unqualified_call (identifier)))))))))
 
 ===
 Expression. Manifest array
@@ -157,10 +148,9 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (manifest_array
-                (manifest_type (class_type (class_name)))
-                (expression (special_expression (integer_constant (integer))))))))))))
+            (manifest_array
+              (manifest_type (class_type (class_name)))
+              (expression (integer_constant (integer))))))))))
 
 ===
 Expression. Call agent
@@ -176,13 +166,12 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (agent
-                (call_agent
-                  (agent_target (identifier))
-                  (agent_unqualified
-                    (identifier)
-                    (placeholder (manifest_type (class_type (class_name))))))))))))))
+            (agent
+              (call_agent
+                (agent_target (identifier))
+                (agent_unqualified
+                  (identifier)
+                  (placeholder (manifest_type (class_type (class_name)))))))))))))
 
 ===
 Expression. Inline agent
@@ -198,14 +187,13 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (agent
-                (inline_agent
-                  (attribute_or_routine
-                    (feature_body
-                      (effective_routine
-                        (internal
-                          (routine_mark))))))))))))))
+            (agent
+              (inline_agent
+                (attribute_or_routine
+                  (feature_body
+                    (effective_routine
+                      (internal
+                        (routine_mark)))))))))))))
 
 ===
 Expression. Address
@@ -221,9 +209,8 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (address
-                (identifier)))))))))
+            (address
+              (identifier))))))))
 
 ===
 Expression. Object test
@@ -239,13 +226,10 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (object_test
-                (manifest_type (class_type (class_name)))
-                (expression
-                  (basic_expression
-                    (call (unqualified_call (identifier)))))
-                (identifier)))))))))
+            (object_test
+              (manifest_type (class_type (class_name)))
+              (expression (call (unqualified_call (identifier))))
+              (identifier))))))))
 
 ===
 Expression. Tuple type with entities
@@ -261,18 +245,17 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (manifest_type
-                (tuple_type
-                  (class_name)
-                  (tuple_parameter_list
-                    (entity_declaration_list
-                      (entity_declaration_group
-                        (identifier)
-                        (class_type (class_name)))
-                      (entity_declaration_group
-                        (identifier)
-                        (class_type (class_name))))))))))))))
+            (manifest_type
+              (tuple_type
+                (class_name)
+                (tuple_parameter_list
+                  (entity_declaration_list
+                    (entity_declaration_group
+                      (identifier)
+                      (class_type (class_name)))
+                    (entity_declaration_group
+                      (identifier)
+                      (class_type (class_name)))))))))))))
 
 ===
 Expression. Tuple type with class names
@@ -288,13 +271,12 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (manifest_type
-                (tuple_type
-                  (class_name)
-                  (tuple_parameter_list
-                    (class_type (class_name))
-                    (class_type (class_name))))))))))))
+            (manifest_type
+              (tuple_type
+                (class_name)
+                (tuple_parameter_list
+                  (class_type (class_name))
+                  (class_type (class_name)))))))))))
 
 ===
 Expression. Anchored
@@ -309,10 +291,7 @@ end
     (invariant
       (assertion_clause
         (unlabeled_assertion_clause
-          (expression
-            (special_expression
-              (manifest_type
-                (anchored (current))))))))))
+          (expression (manifest_type (anchored (current)))))))))
 
 ===
 Expression. Quantifier loop
@@ -328,21 +307,12 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (basic_expression
-              (quantifier_loop
-                (iteration
-                  (expression
-                    (basic_expression
-                      (call
-                        (unqualified_call
-                          (identifier)))))
-                  (identifier))
-                (quantifier_loop_body
-                  (expression
-                    (basic_expression
-                      (call
-                        (unqualified_call
-                          (identifier))))))))))))))
+            (quantifier_loop
+              (iteration
+                (expression (call (unqualified_call (identifier))))
+                (identifier))
+              (quantifier_loop_body
+                (expression (call (unqualified_call (identifier))))))))))))
 
 ===
 Expression. Symbolic quantifier loop
@@ -358,16 +328,7 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (basic_expression
-              (quantifier_loop
-                (identifier)
-                (expression
-                  (basic_expression
-                    (call
-                      (unqualified_call
-                        (identifier)))))
-                (expression
-                  (basic_expression
-                    (call
-                      (unqualified_call
-                        (identifier)))))))))))))
+            (quantifier_loop
+              (identifier)
+              (expression (call (unqualified_call (identifier))))
+              (expression (call (unqualified_call (identifier)))))))))))

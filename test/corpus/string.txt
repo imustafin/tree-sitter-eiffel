@@ -23,8 +23,7 @@ end
                       (identifier)
                       (actuals
                         (expression
-                          (special_expression
-                            (basic_manifest_string (string_content))))))))))))))))
+                          (basic_manifest_string (string_content)))))))))))))))
 
 ===
 String. Once string
@@ -40,10 +39,9 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (once_string
-                (basic_manifest_string
-                  (string_content))))))))))
+            (once_string
+              (basic_manifest_string
+                (string_content)))))))))
 
 ===
 String. Verbatim string
@@ -68,11 +66,10 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (verbatim_string
-                (verbatim_string_opener)
-                (verbatim_string_content)
-                (verbatim_string_closer)))))))))
+            (verbatim_string
+              (verbatim_string_opener)
+              (verbatim_string_content)
+              (verbatim_string_closer))))))))
 ===
 String. One line string is not Verbatim
 ===
@@ -87,9 +84,8 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (basic_manifest_string
-                (string_content)))))))))
+            (basic_manifest_string
+              (string_content))))))))
 
 ===
 String. Empty content Verbatim string
@@ -106,10 +102,9 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (verbatim_string
-                (verbatim_string_opener)
-                (verbatim_string_closer)))))))))
+            (verbatim_string
+              (verbatim_string_opener)
+              (verbatim_string_closer))))))))
 
 ===
 String. Single closing bracket in Verbatim string
@@ -127,11 +122,10 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (verbatim_string
-                (verbatim_string_opener)
-                (verbatim_string_content)
-                (verbatim_string_closer)))))))))
+            (verbatim_string
+              (verbatim_string_opener)
+              (verbatim_string_content)
+              (verbatim_string_closer))))))))
 
 ===
 String. One line Verbatim string
@@ -149,11 +143,10 @@ end
       (assertion_clause
         (unlabeled_assertion_clause
           (expression
-            (special_expression
-              (verbatim_string
-                (verbatim_string_opener)
-                (verbatim_string_content)
-                (verbatim_string_closer)))))))))
+            (verbatim_string
+              (verbatim_string_opener)
+              (verbatim_string_content)
+              (verbatim_string_closer))))))))
 
 ===
 String. Curly braces in Basic string
