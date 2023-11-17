@@ -313,3 +313,61 @@ end
             (special_expression
               (manifest_type
                 (anchored (current))))))))))
+
+===
+Expression. Quantifier loop
+===
+class A
+invariant
+  across a as i all i end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (basic_expression
+              (quantifier_loop
+                (iteration
+                  (expression
+                    (basic_expression
+                      (call
+                        (unqualified_call
+                          (identifier)))))
+                  (identifier))
+                (quantifier_loop_body
+                  (expression
+                    (basic_expression
+                      (call
+                        (unqualified_call
+                          (identifier))))))))))))))
+
+===
+Expression. Symbolic quantifier loop
+===
+class A
+invariant
+  ∀ x: list ¦ x
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (basic_expression
+              (quantifier_loop
+                (identifier)
+                (expression
+                  (basic_expression
+                    (call
+                      (unqualified_call
+                        (identifier)))))
+                (expression
+                  (basic_expression
+                    (call
+                      (unqualified_call
+                        (identifier)))))))))))))

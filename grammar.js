@@ -450,6 +450,23 @@ module.exports = grammar({
       'end'
     ),
 
+    quantifier_loop: $ => choice(
+      seq($.iteration, $.quantifier_loop_body, 'end'),
+      seq(
+        choice('∀', '∃'),
+        $.identifier,
+        ':',
+        $.expression,
+        '¦',
+        $.expression
+      )
+    ),
+
+    quantifier_loop_body: $ => choice(
+      seq('all', $.expression),
+      seq('some', $.expression)
+    ),
+
     iteration: $ => seq(
       'across',
       $.expression,
@@ -467,10 +484,9 @@ module.exports = grammar({
       $.expression
     ),
 
-    loop_body: $ => choice(
-      seq('loop', repeat($.instruction)),
-      seq('all', $.expression),
-      seq('some', $.expression)
+    loop_body: $ => seq(
+      'loop',
+      repeat($.instruction)
     ),
 
     variant: $ => seq(
@@ -605,7 +621,8 @@ module.exports = grammar({
       $.operator_expression,
       $.bracket_expression,
       $.creation_expression,
-      $.conditional_expression
+      $.conditional_expression,
+      $.quantifier_loop,
     ),
 
     creation_expression: $ => choice(
