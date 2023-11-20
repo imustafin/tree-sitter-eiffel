@@ -73,12 +73,10 @@ end
 (source_file
   (class_declaration (class_name)
     (invariant
-      (assertion_clause
-        (unlabeled_assertion_clause
-          (expression (boolean_constant))))
+      (assertion_clause (expression (boolean_constant)))
       (assertion_clause
         (tag_mark (tag))
-        (unlabeled_assertion_clause (comment))))))
+        (comment)))))
 
 ===
 Class. Formal generics

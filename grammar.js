@@ -287,18 +287,16 @@ module.exports = grammar({
 
     assertion_clause: $ => seq(
       optional($.tag_mark),
-      $.unlabeled_assertion_clause
+      choice(
+        prec.right(2, $.expression),
+        $.comment,
+        $.object_free_assertion
+      )
     ),
 
     tag_mark: $ => seq(
       $.tag,
       ':'
-    ),
-
-    unlabeled_assertion_clause: $ => choice(
-      prec.right(2, $.expression),
-      $.comment,
-      $.object_free_assertion
     ),
 
     object_free_assertion: $ => 'class',

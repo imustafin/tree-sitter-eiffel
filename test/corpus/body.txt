@@ -366,13 +366,11 @@ end
               (instruction
                 (check
                   (assertion_clause
-                    (unlabeled_assertion_clause
-                      (expression
-                        (call (unqualified_call (identifier))))))
+                    (expression
+                      (call (unqualified_call (identifier)))))
                   (assertion_clause
-                    (unlabeled_assertion_clause
-                      (expression
-                        (call (unqualified_call (identifier))))))))))))))))
+                    (expression
+                      (call (unqualified_call (identifier)))))))))))))))
 
 ===
 Body. Retry
@@ -470,12 +468,11 @@ end
         (feature_body)
         (postcondition
           (assertion_clause
-            (unlabeled_assertion_clause
-              (expression
-                (old
-                  (expression
-                    (call
-                      (unqualified_call (identifier))))))))))))))
+            (expression
+              (old
+                (expression
+                  (call
+                    (unqualified_call (identifier)))))))))))))
 
 ===
 Body. Operator expressions
@@ -489,15 +486,14 @@ end
   (class_declaration (class_name)
     (invariant
       (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (operator_expression
-              (expression (integer_constant (integer)))
-              (binary_plus_minus)
-              (expression
-                (operator_expression
-                  (unary (unary_plus_minus))
-                  (expression (integer_constant (integer))))))))))))
+        (expression
+          (operator_expression
+            (expression (integer_constant (integer)))
+            (binary_plus_minus)
+            (expression
+              (operator_expression
+                (unary (unary_plus_minus))
+                (expression (integer_constant (integer)))))))))))
 
 ===
 Body. Non-object call

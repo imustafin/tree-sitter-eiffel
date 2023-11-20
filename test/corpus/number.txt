@@ -11,21 +11,19 @@ end
   (class_declaration (class_name)
     (invariant
       (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (parenthesized
-              (expression
-                (operator_expression
-                  (unary (unary_plus_minus))
-                  (expression (integer_constant (integer)))))))))
+        (expression
+          (parenthesized
+            (expression
+              (operator_expression
+                (unary (unary_plus_minus))
+                (expression (integer_constant (integer))))))))
       (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (parenthesized
-              (expression
-                (operator_expression
-                  (unary (unary_plus_minus))
-                  (expression (real_constant (real (integer)))))))))))))
+        (expression
+          (parenthesized
+            (expression
+              (operator_expression
+                (unary (unary_plus_minus))
+                (expression (real_constant (real (integer))))))))))))
 
 ===
 Number. Sign in Constant is (sign)
@@ -60,15 +58,14 @@ end
   (class_declaration (class_name)
     (invariant
       (assertion_clause
-        (unlabeled_assertion_clause
-          (expression
-            (operator_expression
-              (unary (unary_plus_minus))
-              (expression
-                (real_constant
-                  (real
-                    (integer)
-                    (real_exponent (sign) (integer))))))))))))
+        (expression
+          (operator_expression
+            (unary (unary_plus_minus))
+            (expression
+              (real_constant
+                (real
+                  (integer)
+                  (real_exponent (sign) (integer)))))))))))
 
 ===
 Number. Integer
@@ -82,5 +79,4 @@ end
   (class_declaration (class_name)
     (invariant
       (assertion_clause
-        (unlabeled_assertion_clause
-          (expression (integer_constant (integer))))))))
+        (expression (integer_constant (integer)))))))

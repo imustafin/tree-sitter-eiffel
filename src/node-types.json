@@ -149,11 +149,19 @@
       "required": true,
       "types": [
         {
-          "type": "tag_mark",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "unlabeled_assertion_clause",
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "object_free_assertion",
+          "named": true
+        },
+        {
+          "type": "tag_mark",
           "named": true
         }
       ]
@@ -2529,29 +2537,6 @@
       "types": [
         {
           "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "unlabeled_assertion_clause",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "object_free_assertion",
           "named": true
         }
       ]
