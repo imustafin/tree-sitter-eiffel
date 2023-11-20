@@ -1231,8 +1231,25 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "unlabeled_assertion_clause"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PREC_RIGHT",
+              "value": 2,
+              "content": {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "object_free_assertion"
+            }
+          ]
         }
       ]
     },
@@ -1246,27 +1263,6 @@
         {
           "type": "STRING",
           "value": ":"
-        }
-      ]
-    },
-    "unlabeled_assertion_clause": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PREC_RIGHT",
-          "value": 2,
-          "content": {
-            "type": "SYMBOL",
-            "name": "expression"
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "comment"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "object_free_assertion"
         }
       ]
     },

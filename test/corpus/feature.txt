@@ -167,9 +167,7 @@ end
         (new_feature (extended_feature_name (identifier)))
         (attribute_or_routine
           (precondition
-            (assertion_clause
-              (unlabeled_assertion_clause
-                (expression (boolean_constant)))))
+            (assertion_clause (expression (boolean_constant))))
           (feature_body (effective_routine (internal (routine_mark))))))
         (feature_declaration
           (new_feature (extended_feature_name (identifier)))
@@ -225,9 +223,7 @@ end
         (attribute_or_routine
           (feature_body (effective_routine (internal (routine_mark))))
           (postcondition
-            (assertion_clause
-              (unlabeled_assertion_clause
-                (expression (boolean_constant))))))))))
+            (assertion_clause (expression (boolean_constant)))))))))
 
 ===
 Feature. Rescue
