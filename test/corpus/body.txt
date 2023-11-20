@@ -1,10 +1,11 @@
 ===
-Creation instruction
+Body. Creation instruction
 ===
 class A feature x
   do
     create {X} x.make
     create x.make(True)
+    create Result
   end
 end
 ---
@@ -21,17 +22,17 @@ end
                 (instruction
                   (creation
                     (manifest_type (class_type (class_name)))
-                    (creation_call
-                      (identifier)
-                      (unqualified_call (identifier)))))
+                    (identifier)
+                    (unqualified_call (identifier))))
                 (instruction
                   (creation
-                    (creation_call
+                    (identifier)
+                    (unqualified_call
                       (identifier)
-                      (unqualified_call
-                        (identifier)
-                        (actuals
-                          (expression (boolean_constant)))))))))))))))
+                      (actuals
+                        (expression (boolean_constant))))))
+                (instruction
+                  (creation (result)))))))))))
 
 ===
 Call
@@ -495,7 +496,7 @@ end
               (binary_plus_minus)
               (expression
                 (operator_expression
-                  (unary)
+                  (unary (unary_plus_minus))
                   (expression (integer_constant (integer))))))))))))
 
 ===
