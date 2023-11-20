@@ -16,7 +16,7 @@ end
             (parenthesized
               (expression
                 (operator_expression
-                  (unary)
+                  (unary (unary_plus_minus))
                   (expression (integer_constant (integer)))))))))
       (assertion_clause
         (unlabeled_assertion_clause
@@ -24,7 +24,7 @@ end
             (parenthesized
               (expression
                 (operator_expression
-                  (unary)
+                  (unary (unary_plus_minus))
                   (expression (real_constant (real (integer)))))))))))))
 
 ===
@@ -63,7 +63,7 @@ end
         (unlabeled_assertion_clause
           (expression
             (operator_expression
-              (unary)
+              (unary (unary_plus_minus))
               (expression
                 (real_constant
                   (real

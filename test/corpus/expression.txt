@@ -332,3 +332,57 @@ end
               (identifier)
               (expression (call (unqualified_call (identifier))))
               (expression (call (unqualified_call (identifier)))))))))))
+
+===
+Expression. Call on bracket expression
+===
+class A
+invariant
+  a[i].f
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (call
+              (bracket_expression
+                (call (unqualified_call (identifier)))
+                (expression (call (unqualified_call (identifier)))))
+              (unqualified_call (identifier)))))))))
+
+===
+Expression. Free operator
+===
+class a
+invariant
+#1 a |f "str" + 1
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (unlabeled_assertion_clause
+          (expression
+            (operator_expression
+              (expression
+                (operator_expression
+                  (expression
+                    (operator_expression
+                      (unary
+                        (free_operator))
+                      (expression
+                        (call
+                          (unqualified_call
+                            (identifier))))))
+                  (free_operator)
+                  (expression
+                    (basic_manifest_string
+                      (string_content)))))
+              (binary_plus_minus)
+              (expression
+                (integer_constant
+                  (integer))))))))))

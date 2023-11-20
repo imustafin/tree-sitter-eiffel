@@ -11,12 +11,11 @@ const SIMPLE_CHARS_PLUS = new RegExp(SIMPLE_CHARS + '+');
 
 const SIMPLE_CHARS_STAR = new RegExp(SIMPLE_CHARS + '*');
 
-const IDENTIFIER = /[a-zA-Z_][a-zA-Z0-9_]*/;
-
 const EAT_SPACES = token.immediate(/[ \t]*/);
 
 const target = $ => choice(
   $.call,
+  $.bracket_expression,
   $.manifest_type,
   seq('(', $.expression, ')')
 );
@@ -202,12 +201,15 @@ module.exports = grammar({
       ))
     ),
 
-    unary: $ => prec(PREC.UNARY, choice(
-      'not',
-      '+',
-      '-',
-      // TODO: Free_unary
-    )),
+    unary: $ => choice(
+      $.unary_not,
+      $.unary_plus_minus,
+      $.free_operator
+    ),
+
+    unary_not: $ => 'not',
+
+    unary_plus_minus: $ => prec(PREC.UNARY, choice('+', '-')),
 
     redefine: $ => seq(
       'redefine',
@@ -576,15 +578,10 @@ module.exports = grammar({
     creation: $ => seq(
       'create',
       optional($.manifest_type),
-      $.creation_call
-    ),
-
-    creation_call: $ => seq(
       choice(
-        $.identifier,
-        $.result
-      ),
-      optional(seq('.', $.unqualified_call))
+        prec.left(100, seq(choice($.result, $.identifier), '.', $.unqualified_call)),
+        choice($.result, $.identifier),
+      )
     ),
 
     unqualified_call: $=> choice(
@@ -662,9 +659,9 @@ module.exports = grammar({
 
     // Priorities from http://www.gobosoft.com/eiffel/syntax/#Operator
     operator_expression: $ => choice(
-      prec.left(2, seq($.unary, $.expression)),
+      prec.left(200, seq($.unary, $.expression)), // unary precedes binary
 
-      // TODO: Free_binary as the highest priority binary
+      prec.left(100, seq($.expression, $.free_operator, $.expression)),
       prec.right(90, seq($.expression, $.binary_caret, $.expression)), // ^ is right-assoc.!
       prec.left(80, seq($.expression, $.binary_mul_div, $.expression)),
       prec.left(70, seq($.expression, $.binary_plus_minus, $.expression)),
@@ -672,6 +669,12 @@ module.exports = grammar({
       prec.left(50, seq($.expression, $.binary_and, $.expression)),
       prec.left(40, seq($.expression, $.binary_or, $.expression)),
       prec.left(30, seq($.expression, $.binary_implies, $.expression))
+    ),
+
+    // TODO: Support free operators starting with chars which are other operators
+    free_operator: $ => seq(
+      choice('#', '|', '&'),
+      token.immediate(/[a-zA-Z0-9+\-*/\\.<=>#|&]*/)
     ),
 
     binary_plus_minus: $ => choice('+', '-'),
@@ -923,8 +926,10 @@ module.exports = grammar({
 
     boolean_constant: $ => choice('True', 'False'),
 
-    class_name: $ => IDENTIFIER,
-    identifier: $ => IDENTIFIER,
-    tag: $ => IDENTIFIER
+    class_name: $ => $._id,
+    identifier: $ => $._id,
+    tag: $ => $._id,
+
+    _id: $ => /[a-zA-Z_][a-zA-Z0-9_]*/
   }
 })
