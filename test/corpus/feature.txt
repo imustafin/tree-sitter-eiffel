@@ -315,3 +315,49 @@ end
             (effective_routine
               (internal
                 (routine_mark)))))))))
+
+===
+Feature. Once
+===
+class A feature
+  x
+    once ("a")
+    end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark
+                  (once (basic_manifest_string (string_content))))))))))))
+
+===
+Feature. Agent require once
+===
+class A
+invariant
+  agent require once end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (agent
+            (inline_agent
+              (attribute_or_routine
+                (precondition)
+                (feature_body
+                  (effective_routine
+                    (internal
+                      (routine_mark
+                        (once)))))))))))))
