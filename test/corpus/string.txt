@@ -155,10 +155,7 @@ end
     (notes
       (note_entry
         (tag)
-        (note_values
-          (note_item
-            (basic_manifest_string
-              (string_content))))))
+        (basic_manifest_string (string_content))))
     (class_name)))
 
 ===
@@ -174,5 +171,5 @@ end
     (notes
       (note_entry
         (tag)
-        (note_values (note_item (basic_manifest_string (string_content))))))
+        (basic_manifest_string (string_content))))
     (class_name)))

@@ -61,12 +61,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "FIELD",
-              "name": "notes",
-              "content": {
-                "type": "SYMBOL",
-                "name": "notes"
-              }
+              "type": "SYMBOL",
+              "name": "notes"
             },
             {
               "type": "BLANK"
@@ -4262,46 +4258,47 @@
           "value": ":"
         },
         {
-          "type": "SYMBOL",
-          "name": "note_values"
-        }
-      ]
-    },
-    "note_values": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "note_item"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "note_item"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_manifest_constant"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "identifier"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_manifest_constant"
+                      }
+                    ]
+                  }
+                ]
               }
-            ]
-          }
-        }
-      ]
-    },
-    "note_item": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_manifest_constant"
+            }
+          ]
         }
       ]
     },

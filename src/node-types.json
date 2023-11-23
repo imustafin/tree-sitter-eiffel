@@ -507,16 +507,6 @@
             "named": true
           }
         ]
-      },
-      "notes": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "notes",
-            "named": true
-          }
-        ]
       }
     },
     "children": {
@@ -1855,25 +1845,6 @@
       "required": true,
       "types": [
         {
-          "type": "note_values",
-          "named": true
-        },
-        {
-          "type": "tag",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "note_item",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
           "type": "basic_manifest_string",
           "named": true
         },
@@ -1902,22 +1873,11 @@
           "named": true
         },
         {
-          "type": "verbatim_string",
+          "type": "tag",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "note_values",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
+        },
         {
-          "type": "note_item",
+          "type": "verbatim_string",
           "named": true
         }
       ]
