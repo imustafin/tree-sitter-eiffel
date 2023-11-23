@@ -160,3 +160,19 @@ end
             (basic_manifest_string
               (string_content))))))
     (class_name)))
+
+===
+String. Dollar in simple string
+===
+note
+	revision: "$Revision: 1 $"
+class A
+end
+---
+(source_file
+  (class_declaration
+    (notes
+      (note_entry
+        (tag)
+        (note_values (note_item (basic_manifest_string (string_content))))))
+    (class_name)))
