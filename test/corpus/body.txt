@@ -521,3 +521,38 @@ end
                     (manifest_type (class_type (class_name)))
                     (unqualified_call
                       (identifier))))))))))))
+
+===
+Body. Check-then
+===
+class A feature x
+  do
+    check x then
+      f
+    end
+  end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (instruction
+                  (check
+                    (assertion_clause
+                      (expression
+                        (call
+                          (unqualified_call
+                            (identifier)))))
+                    (instruction
+                      (call
+                        (unqualified_call
+                          (identifier))))))))))))))
