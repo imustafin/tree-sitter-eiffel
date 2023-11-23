@@ -428,6 +428,7 @@ module.exports = grammar({
       'check',
       repeat($.assertion_clause),
       optional($.notes),
+      optional(seq('then', repeat($.instruction))),
       'end'
     ),
 

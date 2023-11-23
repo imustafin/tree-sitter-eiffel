@@ -437,6 +437,10 @@
           "named": true
         },
         {
+          "type": "instruction",
+          "named": true
+        },
+        {
           "type": "notes",
           "named": true
         }
