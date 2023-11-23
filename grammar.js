@@ -363,11 +363,11 @@ module.exports = grammar({
       optional($.entity_declaration_list)
     ),
 
-    precondition: $ => seq(
+    precondition: $ => prec.left(seq(
       'require',
       optional('else'),
       repeat($.assertion_clause)
-    ),
+    )),
 
     postcondition: $ => seq(
       'ensure',
@@ -407,7 +407,15 @@ module.exports = grammar({
       repeat($.instruction)
     ),
 
-    routine_mark: $ => choice('do'),
+    routine_mark: $ => choice(
+      'do',
+      $.once
+    ),
+
+    once: $ => choice(
+      'once',
+      prec.left(2, seq('once', '(', optional(join1($._manifest_string, ',')), ')'))
+    ),
 
     instruction: $ => choice(
       $.assignment,
@@ -435,7 +443,7 @@ module.exports = grammar({
     debug: $ => seq(
       prec.left(2, seq(
         'debug',
-        optional(seq('(', $._manifest_string, repeat(seq(',', $._manifest_string)), ')')),
+        optional(seq('(', optional(join1($._manifest_string, ',')), ')')),
       )),
       repeat($.instruction),
       'end'
