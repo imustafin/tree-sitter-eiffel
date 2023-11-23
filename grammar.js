@@ -55,7 +55,7 @@ module.exports = grammar({
     )),
 
     class_declaration: $ => seq(
-      optional(field('notes', $.notes)),
+      optional($.notes),
       optional(field('mark', $.header_mark)),
       'class',
       $.class_name,
@@ -846,12 +846,8 @@ module.exports = grammar({
     note_entry: $ => seq(
       $.tag,
       ':',
-      $.note_values
+      join1(choice($.identifier, $._manifest_constant), ',')
     ),
-
-    note_values: $ => seq($.note_item, repeat(seq(',', $.note_item))),
-
-    note_item: $ => choice($.identifier, $._manifest_constant),
 
     _manifest_constant: $ => choice(
       $._manifest_value,

@@ -12,22 +12,20 @@ end
 ---
 (source_file
   (class_declaration
-    notes: (notes
+    (notes
       (note_entry
         (tag)
-        (note_values
-          (note_item (boolean_constant))))
+        (boolean_constant))
       (note_entry
         (tag)
-        (note_values
-          (note_item (boolean_constant))
-          (note_item (boolean_constant)))))
+        (boolean_constant)
+        (boolean_constant)))
     (class_name)
     (invariant)
     (notes
       (note_entry
         (tag)
-        (note_values (note_item (boolean_constant)))))))
+        (boolean_constant)))))
 
 ===
 Class. End Note without Invariant
