@@ -204,7 +204,43 @@
       "required": false,
       "types": [
         {
-          "type": "instruction",
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         }
       ]
@@ -437,11 +473,47 @@
           "named": true
         },
         {
-          "type": "instruction",
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
           "named": true
         },
         {
           "type": "notes",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         }
       ]
@@ -900,11 +972,47 @@
       "required": false,
       "types": [
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "basic_manifest_string",
           "named": true
         },
         {
-          "type": "instruction",
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         },
         {
@@ -942,7 +1050,43 @@
       "required": false,
       "types": [
         {
-          "type": "instruction",
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         }
       ]
@@ -1446,7 +1590,43 @@
       "required": false,
       "types": [
         {
-          "type": "instruction",
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         }
       ]
@@ -1492,11 +1672,30 @@
     }
   },
   {
-    "type": "instruction",
+    "type": "integer_constant",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "sign",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "internal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -1537,40 +1736,6 @@
         },
         {
           "type": "retry",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "integer_constant",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "sign",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "internal",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "instruction",
           "named": true
         },
         {
@@ -1673,7 +1838,43 @@
       "required": false,
       "types": [
         {
-          "type": "instruction",
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         }
       ]
@@ -2304,7 +2505,43 @@
       "required": false,
       "types": [
         {
-          "type": "instruction",
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         }
       ]
@@ -2421,11 +2658,47 @@
       "required": true,
       "types": [
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         },
         {
-          "type": "instruction",
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         }
       ]
@@ -2620,11 +2893,47 @@
       "required": true,
       "types": [
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
           "type": "choice",
           "named": true
         },
         {
-          "type": "instruction",
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         }
       ]

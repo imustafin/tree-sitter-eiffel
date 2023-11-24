@@ -19,20 +19,17 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (creation
-                    (manifest_type (class_type (class_name)))
+                (creation
+                  (manifest_type (class_type (class_name)))
+                  (identifier)
+                  (unqualified_call (identifier)))
+                (creation
+                  (identifier)
+                  (unqualified_call
                     (identifier)
-                    (unqualified_call (identifier))))
-                (instruction
-                  (creation
-                    (identifier)
-                    (unqualified_call
-                      (identifier)
-                      (actuals
-                        (expression (boolean_constant))))))
-                (instruction
-                  (creation (result)))))))))))
+                    (actuals
+                      (expression (boolean_constant)))))
+                (creation (result))))))))))
 
 ===
 Call
@@ -53,11 +50,10 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (call
-                      (call
-                        (unqualified_call (identifier)))
-                    (unqualified_call (identifier))))))))))))
+                (call
+                    (call
+                      (unqualified_call (identifier)))
+                  (unqualified_call (identifier)))))))))))
 
 ===
 Arguments on next line
@@ -79,13 +75,12 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (call
-                    (call (unqualified_call (identifier)))
-                    (unqualified_call
-                      (identifier)
-                      (actuals
-                        (expression (boolean_constant))))))))))))))
+                (call
+                  (call (unqualified_call (identifier)))
+                  (unqualified_call
+                    (identifier)
+                    (actuals
+                      (expression (boolean_constant)))))))))))))
 
 ===
 Body. Assigner call
@@ -107,17 +102,15 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (assignment
-                    (call
-                      (unqualified_call (identifier)))
-                    (expression (boolean_constant))))
-                (instruction
-                  (assignment
-                    (call
-                      (call (unqualified_call (identifier)))
-                      (unqualified_call (identifier)))
-                    (expression (boolean_constant))))))))))))
+                (assignment
+                  (call
+                    (unqualified_call (identifier)))
+                  (expression (boolean_constant)))
+                (assignment
+                  (call
+                    (call (unqualified_call (identifier)))
+                    (unqualified_call (identifier)))
+                  (expression (boolean_constant)))))))))))
 
 ===
 Body. Assign to Result
@@ -141,10 +134,9 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (assignment
-                    (result)
-                    (expression (integer_constant (integer)))))))))))))
+                (assignment
+                  (result)
+                  (expression (integer_constant (integer))))))))))))
 
 ===
 Body. Precursor instruction and Precursor expression
@@ -166,15 +158,13 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (precursor
-                  (class_name)
-                  (actuals
-                    (expression (boolean_constant)))))
-                (instruction
-                  (assignment
-                    (call (unqualified_call (identifier)))
-                    (expression (precursor))))))))))))
+              (precursor
+                (class_name)
+                (actuals
+                  (expression (boolean_constant))))
+                (assignment
+                  (call (unqualified_call (identifier)))
+                  (expression (precursor)))))))))))
 
 ===
 Body. Conditional instruction
@@ -201,16 +191,15 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (conditional
-                  (then_part
-                    (expression (call (unqualified_call (identifier))))
-                    (instruction (call (unqualified_call (identifier)))))
-                  (then_part
-                    (expression (call (unqualified_call (identifier))))
-                    (instruction (call (unqualified_call (identifier)))))
-                  (else_part
-                    (instruction (call (unqualified_call (identifier)))))))))))))))
+              (conditional
+                (then_part
+                  (expression (call (unqualified_call (identifier))))
+                  (call (unqualified_call (identifier))))
+                (then_part
+                  (expression (call (unqualified_call (identifier))))
+                  (call (unqualified_call (identifier))))
+                (else_part
+                  (call (unqualified_call (identifier)))))))))))))
 
 ===
 Body. Conditional expression
@@ -231,18 +220,17 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (assignment
-                  (call (unqualified_call (identifier)))
-                  (expression
-                    (conditional_expression
-                      (then_part_expression
-                        (expression (call (unqualified_call (identifier))))
-                        (expression (call (unqualified_call (identifier)))))
-                      (then_part_expression
-                        (expression (call (unqualified_call (identifier))))
-                        (expression (call (unqualified_call (identifier)))))
-                        (expression (call (unqualified_call (identifier))))))))))))))))
+              (assignment
+                (call (unqualified_call (identifier)))
+                (expression
+                  (conditional_expression
+                    (then_part_expression
+                      (expression (call (unqualified_call (identifier))))
+                      (expression (call (unqualified_call (identifier)))))
+                    (then_part_expression
+                      (expression (call (unqualified_call (identifier))))
+                      (expression (call (unqualified_call (identifier)))))
+                      (expression (call (unqualified_call (identifier)))))))))))))))
 
 ===
 Body. Multi-branch
@@ -267,16 +255,15 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (multi_branch
-                  (expression (call (unqualified_call (identifier))))
-                  (when_part (choice (integer_constant (integer))))
-                  (when_part
-                    (choice
-                      (constant_interval
-                        (integer_constant (integer))
-                        (integer_constant (integer)))))
-                  (else_part)))))))))))
+              (multi_branch
+                (expression (call (unqualified_call (identifier))))
+                (when_part (choice (integer_constant (integer))))
+                (when_part
+                  (choice
+                    (constant_interval
+                      (integer_constant (integer))
+                      (integer_constant (integer)))))
+                (else_part))))))))))
 
 ===
 Body. Loop
@@ -306,20 +293,19 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (loop
-                  (iteration
-                    (expression
-                      (call (unqualified_call (identifier))))
-                      (identifier))
-                  (initialization)
-                  (invariant)
-                  (exit_condition
-                    (expression (call (unqualified_call (identifier)))))
-                  (loop_body)
-                  (variant
-                    (expression
-                      (call (unqualified_call (identifier)))))))))))))))
+              (loop
+                (iteration
+                  (expression
+                    (call (unqualified_call (identifier))))
+                    (identifier))
+                (initialization)
+                (invariant)
+                (exit_condition
+                  (expression (call (unqualified_call (identifier)))))
+                (loop_body)
+                (variant
+                  (expression
+                    (call (unqualified_call (identifier))))))))))))))
 ===
 Body. Debug
 ===
@@ -340,9 +326,7 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (debug
-                  (basic_manifest_string (string_content))))))))))))
+              (debug (basic_manifest_string (string_content)))))))))))
 
 ===
 Body. Check
@@ -363,14 +347,13 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (check
-                  (assertion_clause
-                    (expression
-                      (call (unqualified_call (identifier)))))
-                  (assertion_clause
-                    (expression
-                      (call (unqualified_call (identifier)))))))))))))))
+              (check
+                (assertion_clause
+                  (expression
+                    (call (unqualified_call (identifier)))))
+                (assertion_clause
+                  (expression
+                    (call (unqualified_call (identifier))))))))))))))
 
 ===
 Body. Retry
@@ -391,8 +374,7 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (retry))))))))))
+              (retry)))))))))
 
 ===
 Body. Equality
@@ -413,14 +395,13 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (assignment
-                  (call (unqualified_call (identifier)))
-                  (expression
-                    (equality
-                      (expression (integer_constant (integer)))
-                      (comparison)
-                      (expression (integer_constant (integer)))))))))))))))
+              (assignment
+                (call (unqualified_call (identifier)))
+                (expression
+                  (equality
+                    (expression (integer_constant (integer)))
+                    (comparison)
+                    (expression (integer_constant (integer))))))))))))))
 
 ===
 Body. Parenthesized
@@ -441,13 +422,12 @@ end
           (effective_routine
             (internal
               (routine_mark)
-              (instruction
-                (assignment
-                  (call (unqualified_call (identifier)))
-                  (expression
-                    (parenthesized
-                      (expression
-                        (integer_constant (integer)))))))))))))))
+              (assignment
+                (call (unqualified_call (identifier)))
+                (expression
+                  (parenthesized
+                    (expression
+                      (integer_constant (integer))))))))))))))
 
 ===
 Body. Old
@@ -516,11 +496,10 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (call
-                    (manifest_type (class_type (class_name)))
-                    (unqualified_call
-                      (identifier))))))))))))
+                (call
+                  (manifest_type (class_type (class_name)))
+                  (unqualified_call
+                    (identifier)))))))))))
 
 ===
 Body. Check-then
@@ -545,14 +524,57 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (check
-                    (assertion_clause
-                      (expression
-                        (call
-                          (unqualified_call
-                            (identifier)))))
-                    (instruction
+                (check
+                  (assertion_clause
+                    (expression
                       (call
                         (unqualified_call
-                          (identifier))))))))))))))
+                          (identifier)))))
+                  (call
+                    (unqualified_call
+                      (identifier))))))))))))
+
+===
+Body. Just semicolon
+===
+class A feature x
+  do
+    ;
+  end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)))))))))
+
+===
+Body. Semicolon after instruction
+===
+class A feature x
+  do
+    f;
+  end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (call (unqualified_call (identifier)))))))))))

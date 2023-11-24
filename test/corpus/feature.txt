@@ -244,10 +244,9 @@ end
         (attribute_or_routine
           (feature_body (effective_routine (internal (routine_mark))))
           (rescue
-            (instruction
-              (assignment
-                (call (unqualified_call (identifier)))
-                (expression (boolean_constant))))))))))
+            (assignment
+              (call (unqualified_call (identifier)))
+              (expression (boolean_constant)))))))))
 
 ===
 Feature. Attribute

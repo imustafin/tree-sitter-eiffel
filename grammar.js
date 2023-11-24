@@ -355,7 +355,7 @@ module.exports = grammar({
 
     rescue: $ => seq(
       'rescue',
-      repeat($.instruction)
+      repeat($._instruction)
     ),
 
     local_declarations: $ => seq(
@@ -383,7 +383,7 @@ module.exports = grammar({
 
     attribute: $ => seq(
       'attribute',
-      repeat($.instruction)
+      repeat($._instruction)
     ),
 
     effective_routine: $ => choice(
@@ -404,7 +404,7 @@ module.exports = grammar({
 
     internal: $ => seq(
       $.routine_mark,
-      repeat($.instruction)
+      repeat($._instruction)
     ),
 
     routine_mark: $ => choice(
@@ -417,7 +417,8 @@ module.exports = grammar({
       prec.left(2, seq('once', '(', optional(join1($._manifest_string, ',')), ')'))
     ),
 
-    instruction: $ => choice(
+    _instruction: $ => choice(
+      ';', // _instruction is hidden, so semicolons will not appear in the tree
       $.assignment,
       $.creation,
       $.call,
@@ -436,7 +437,7 @@ module.exports = grammar({
       'check',
       repeat($.assertion_clause),
       optional($.notes),
-      optional(seq('then', repeat($.instruction))),
+      optional(seq('then', repeat($._instruction))),
       'end'
     ),
 
@@ -445,7 +446,7 @@ module.exports = grammar({
         'debug',
         optional(seq('(', optional(join1($._manifest_string, ',')), ')')),
       )),
-      repeat($.instruction),
+      repeat($._instruction),
       'end'
     ),
 
@@ -485,7 +486,7 @@ module.exports = grammar({
 
     initialization: $ => prec.left(2, seq(
       'from',
-      repeat($.instruction)
+      repeat($._instruction)
     )),
 
     exit_condition: $ => seq(
@@ -495,7 +496,7 @@ module.exports = grammar({
 
     loop_body: $ => seq(
       'loop',
-      repeat($.instruction)
+      repeat($._instruction)
     ),
 
     variant: $ => seq(
@@ -517,7 +518,7 @@ module.exports = grammar({
       $.choice,
       repeat(seq(',', $.choice)),
       'then',
-      repeat($.instruction)
+      repeat($._instruction)
     ),
 
     choice: $ => choice(
@@ -547,12 +548,12 @@ module.exports = grammar({
     then_part: $ => seq(
       $.expression,
       'then',
-      repeat($.instruction)
+      repeat($._instruction)
     ),
 
     else_part: $ => seq(
       'else',
-      repeat($.instruction)
+      repeat($._instruction)
     ),
 
     conditional_expression: $ => seq(
