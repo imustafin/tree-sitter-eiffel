@@ -2590,8 +2590,17 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": ":="
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ":="
+            },
+            {
+              "type": "STRING",
+              "value": "?="
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -4202,7 +4211,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "identifier"
+              "name": "call"
             },
             {
               "type": "SYMBOL",

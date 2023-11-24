@@ -130,11 +130,11 @@
           "named": true
         },
         {
-          "type": "current",
+          "type": "call",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "current",
           "named": true
         }
       ]
@@ -3057,6 +3057,10 @@
   },
   {
     "type": "?",
+    "named": false
+  },
+  {
+    "type": "?=",
     "named": false
   },
   {

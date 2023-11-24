@@ -574,7 +574,10 @@ module.exports = grammar({
     // Covers normal Assignment and Assigner_call
     assignment: $ => seq(
       choice($.call, $.result),
-      ':=',
+      choice(
+        ':=',
+        '?=' // obsolete "Assignment attempt"
+      ),
       $.expression
     ),
 
@@ -832,7 +835,7 @@ module.exports = grammar({
     anchored: $ => seq(
       optional($.attachment_mark),
       'like',
-      choice($.identifier, $.current)
+      choice($.call, $.current)
     ),
 
     header_mark: $ => choice('deferred', 'expanded', 'frozen'),
