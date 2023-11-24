@@ -142,8 +142,7 @@ end
           (new_exports
             (new_export_item
               (clients (class_name))
-              (header_comment)
-              (export_all)))
+              (header_comment)))
           (select (identifier)))))))
 
 ===
@@ -181,3 +180,34 @@ end
           (identifier)
           (class_type (class_name))
           (class_type (class_name)))))))
+
+===
+Class. Inheritance Export then Undefine
+===
+class A
+inherit
+	EB_CONSTANTS
+		export
+			{NONE} all
+		undefine
+			copy,
+			default_create,
+			is_equal
+		end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (inheritance
+      (parent
+        (class_type
+          (class_name))
+        (feature_adaptation
+          (new_exports
+            (new_export_item
+              (clients
+                (class_name))))
+          (undefine
+            (identifier)
+            (identifier)
+            (identifier)))))))
