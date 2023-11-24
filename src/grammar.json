@@ -2625,6 +2625,14 @@
                     "members": [
                       {
                         "type": "SYMBOL",
+                        "name": "current"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "result"
+                      },
+                      {
+                        "type": "SYMBOL",
                         "name": "call"
                       },
                       {
@@ -2944,6 +2952,14 @@
               {
                 "type": "CHOICE",
                 "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "current"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "result"
+                  },
                   {
                     "type": "SYMBOL",
                     "name": "call"

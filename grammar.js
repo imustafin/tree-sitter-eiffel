@@ -14,6 +14,8 @@ const SIMPLE_CHARS_STAR = new RegExp(SIMPLE_CHARS + '*');
 const EAT_SPACES = token.immediate(/[ \t]*/);
 
 const target = $ => choice(
+  $.current,
+  $.result,
   $.call,
   $.bracket_expression,
   $.manifest_type,
