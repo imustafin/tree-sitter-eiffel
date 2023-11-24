@@ -365,6 +365,10 @@
           "named": true
         },
         {
+          "type": "current",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         },
@@ -386,6 +390,10 @@
         },
         {
           "type": "real_constant",
+          "named": true
+        },
+        {
+          "type": "result",
           "named": true
         },
         {
@@ -412,11 +420,19 @@
           "named": true
         },
         {
+          "type": "current",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         },
         {
           "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "result",
           "named": true
         },
         {

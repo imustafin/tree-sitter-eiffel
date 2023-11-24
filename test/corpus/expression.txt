@@ -390,3 +390,28 @@ end
             (expression
               (integer_constant
                 (integer)))))))))
+
+===
+Expression. Unary of call on Current
+===
+class A
+invariant
+  not Current.has (Void)
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (operator_expression
+            (unary
+              (unary_not))
+            (expression
+              (call
+                (current)
+                (unqualified_call
+                  (identifier)
+                  (actuals
+                    (expression
+                      (void))))))))))))
