@@ -2004,10 +2004,6 @@
           "named": true
         },
         {
-          "type": "export_all",
-          "named": true
-        },
-        {
           "type": "header_comment",
           "named": true
         },
@@ -3222,10 +3218,6 @@
   {
     "type": "export",
     "named": false
-  },
-  {
-    "type": "export_all",
-    "named": true
   },
   {
     "type": "external",

@@ -130,37 +130,15 @@ module.exports = grammar({
     ),
 
     // Just 'end' is not valid, there should be at least one clause before it
-    feature_adaptation: $ => choice(
-      seq(
-        $.undefine,
-        optional($.redefine),
-        optional($.rename),
-        optional($.new_exports),
-        optional($.select),
-        'end',
-      ),
-      seq(
-        $.redefine,
-        optional($.rename),
-        optional($.new_exports),
-        optional($.select),
-        'end'
-      ),
-      seq(
-        $.rename,
-        optional($.new_exports),
-        optional($.select),
-        'end'
-      ),
-      seq(
+    feature_adaptation: $ => seq(
+      repeat1(choice(
         $.new_exports,
-        optional($.select),
-        'end'
-      ),
-      seq(
+        $.undefine,
+        $.redefine,
+        $.rename,
         $.select,
-        'end'
-      ),
+      )),
+      'end',
     ),
 
     select: $ => seq(
@@ -177,7 +155,7 @@ module.exports = grammar({
       $.clients,
       optional($.header_comment),
       choice(
-        alias('all', $.export_all),
+        'all',
         join1($.identifier, ',')
       )
     ),
