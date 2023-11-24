@@ -280,6 +280,28 @@ end
         (expression (manifest_type (anchored (current))))))))
 
 ===
+Expression. Anchored to call
+===
+class A
+invariant
+  {like x.y.z}
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (manifest_type
+            (anchored
+              (call
+                (call
+                  (call
+                    (unqualified_call (identifier)))
+                  (unqualified_call (identifier)))
+                (unqualified_call (identifier))))))))))
+
+===
 Expression. Quantifier loop
 ===
 class A
