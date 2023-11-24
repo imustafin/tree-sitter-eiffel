@@ -5,7 +5,7 @@ const PREC = {
   HEADER_COMMENT: 2,
 };
 
-const SIMPLE_CHARS = '[^@^\\~\n`#\t|%\'"\\[\\]{}]';
+const SIMPLE_CHARS = '[^@^\\~\n`#\t%\'"\\[\\]{}]';
 
 const SIMPLE_CHARS_PLUS = new RegExp(SIMPLE_CHARS + '+');
 

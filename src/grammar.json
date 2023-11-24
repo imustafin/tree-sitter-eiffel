@@ -4444,7 +4444,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PATTERN",
-                    "value": "[^@^\\~\\n`#\t|%'\"\\[\\]{}]+"
+                    "value": "[^@^\\~\\n`#\t%'\"\\[\\]{}]+"
                   }
                 }
               ]
@@ -4632,7 +4632,7 @@
     },
     "character": {
       "type": "PATTERN",
-      "value": "[^@^\\~\\n`#\t|%'\"\\[\\]{}]"
+      "value": "[^@^\\~\\n`#\t%'\"\\[\\]{}]"
     },
     "boolean_constant": {
       "type": "CHOICE",
