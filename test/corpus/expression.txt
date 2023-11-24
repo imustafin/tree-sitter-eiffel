@@ -17,12 +17,11 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (call
-                    (unqualified_call
-                      (identifier)
-                      (actuals
-                        (expression (current))))))))))))))
+                (call
+                  (unqualified_call
+                    (identifier)
+                    (actuals
+                      (expression (current)))))))))))))
 
 ===
 Void
@@ -43,12 +42,11 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (call
-                    (unqualified_call
-                      (identifier)
-                      (actuals
-                        (expression (void))))))))))))))
+                (call
+                  (unqualified_call
+                    (identifier)
+                    (actuals
+                      (expression (void)))))))))))))
 
 ===
 Character constant
@@ -69,12 +67,11 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (call
-                    (unqualified_call
-                      (identifier)
-                      (actuals
-                        (expression (character_constant (character)))))))))))))))
+                (call
+                  (unqualified_call
+                    (identifier)
+                    (actuals
+                      (expression (character_constant (character))))))))))))))
 
 ===
 Expression. Bracket expression

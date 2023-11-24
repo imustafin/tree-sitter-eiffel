@@ -1606,7 +1606,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "instruction"
+            "name": "_instruction"
           }
         }
       ]
@@ -1720,7 +1720,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "instruction"
+            "name": "_instruction"
           }
         }
       ]
@@ -1783,7 +1783,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "instruction"
+            "name": "_instruction"
           }
         }
       ]
@@ -1864,9 +1864,13 @@
         }
       ]
     },
-    "instruction": {
+    "_instruction": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "STRING",
+          "value": ";"
+        },
         {
           "type": "SYMBOL",
           "name": "assignment"
@@ -1953,7 +1957,7 @@
                   "type": "REPEAT",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "instruction"
+                    "name": "_instruction"
                   }
                 }
               ]
@@ -2043,7 +2047,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "instruction"
+            "name": "_instruction"
           }
         },
         {
@@ -2251,7 +2255,7 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
-              "name": "instruction"
+              "name": "_instruction"
             }
           }
         ]
@@ -2281,7 +2285,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "instruction"
+            "name": "_instruction"
           }
         }
       ]
@@ -2382,7 +2386,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "instruction"
+            "name": "_instruction"
           }
         }
       ]
@@ -2490,7 +2494,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "instruction"
+            "name": "_instruction"
           }
         }
       ]
@@ -2506,7 +2510,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "instruction"
+            "name": "_instruction"
           }
         }
       ]

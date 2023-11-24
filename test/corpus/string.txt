@@ -17,13 +17,12 @@ end
             (effective_routine
               (internal
                 (routine_mark)
-                (instruction
-                  (call
-                    (unqualified_call
-                      (identifier)
-                      (actuals
-                        (expression
-                          (basic_manifest_string (string_content)))))))))))))))
+                (call
+                  (unqualified_call
+                    (identifier)
+                    (actuals
+                      (expression
+                        (basic_manifest_string (string_content))))))))))))))
 
 ===
 String. Once string
