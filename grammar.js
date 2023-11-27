@@ -271,7 +271,8 @@ module.exports = grammar({
         prec.right(2, $.expression),
         $.comment,
         $.object_free_assertion
-      )
+      ),
+      optional(';')
     ),
 
     tag_mark: $ => seq(

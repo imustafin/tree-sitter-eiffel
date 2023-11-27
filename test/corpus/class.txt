@@ -211,3 +211,19 @@ end
             (identifier)
             (identifier)
             (identifier)))))))
+
+===
+Class. Assertions with semicolon
+===
+class A
+invariant
+  True; False
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression (boolean_constant)))
+      (assertion_clause
+        (expression (boolean_constant))))))
