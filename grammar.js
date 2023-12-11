@@ -19,6 +19,7 @@ const target = $ => choice(
   $.call,
   $.bracket_expression,
   $.manifest_type,
+	$.at_cursor,
   seq('(', $.expression, ')')
 );
 
@@ -431,7 +432,9 @@ module.exports = grammar({
       'end'
     ),
 
-    loop: $ => seq(
+    loop: $ => choice(
+			seq('⟳', $.identifier, ':', $.expression, '¦', repeat($._instruction), '⟲'),
+			seq(
       optional($.iteration),
       optional($.initialization),
       optional($.invariant),
@@ -439,7 +442,8 @@ module.exports = grammar({
       $.loop_body,
       optional($.variant),
       'end'
-    ),
+    )
+		),
 
     quantifier_loop: $ => choice(
       seq($.iteration, $.quantifier_loop_body, 'end'),
@@ -716,6 +720,8 @@ module.exports = grammar({
     )),
 
     address: $ => seq('$', $.identifier),
+
+		at_cursor: $ => seq('@', $.identifier),
 
     agent: $ => choice(
       $.call_agent,

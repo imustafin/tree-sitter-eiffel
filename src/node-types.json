@@ -191,6 +191,21 @@
     }
   },
   {
+    "type": "at_cursor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "attachment_mark",
     "named": true,
     "fields": {}
@@ -345,6 +360,10 @@
       "required": true,
       "types": [
         {
+          "type": "at_cursor",
+          "named": true
+        },
+        {
           "type": "basic_manifest_string",
           "named": true
         },
@@ -411,6 +430,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "at_cursor",
+          "named": true
+        },
         {
           "type": "bracket_expression",
           "named": true
@@ -1819,7 +1842,39 @@
       "required": true,
       "types": [
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "check",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "creation",
+          "named": true
+        },
+        {
+          "type": "debug",
+          "named": true
+        },
+        {
           "type": "exit_condition",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -1835,7 +1890,23 @@
           "named": true
         },
         {
+          "type": "loop",
+          "named": true
+        },
+        {
           "type": "loop_body",
+          "named": true
+        },
+        {
+          "type": "multi_branch",
+          "named": true
+        },
+        {
+          "type": "precursor",
+          "named": true
+        },
+        {
+          "type": "retry",
           "named": true
         },
         {
@@ -3076,6 +3147,10 @@
     "named": false
   },
   {
+    "type": "@",
+    "named": false
+  },
+  {
     "type": "False",
     "named": false
   },
@@ -3389,6 +3464,14 @@
   },
   {
     "type": "∃",
+    "named": false
+  },
+  {
+    "type": "⟲",
+    "named": false
+  },
+  {
+    "type": "⟳",
     "named": false
   }
 ]

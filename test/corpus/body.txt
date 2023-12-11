@@ -306,6 +306,64 @@ end
                 (variant
                   (expression
                     (call (unqualified_call (identifier))))))))))))))
+
+===
+Body. Symbolic loop
+===
+class A feature x
+  do
+		⟳ x: strings ¦ print (x) ⟲
+	end
+end
+---
+(source_file
+	(class_declaration (class_name)
+		(feature_clause
+			(feature_declaration
+				(new_feature (extended_feature_name (identifier)))
+				(attribute_or_routine
+					(feature_body
+						(effective_routine
+							(internal
+								(routine_mark)
+								(loop
+									(identifier)
+									(expression (call (unqualified_call (identifier))))
+									(call
+										(unqualified_call
+											(identifier)
+											(actuals
+												(expression
+													(call
+														(unqualified_call
+															(identifier))))))))))))))))
+
+===
+Body. Cursor feature access
+===
+class A
+invariant
+	∀ x: help_messages ¦ @ x.true
+end
+---
+(source_file
+	(class_declaration (class_name)
+		(invariant
+			(assertion_clause
+				(expression
+					(quantifier_loop
+						(identifier)
+						(expression
+							(call
+								(unqualified_call
+									(identifier))))
+						(expression
+							(call
+								(at_cursor
+									(identifier))
+								(unqualified_call
+									(identifier))))))))))
+
 ===
 Body. Debug
 ===
