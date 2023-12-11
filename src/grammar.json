@@ -4368,8 +4368,11 @@
                       }
                     },
                     {
-                      "type": "STRING",
-                      "value": "\n"
+                      "type": "IMMEDIATE_TOKEN",
+                      "content": {
+                        "type": "STRING",
+                        "value": "\n"
+                      }
                     }
                   ]
                 }
