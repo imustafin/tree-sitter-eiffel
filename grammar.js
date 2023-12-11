@@ -863,7 +863,7 @@ module.exports = grammar({
         seq(EAT_SPACES, ']', token.immediate(/[^"]/), /[^\n]*\n/),
         seq(EAT_SPACES, ']', token.immediate('\n')),
         seq(EAT_SPACES, /[^\]\n]/, token.immediate(/[^\n]*\n/)),
-        seq(EAT_SPACES, '\n'),
+        seq(EAT_SPACES, token.immediate('\n')),
       )), $.verbatim_string_content),
       $.verbatim_string_closer,
     ),
