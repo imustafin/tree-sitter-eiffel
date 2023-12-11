@@ -67,7 +67,7 @@ module.exports = grammar({
       repeat($.inheritance),
       repeat($.creation_clause),
       optional($.converters),
-      optional(repeat($.feature_clause)),
+      repeat($.feature_clause),
       optional($.invariant),
       optional($.notes),
       'end'
@@ -304,11 +304,19 @@ module.exports = grammar({
       optional(seq(':', $._type)),
 
       // Feature_value
-      optional($.explicit_value),
-      optional($.obsolete),
-      optional($.header_comment),
-      optional($.attribute_or_routine)
-    )),
+			optional(choice(
+				$.header_comment,
+				seq(
+					$.explicit_value,
+					optional($.header_comment)
+				),
+				seq(
+					optional($.obsolete),
+					optional($.header_comment),
+					$.attribute_or_routine
+				)
+			),
+		))),
 
     explicit_value: $ => seq(
       '=',
@@ -827,12 +835,7 @@ module.exports = grammar({
 
     header_mark: $ => choice('deferred', 'expanded', 'frozen'),
 
-    notes: $ => seq(
-      'note',
-      repeat(
-        seq($.note_entry)
-      )
-    ),
+    notes: $ => seq('note', repeat($.note_entry)),
 
     note_entry: $ => seq(
       $.tag,
