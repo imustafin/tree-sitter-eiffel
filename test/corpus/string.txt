@@ -224,3 +224,18 @@ end
 				(expression
 					(basic_manifest_string
 						(string_content)))))))
+
+===
+String. Hash
+===
+class A invariant
+  "#"
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (basic_manifest_string
+            (string_content)))))))
