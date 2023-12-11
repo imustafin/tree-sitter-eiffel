@@ -39,6 +39,33 @@ end
     (notes)))
 
 ===
+Class. End Note after feature with explicit value
+===
+class A
+feature
+  x: INTEGER = 1
+note
+  test: True
+end
+---
+(source_file
+	(class_declaration (class_name)
+		(feature_clause
+			(feature_declaration
+				(new_feature
+					(extended_feature_name
+						(identifier)))
+				(class_type
+					(class_name))
+				(explicit_value
+					(integer_constant
+						(integer)))))
+		(notes
+			(note_entry
+				(tag)
+				(boolean_constant)))))
+
+===
 Mark
 ===
 deferred class DEMO end
@@ -49,7 +76,7 @@ deferred class DEMO end
     (class_name)))
 
 ===
-Obsolete
+Class. Obsolete
 ===
 class A
   obsolete "msg"

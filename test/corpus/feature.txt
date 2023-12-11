@@ -96,21 +96,31 @@ end
         (header_comment)))))
 
 ===
-Obsolete
+Feature. Obsolete
 ===
 class A
 feature
   x
     obsolete "msg"
+		do
+		end
 end
 ---
 (source_file
-  (class_declaration (class_name)
-    (feature_clause
-      (feature_declaration
-        (new_feature (extended_feature_name (identifier)))
-        (obsolete
-          (basic_manifest_string (string_content)))))))
+	(class_declaration (class_name)
+		(feature_clause
+			(feature_declaration
+				(new_feature
+					(extended_feature_name
+						(identifier)))
+				(obsolete
+					(basic_manifest_string
+						(string_content)))
+				(attribute_or_routine
+					(feature_body
+						(effective_routine
+							(internal
+								(routine_mark)))))))))
 
 ===
 Feature. Frozen
