@@ -27,11 +27,12 @@ end
         (class_type (class_name))))))
 
 ===
-Feature arguments
+Feature. Arguments
 ===
-class A
-feature
-f(x, y: INTEGER; z: BOOLEAN)
+class A feature
+  f(x, y: INTEGER; z: BOOLEAN)
+    do
+    end
 end
 ---
 (source_file
@@ -39,7 +40,7 @@ end
     (feature_clause
       declarations: (feature_declaration
           (new_feature (extended_feature_name (identifier)))
-          arguments: (formal_arguments
+          (formal_arguments
             (entity_declaration_list
               (entity_declaration_group
                 (identifier)
@@ -47,7 +48,9 @@ end
                 (class_type (class_name)))
               (entity_declaration_group
                 (identifier)
-                (class_type (class_name)))))))))
+                (class_type (class_name)))))
+           (attribute_or_routine
+             (feature_body (effective_routine (internal (routine_mark)))))))))
 
 ===
 Clients
@@ -121,6 +124,43 @@ end
 						(effective_routine
 							(internal
 								(routine_mark)))))))))
+
+===
+Feature. Obsolete after header comment
+===
+class A feature
+  x(a: INTEGER): INTEGER
+      -- Header comment
+    obsolete
+      "Obsolete message"
+    do
+    end
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (formal_arguments
+          (entity_declaration_list
+            (entity_declaration_group
+              (identifier)
+              (class_type
+                (class_name)))))
+        (class_type
+          (class_name))
+        (header_comment)
+        (obsolete
+          (basic_manifest_string
+            (string_content)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)))))))))
 
 ===
 Feature. Frozen
