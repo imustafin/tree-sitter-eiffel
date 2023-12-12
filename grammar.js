@@ -876,7 +876,7 @@ module.exports = grammar({
 
     basic_manifest_string: $ => seq(
       '"',
-      alias(/[^"]*/, $.string_content), // TODO: finish String_content
+      alias(token(prec(1, /[^"]*/)), $.string_content), // TODO: finish String_content
       '"'
     ),
 
