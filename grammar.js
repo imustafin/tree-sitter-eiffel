@@ -299,24 +299,23 @@ module.exports = grammar({
     feature_declaration: $ => prec.right(2, seq(
       join1($.new_feature, ','),
 
-      // Declaration_body
-      optional(field('arguments', $.formal_arguments)),
-      optional(seq(':', $._type)),
+      choice(
+        // Constant
+        seq(':', $._type, $.explicit_value, optional($.header_comment)),
 
-      // Feature_value
-			optional(choice(
-				$.header_comment,
-				seq(
-					$.explicit_value,
-					optional($.header_comment)
-				),
-				seq(
-					optional($.obsolete),
-					optional($.header_comment),
-					$.attribute_or_routine
-				)
-			),
-		))),
+        // Field
+        seq(':', $._type, optional($.header_comment)),
+
+        // Routine
+        seq(
+          optional($.formal_arguments),
+          optional(seq(':', $._type)),
+          optional($.header_comment),
+          optional($.obsolete),
+          $.attribute_or_routine
+        )
+      )
+		)),
 
     explicit_value: $ => seq(
       '=',
