@@ -87,7 +87,7 @@ end
     (obsolete (basic_manifest_string (string_content)))))
 
 ===
-Class invariant
+Class. Invariant
 ===
 class A
 invariant
