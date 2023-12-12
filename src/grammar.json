@@ -4512,47 +4512,8 @@
         {
           "type": "ALIAS",
           "content": {
-            "type": "REPEAT",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "STRING",
-                    "value": "["
-                  }
-                },
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "STRING",
-                    "value": "]"
-                  }
-                },
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "STRING",
-                    "value": "{"
-                  }
-                },
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "STRING",
-                    "value": "}"
-                  }
-                },
-                {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[^^\\~\\n\t\"\\[\\]{}]+"
-                  }
-                }
-              ]
-            }
+            "type": "PATTERN",
+            "value": "[^\"]*"
           },
           "named": true,
           "value": "string_content"
@@ -4736,7 +4697,7 @@
     },
     "character": {
       "type": "PATTERN",
-      "value": "[^^\\~\\n\t\"\\[\\]{}]"
+      "value": "."
     },
     "boolean_constant": {
       "type": "CHOICE",

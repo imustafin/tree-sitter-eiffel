@@ -302,7 +302,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "string_content",
@@ -2701,11 +2701,6 @@
     }
   },
   {
-    "type": "string_content",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "tag",
     "named": true,
     "fields": {}
@@ -3398,6 +3393,10 @@
   {
     "type": "some",
     "named": false
+  },
+  {
+    "type": "string_content",
+    "named": true
   },
   {
     "type": "then",

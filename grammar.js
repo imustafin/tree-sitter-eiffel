@@ -5,12 +5,6 @@ const PREC = {
   HEADER_COMMENT: 2,
 };
 
-const SIMPLE_CHARS = '[^^\\~\n\t"\\[\\]{}]';
-
-const SIMPLE_CHARS_PLUS = new RegExp(SIMPLE_CHARS + '+');
-
-const SIMPLE_CHARS_STAR = new RegExp(SIMPLE_CHARS + '*');
-
 const EAT_SPACES = token.immediate(/[ \t]*/);
 
 const target = $ => choice(
@@ -882,13 +876,7 @@ module.exports = grammar({
 
     basic_manifest_string: $ => seq(
       '"',
-      alias(repeat(choice(
-        token.immediate('['),
-        token.immediate(']'),
-        token.immediate('{'),
-        token.immediate('}'),
-        token.immediate(SIMPLE_CHARS_PLUS),
-      )), $.string_content),
+      alias(/[^"]*/, $.string_content), // TODO: finish String_content
       '"'
     ),
 
@@ -918,7 +906,7 @@ module.exports = grammar({
 
     character_constant: $ => seq("'", $.character, "'"),
 
-    character: $ => new RegExp(SIMPLE_CHARS), // TODO: finish Character
+    character: $ => /./, // TODO: finish Character
 
     boolean_constant: $ => choice('True', 'False'),
 
