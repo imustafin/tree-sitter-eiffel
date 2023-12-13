@@ -1240,12 +1240,8 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "STRING",
-                    "value": ":"
-                  },
-                  {
                     "type": "SYMBOL",
-                    "name": "_type"
+                    "name": "_query_mark"
                   },
                   {
                     "type": "SYMBOL",
@@ -1269,12 +1265,8 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "STRING",
-                    "value": ":"
-                  },
-                  {
                     "type": "SYMBOL",
-                    "name": "_type"
+                    "name": "_query_mark"
                   },
                   {
                     "type": "CHOICE",
@@ -1309,17 +1301,8 @@
                     "type": "CHOICE",
                     "members": [
                       {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "STRING",
-                            "value": ":"
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "_type"
-                          }
-                        ]
+                        "type": "SYMBOL",
+                        "name": "_query_mark"
                       },
                       {
                         "type": "BLANK"
@@ -1360,6 +1343,44 @@
           }
         ]
       }
+    },
+    "_query_mark": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "assigner_mark"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "assigner_mark": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "assign"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "explicit_value": {
       "type": "SEQ",

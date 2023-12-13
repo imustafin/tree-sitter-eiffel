@@ -295,21 +295,32 @@ module.exports = grammar({
 
       choice(
         // Constant
-        seq(':', $._type, $.explicit_value, optional($.header_comment)),
+        seq($._query_mark, $.explicit_value, optional($.header_comment)),
 
         // Field
-        seq(':', $._type, optional($.header_comment)),
+        seq($._query_mark, optional($.header_comment)),
 
         // Routine
         seq(
           optional($.formal_arguments),
-          optional(seq(':', $._type)),
+          optional($._query_mark),
           optional($.header_comment),
           optional($.obsolete),
           $.attribute_or_routine
         )
       )
 		)),
+
+    _query_mark: $ => seq(
+      ':',
+      $._type,
+      optional($.assigner_mark)
+    ),
+
+    assigner_mark: $ => seq(
+      'assign',
+      $.identifier
+    ),
 
     explicit_value: $ => seq(
       '=',
