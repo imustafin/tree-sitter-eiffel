@@ -410,3 +410,22 @@ end
                     (internal
                       (routine_mark
                         (once)))))))))))))
+
+===
+Feature. Assign
+===
+class A feature
+	item: G assign put
+ end
+---
+(source_file
+  (class_declaration (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (class_type
+          (class_name))
+        (assigner_mark
+          (identifier))))))

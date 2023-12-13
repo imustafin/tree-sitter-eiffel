@@ -168,6 +168,21 @@
     }
   },
   {
+    "type": "assigner_mark",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assignment",
     "named": true,
     "fields": {},
@@ -1493,6 +1508,10 @@
       "types": [
         {
           "type": "anchored",
+          "named": true
+        },
+        {
+          "type": "assigner_mark",
           "named": true
         },
         {
@@ -3200,6 +3219,10 @@
   },
   {
     "type": "as",
+    "named": false
+  },
+  {
+    "type": "assign",
     "named": false
   },
   {
