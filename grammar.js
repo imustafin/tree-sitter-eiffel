@@ -692,7 +692,7 @@ module.exports = grammar({
     binary_comparison: $ => choice('<', '<=', '>=', '>'),
     binary_and: $ => choice('and', 'and then'),
     binary_or: $ => choice('or', 'or else', 'xor'),
-    binary_implies: $ => choice('implies'),
+    binary_implies: $ => choice('implies', '⇒'),
 
     old: $ => prec.left(2, seq(
       'old',

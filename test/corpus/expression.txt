@@ -415,3 +415,30 @@ end
                   (actuals
                     (expression
                       (void))))))))))))
+
+===
+Expression. Implies
+===
+class A
+invariant
+a implies b ⇒ c
+end
+---
+(source_file
+	(class_declaration (class_name)
+		(invariant
+			(assertion_clause
+				(expression
+					(operator_expression
+						(expression
+							(operator_expression
+								(expression
+									(call (unqualified_call (identifier))))
+								(binary_implies)
+								(expression
+									(call (unqualified_call (identifier))))))
+						(binary_implies)
+						(expression
+							(call
+								(unqualified_call
+									(identifier))))))))))
