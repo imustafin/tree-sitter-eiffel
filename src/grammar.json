@@ -3371,6 +3371,10 @@
         {
           "type": "STRING",
           "value": "implies"
+        },
+        {
+          "type": "STRING",
+          "value": "⇒"
         }
       ]
     },
