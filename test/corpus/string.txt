@@ -223,7 +223,8 @@ end
 			(assertion_clause
 				(expression
 					(basic_manifest_string
-						(string_content)))))))
+						(string_content
+						  (special_text))))))))
 
 ===
 String. Hash
@@ -269,3 +270,20 @@ end
         (expression
           (basic_manifest_string
             (string_content)))))))
+
+===
+String. Escape quote
+===
+class A invariant
+  "%"quoted%""
+end
+---
+(source_file
+	(class_declaration (class_name)
+		(invariant
+			(assertion_clause
+				(expression
+					(basic_manifest_string
+						(string_content
+							(special_text)
+							(special_text))))))))
