@@ -887,8 +887,15 @@ module.exports = grammar({
 
     basic_manifest_string: $ => seq(
       '"',
-      alias(token(prec(1, /[^"]*/)), $.string_content), // TODO: finish String_content
+      optional($.string_content),
       '"'
+    ),
+
+    string_content: $ => repeat1(
+      choice(
+        alias(token(prec(1, /%./)), $.special_text), // escaped Special Character
+        token(prec(1, /[^%"]+/)), // simple text span
+      )
     ),
 
     real_constant: $ => seq(

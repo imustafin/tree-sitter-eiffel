@@ -317,7 +317,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "string_content",
@@ -2720,6 +2720,21 @@
     }
   },
   {
+    "type": "string_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "special_text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "tag",
     "named": true,
     "fields": {}
@@ -3418,7 +3433,7 @@
     "named": false
   },
   {
-    "type": "string_content",
+    "type": "special_text",
     "named": true
   },
   {
