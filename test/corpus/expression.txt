@@ -442,3 +442,32 @@ end
 							(call
 								(unqualified_call
 									(identifier))))))))))
+
+===
+Expression. Inspect
+===
+class A
+invariant
+inspect a when 1 then True else False end
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (multi_branch_expression
+            (expression
+              (call
+                (unqualified_call
+                  (identifier))))
+            (when_part_expression
+              (choice
+                (integer_constant
+                  (integer)))
+              (expression
+                (boolean_constant)))
+            (else_part_expression
+              (expression
+                (boolean_constant)))))))))
