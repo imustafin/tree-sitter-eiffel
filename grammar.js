@@ -510,10 +510,24 @@ module.exports = grammar({
       'end'
     ),
 
+    multi_branch_expression: $ => seq(
+      'inspect',
+      $.expression,
+      repeat($.when_part_expression),
+      optional($.else_part_expression),
+      'end'
+    ),
+
+    when_part_expression: $ => seq(
+      'when',
+      join1($.choice, ','),
+      'then',
+      $.expression
+    ),
+
     when_part: $ => seq(
       'when',
-      $.choice,
-      repeat(seq(',', $.choice)),
+      join1($.choice, ','),
       'then',
       repeat($._instruction)
     ),
@@ -551,6 +565,11 @@ module.exports = grammar({
     else_part: $ => seq(
       'else',
       repeat($._instruction)
+    ),
+
+    else_part_expression: $ => seq(
+      'else',
+      $.expression,
     ),
 
     conditional_expression: $ => seq(
@@ -624,6 +643,7 @@ module.exports = grammar({
       $.creation_expression,
       $.conditional_expression,
       $.quantifier_loop,
+      $.multi_branch_expression,
 
       /// Special_expression
       $._manifest_constant,

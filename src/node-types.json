@@ -1147,6 +1147,21 @@
     }
   },
   {
+    "type": "else_part_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "entity_declaration_group",
     "named": true,
     "fields": {},
@@ -1327,6 +1342,10 @@
         },
         {
           "type": "manifest_type",
+          "named": true
+        },
+        {
+          "type": "multi_branch_expression",
           "named": true
         },
         {
@@ -2054,6 +2073,29 @@
         },
         {
           "type": "when_part",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "multi_branch_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "else_part_expression",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "when_part_expression",
           "named": true
         }
       ]
@@ -3039,6 +3081,25 @@
         },
         {
           "type": "retry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "when_part_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "choice",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         }
       ]
