@@ -857,7 +857,7 @@ module.exports = grammar({
       choice($.call, $.current)
     ),
 
-    header_mark: $ => choice('deferred', 'expanded', 'frozen'),
+    header_mark: $ => choice('deferred', 'expanded', 'frozen', 'once'),
 
     notes: $ => seq('note', repeat($.note_entry)),
 

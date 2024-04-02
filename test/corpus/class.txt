@@ -254,3 +254,14 @@ end
         (expression (boolean_constant)))
       (assertion_clause
         (expression (boolean_constant))))))
+
+===
+Class. Once class
+===
+once class A
+end
+---
+(source_file
+	(class_declaration
+		(header_mark)
+		(class_name)))
