@@ -4324,6 +4324,10 @@
         {
           "type": "STRING",
           "value": "frozen"
+        },
+        {
+          "type": "STRING",
+          "value": "once"
         }
       ]
     },
