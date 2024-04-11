@@ -306,7 +306,8 @@ module.exports = grammar({
           optional($._query_mark),
           optional($.header_comment),
           optional($.obsolete),
-          $.attribute_or_routine
+          $.attribute_or_routine,
+					repeat(';'),
         )
       )
 		)),

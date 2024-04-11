@@ -240,6 +240,31 @@ end
             (identifier)))))))
 
 ===
+Class. Semicolon after feature body
+===
+class A
+feature
+	f
+		do
+		end;
+end
+---
+(source_file
+	(class_declaration
+		(class_name)
+		(feature_clause
+			(feature_declaration
+				(new_feature
+					(extended_feature_name
+						(identifier)))
+				(attribute_or_routine
+					(feature_body
+						(effective_routine
+							(internal
+								(routine_mark)))))))))
+
+
+===
 Class. Assertions with semicolon
 ===
 class A

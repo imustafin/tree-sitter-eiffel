@@ -1336,6 +1336,13 @@
                   {
                     "type": "SYMBOL",
                     "name": "attribute_or_routine"
+                  },
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "STRING",
+                      "value": ";"
+                    }
                   }
                 ]
               }
