@@ -594,6 +594,10 @@
           "named": true
         },
         {
+          "type": "class_constant",
+          "named": true
+        },
+        {
           "type": "constant_interval",
           "named": true
         },
@@ -615,6 +619,25 @@
         },
         {
           "type": "verbatim_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "class_constant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "manifest_type",
           "named": true
         }
       ]
@@ -782,6 +805,10 @@
         },
         {
           "type": "character_constant",
+          "named": true
+        },
+        {
+          "type": "class_constant",
           "named": true
         },
         {

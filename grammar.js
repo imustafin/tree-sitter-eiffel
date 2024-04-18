@@ -540,6 +540,13 @@ module.exports = grammar({
 
     _constant: $ => choice(
       $._manifest_constant,
+      $.identifier,
+      $.class_constant
+    ),
+
+    class_constant: $ => seq(
+      $.manifest_type,
+      '.',
       $.identifier
     ),
 
