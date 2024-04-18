@@ -448,7 +448,10 @@ Expression. Inspect
 ===
 class A
 invariant
-inspect a when 1 then True else False end
+inspect a
+when 1 then True
+when {A}.const then True
+else False end
 end
 ---
 (source_file
@@ -466,6 +469,15 @@ end
               (choice
                 (integer_constant
                   (integer)))
+              (expression
+                (boolean_constant)))
+            (when_part_expression
+              (choice
+                (class_constant
+                  (manifest_type
+                    (class_type
+                      (class_name)))
+                  (identifier)))
               (expression
                 (boolean_constant)))
             (else_part_expression
