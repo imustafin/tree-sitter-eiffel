@@ -139,6 +139,40 @@ end
                   (expression (integer_constant (integer))))))))))))
 
 ===
+Body. Assign to brackets
+===
+class A feature x
+  do
+    array [1] := 1
+  end
+end
+---
+(source_file
+	(class_declaration
+		(class_name)
+		(feature_clause
+			(feature_declaration
+				(new_feature
+					(extended_feature_name
+						(identifier)))
+				(attribute_or_routine
+					(feature_body
+						(effective_routine
+							(internal
+								(routine_mark)
+								(assignment
+									(bracket_expression
+										(call
+											(unqualified_call
+												(identifier)))
+										(expression
+											(integer_constant
+												(integer))))
+									(expression
+										(integer_constant
+											(integer))))))))))))
+
+===
 Body. Precursor instruction and Precursor expression
 ===
 class A feature x

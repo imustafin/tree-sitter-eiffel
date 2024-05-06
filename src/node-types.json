@@ -191,6 +191,10 @@
       "required": true,
       "types": [
         {
+          "type": "bracket_expression",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
