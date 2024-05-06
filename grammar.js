@@ -597,7 +597,7 @@ module.exports = grammar({
 
     // Covers normal Assignment and Assigner_call
     assignment: $ => seq(
-      choice($.call, $.result),
+      choice($.call, $.result, $.bracket_expression),
       choice(
         ':=',
         '?=' // obsolete "Assignment attempt"
