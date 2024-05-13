@@ -72,7 +72,7 @@ Number. Integer
 ===
 class A
 invariant
-  12
+  12_000
 end
 ---
 (source_file
