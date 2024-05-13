@@ -948,7 +948,7 @@ module.exports = grammar({
 
     sign: $ => choice('-', '+'),
 
-    integer: $ => /[0-9]+/, // TODO: finish Integer
+    integer: $ => /[0-9][0-9_]*/, // TODO: finish Integer
 
     character_constant: $ => seq("'", $.character, "'"),
 
