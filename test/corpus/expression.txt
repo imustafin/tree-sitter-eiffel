@@ -141,9 +141,8 @@ end
     (invariant
       (assertion_clause
         (expression
-          (manifest_array
-            (manifest_type (class_type (class_name)))
-            (expression (integer_constant (integer)))))))))
+					(manifest_type (class_type (class_name)))
+          (manifest_array (expression (integer_constant (integer)))))))))
 
 ===
 Expression. Call agent

@@ -415,6 +415,10 @@
           "named": true
         },
         {
+          "type": "manifest_array",
+          "named": true
+        },
+        {
           "type": "manifest_tuple",
           "named": true
         },
@@ -611,6 +615,10 @@
         },
         {
           "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_array",
           "named": true
         },
         {
@@ -821,6 +829,10 @@
         },
         {
           "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_array",
           "named": true
         },
         {
@@ -1290,6 +1302,10 @@
         },
         {
           "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_array",
           "named": true
         },
         {
@@ -2040,10 +2056,6 @@
         {
           "type": "expression",
           "named": true
-        },
-        {
-          "type": "manifest_type",
-          "named": true
         }
       ]
     }
@@ -2231,6 +2243,10 @@
         },
         {
           "type": "integer_constant",
+          "named": true
+        },
+        {
+          "type": "manifest_array",
           "named": true
         },
         {
