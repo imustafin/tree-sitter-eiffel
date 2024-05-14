@@ -1232,21 +1232,6 @@
     }
   },
   {
-    "type": "entity_declaration_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "entity_declaration_group",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "equality",
     "named": true,
     "fields": {},
@@ -1620,11 +1605,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "entity_declaration_list",
+          "type": "entity_declaration_group",
           "named": true
         }
       ]
@@ -1901,11 +1886,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
-          "type": "entity_declaration_list",
+          "type": "entity_declaration_group",
           "named": true
         }
       ]
@@ -2930,7 +2915,7 @@
           "named": true
         },
         {
-          "type": "entity_declaration_list",
+          "type": "entity_declaration_group",
           "named": true
         },
         {
