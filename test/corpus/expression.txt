@@ -236,13 +236,12 @@ end
             (tuple_type
               (class_name)
               (tuple_parameter_list
-                (entity_declaration_list
-                  (entity_declaration_group
-                    (identifier)
-                    (class_type (class_name)))
-                  (entity_declaration_group
-                    (identifier)
-                    (class_type (class_name))))))))))))
+								(entity_declaration_group
+									(identifier)
+									(class_type (class_name)))
+								(entity_declaration_group
+									(identifier)
+									(class_type (class_name)))))))))))
 
 ===
 Expression. Tuple type with class names

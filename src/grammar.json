@@ -1537,7 +1537,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "entity_declaration_list"
+              "name": "_entity_declaration_list"
             },
             {
               "type": "BLANK"
@@ -4092,7 +4092,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "entity_declaration_list"
+              "name": "_entity_declaration_list"
             },
             {
               "type": "BLANK"
@@ -4105,7 +4105,7 @@
         }
       ]
     },
-    "entity_declaration_list": {
+    "_entity_declaration_list": {
       "type": "SEQ",
       "members": [
         {
@@ -4241,7 +4241,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "entity_declaration_list"
+          "name": "_entity_declaration_list"
         }
       ]
     },

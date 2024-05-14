@@ -355,7 +355,7 @@ module.exports = grammar({
 
     local_declarations: $ => seq(
       'local',
-      optional($.entity_declaration_list)
+      optional($._entity_declaration_list)
     ),
 
     precondition: $ => prec.left(seq(
@@ -820,14 +820,11 @@ module.exports = grammar({
 
     formal_arguments: $ => seq(
       '(',
-      optional($.entity_declaration_list),
+      optional($._entity_declaration_list),
       ')'
     ),
 
-    entity_declaration_list: $ => seq(
-      $.entity_declaration_group,
-      repeat(seq(optional(';'), $.entity_declaration_group))
-    ),
+    _entity_declaration_list: $ => join1($.entity_declaration_group, optional(';')),
 
     entity_declaration_group: $ => seq(
       join1($.identifier, ','),
@@ -854,7 +851,7 @@ module.exports = grammar({
 
     tuple_parameter_list: $ => choice(
       $._type_list,
-      $.entity_declaration_list
+      $._entity_declaration_list
     ),
 
     anchored: $ => seq(
