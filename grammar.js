@@ -656,7 +656,6 @@ module.exports = grammar({
       /// Special_expression
       $._manifest_constant,
       $.void,
-      $.manifest_array,
       $.manifest_tuple,
       $.agent,
       $.object_test,
@@ -813,10 +812,9 @@ module.exports = grammar({
       '?'
     ),
 
-    manifest_array: $ => choice(
-      seq('<<', optional(join1($.expression, ',')), '>>'),
-      prec.left(2, seq($.manifest_type, '<<', optional(join1($.expression, ',')), '>>'))
-    ),
+    manifest_array: $ => seq(
+			'<<', optional(join1($.expression, ',')), '>>'
+		),
 
     void: $ => 'Void',
 
@@ -888,7 +886,8 @@ module.exports = grammar({
       $.integer_constant,
       $.real_constant,
       $._manifest_string,
-      $.manifest_type
+      $.manifest_type,
+			$.manifest_array
     ),
 
     _manifest_string: $ => choice(
