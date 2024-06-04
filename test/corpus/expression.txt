@@ -141,7 +141,7 @@ end
     (invariant
       (assertion_clause
         (expression
-					(manifest_type (class_type (class_name)))
+          (manifest_type (class_type (class_name)))
           (manifest_array (expression (integer_constant (integer)))))))))
 
 ===
@@ -236,12 +236,12 @@ end
             (tuple_type
               (class_name)
               (tuple_parameter_list
-								(entity_declaration_group
-									(identifier)
-									(class_type (class_name)))
-								(entity_declaration_group
-									(identifier)
-									(class_type (class_name)))))))))))
+                (entity_declaration_group
+                  (identifier)
+                  (class_type (class_name)))
+                (entity_declaration_group
+                  (identifier)
+                  (class_type (class_name)))))))))))
 
 ===
 Expression. Tuple type with class names
@@ -423,23 +423,23 @@ a implies b ⇒ c
 end
 ---
 (source_file
-	(class_declaration (class_name)
-		(invariant
-			(assertion_clause
-				(expression
-					(operator_expression
-						(expression
-							(operator_expression
-								(expression
-									(call (unqualified_call (identifier))))
-								(binary_implies)
-								(expression
-									(call (unqualified_call (identifier))))))
-						(binary_implies)
-						(expression
-							(call
-								(unqualified_call
-									(identifier))))))))))
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (operator_expression
+            (expression
+              (operator_expression
+                (expression
+                  (call (unqualified_call (identifier))))
+                (binary_implies)
+                (expression
+                  (call (unqualified_call (identifier))))))
+            (binary_implies)
+            (expression
+              (call
+                (unqualified_call
+                  (identifier))))))))))
 
 ===
 Expression. Inspect

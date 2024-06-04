@@ -13,7 +13,7 @@ const target = $ => choice(
   $.call,
   $.bracket_expression,
   $.manifest_type,
-	$.at_cursor,
+  $.at_cursor,
   seq('(', $.expression, ')')
 );
 
@@ -307,10 +307,10 @@ module.exports = grammar({
           optional($.header_comment),
           optional($.obsolete),
           $.attribute_or_routine,
-					repeat(';'),
+          repeat(';'),
         )
       )
-		)),
+    )),
 
     _query_mark: $ => seq(
       ':',
@@ -446,8 +446,8 @@ module.exports = grammar({
     ),
 
     loop: $ => choice(
-			seq('⟳', $.identifier, ':', $.expression, '¦', repeat($._instruction), '⟲'),
-			seq(
+      seq('⟳', $.identifier, ':', $.expression, '¦', repeat($._instruction), '⟲'),
+      seq(
       optional($.iteration),
       optional($.initialization),
       optional($.invariant),
@@ -455,8 +455,7 @@ module.exports = grammar({
       $.loop_body,
       optional($.variant),
       'end'
-    )
-		),
+    )),
 
     quantifier_loop: $ => choice(
       seq($.iteration, $.quantifier_loop_body, 'end'),
@@ -760,7 +759,7 @@ module.exports = grammar({
 
     address: $ => seq('$', $.identifier),
 
-		at_cursor: $ => seq('@', $.identifier),
+    at_cursor: $ => seq('@', $.identifier),
 
     agent: $ => choice(
       $.call_agent,
@@ -813,8 +812,8 @@ module.exports = grammar({
     ),
 
     manifest_array: $ => seq(
-			'<<', optional(join1($.expression, ',')), '>>'
-		),
+      '<<', optional(join1($.expression, ',')), '>>'
+    ),
 
     void: $ => 'Void',
 
@@ -884,7 +883,7 @@ module.exports = grammar({
       $.real_constant,
       $._manifest_string,
       $.manifest_type,
-			$.manifest_array
+      $.manifest_array
     ),
 
     _manifest_string: $ => choice(
