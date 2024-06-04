@@ -13,6 +13,8 @@ permissions:
 
 jobs:
   regenerate:
-    uses: tree-sitter/workflows/.github/workflows/regenerate.yml@main
+    # Switch back to tree-sitter workflow after
+    # https://github.com/tree-sitter/workflows/pull/10
+    uses: imustafin/workflows/.github/workflows/regenerate.yml@main
     if: >-
       github.actor == 'dependabot[bot]'
