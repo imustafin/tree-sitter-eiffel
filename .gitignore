@@ -1,2 +1,4 @@
 node_modules
 *.~undo-tree~
+build
+*.so
