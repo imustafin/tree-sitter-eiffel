@@ -16,3 +16,6 @@ with the changelog located at [CHANGELOG.md](CHANGELOG.md).
 
 * [eiffel.org - Eiffel programming language syntax](https://www.eiffel.org/doc/eiffel/Eiffel_programming_language_syntax)
 * [gobosoft.com - Eiffel: The Syntax](http://www.gobosoft.com/eiffel/syntax/) (non-https!)
+
+
+[ci]: https://img.shields.io/github/actions/workflow/status/imustafin/tree-sitter-eiffel/ci.yml?logo=github&label=CI
