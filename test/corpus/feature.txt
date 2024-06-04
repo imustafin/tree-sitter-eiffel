@@ -41,13 +41,13 @@ end
       declarations: (feature_declaration
           (new_feature (extended_feature_name (identifier)))
           (formal_arguments
-						(entity_declaration_group
-							(identifier)
-							(identifier)
-							(class_type (class_name)))
-						(entity_declaration_group
-							(identifier)
-							(class_type (class_name))))
+            (entity_declaration_group
+              (identifier)
+              (identifier)
+              (class_type (class_name)))
+            (entity_declaration_group
+              (identifier)
+              (class_type (class_name))))
            (attribute_or_routine
              (feature_body (effective_routine (internal (routine_mark)))))))))
 
@@ -104,25 +104,25 @@ class A
 feature
   x
     obsolete "msg"
-		do
-		end
+    do
+    end
 end
 ---
 (source_file
-	(class_declaration (class_name)
-		(feature_clause
-			(feature_declaration
-				(new_feature
-					(extended_feature_name
-						(identifier)))
-				(obsolete
-					(basic_manifest_string
-						(string_content)))
-				(attribute_or_routine
-					(feature_body
-						(effective_routine
-							(internal
-								(routine_mark)))))))))
+  (class_declaration (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (obsolete
+          (basic_manifest_string
+            (string_content)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)))))))))
 
 ===
 Feature. Obsolete after header comment
@@ -412,7 +412,7 @@ end
 Feature. Assign
 ===
 class A feature
-	item: G assign put
+  item: G assign put
  end
 ---
 (source_file

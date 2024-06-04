@@ -161,7 +161,7 @@ end
 String. Dollar in simple string
 ===
 note
-	revision: "$Revision: 1 $"
+  revision: "$Revision: 1 $"
 class A
 end
 ---
@@ -184,31 +184,31 @@ end
 ---
 (source_file
 (class_declaration (class_name)
-	(invariant
-		(assertion_clause
-			(expression
-				(verbatim_string
-					(verbatim_string_opener)
-					(verbatim_string_content)
-					(verbatim_string_closer)))))))
+  (invariant
+    (assertion_clause
+      (expression
+        (verbatim_string
+          (verbatim_string_opener)
+          (verbatim_string_content)
+          (verbatim_string_closer)))))))
 
 ===
 String. Single quote and backtick in string
 ===
 class A invariant
-	{STRING_32} "Option `$1' conflicts with `$2'."
+  {STRING_32} "Option `$1' conflicts with `$2'."
 end
 ---
 (source_file
-	(class_declaration (class_name)
-		(invariant
-			(assertion_clause
-				(expression
-					(manifest_type
-						(class_type
-							(class_name)))
-					(basic_manifest_string
-						(string_content)))))))
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (manifest_type
+            (class_type
+              (class_name)))
+          (basic_manifest_string
+            (string_content)))))))
 
 ===
 String. Percent
@@ -218,13 +218,13 @@ class A invariant
 end
 ---
 (source_file
-	(class_declaration (class_name)
-		(invariant
-			(assertion_clause
-				(expression
-					(basic_manifest_string
-						(string_content
-						  (special_text))))))))
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (basic_manifest_string
+            (string_content
+              (special_text))))))))
 
 ===
 String. Hash
@@ -279,11 +279,11 @@ class A invariant
 end
 ---
 (source_file
-	(class_declaration (class_name)
-		(invariant
-			(assertion_clause
-				(expression
-					(basic_manifest_string
-						(string_content
-							(special_text)
-							(special_text))))))))
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (basic_manifest_string
+            (string_content
+              (special_text)
+              (special_text))))))))

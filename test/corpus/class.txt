@@ -49,21 +49,21 @@ note
 end
 ---
 (source_file
-	(class_declaration (class_name)
-		(feature_clause
-			(feature_declaration
-				(new_feature
-					(extended_feature_name
-						(identifier)))
-				(class_type
-					(class_name))
-				(explicit_value
-					(integer_constant
-						(integer)))))
-		(notes
-			(note_entry
-				(tag)
-				(boolean_constant)))))
+  (class_declaration (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (class_type
+          (class_name))
+        (explicit_value
+          (integer_constant
+            (integer)))))
+    (notes
+      (note_entry
+        (tag)
+        (boolean_constant)))))
 
 ===
 Mark
@@ -213,14 +213,14 @@ Class. Inheritance Export then Undefine
 ===
 class A
 inherit
-	EB_CONSTANTS
-		export
-			{NONE} all
-		undefine
-			copy,
-			default_create,
-			is_equal
-		end
+  EB_CONSTANTS
+    export
+      {NONE} all
+    undefine
+      copy,
+      default_create,
+      is_equal
+    end
 end
 ---
 (source_file
@@ -244,24 +244,24 @@ Class. Semicolon after feature body
 ===
 class A
 feature
-	f
-		do
-		end;
+  f
+    do
+    end;
 end
 ---
 (source_file
-	(class_declaration
-		(class_name)
-		(feature_clause
-			(feature_declaration
-				(new_feature
-					(extended_feature_name
-						(identifier)))
-				(attribute_or_routine
-					(feature_body
-						(effective_routine
-							(internal
-								(routine_mark)))))))))
+  (class_declaration
+    (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)))))))))
 
 
 ===
@@ -287,6 +287,6 @@ once class A
 end
 ---
 (source_file
-	(class_declaration
-		(header_mark)
-		(class_name)))
+  (class_declaration
+    (header_mark)
+    (class_name)))
