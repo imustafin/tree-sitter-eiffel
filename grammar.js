@@ -896,15 +896,17 @@ module.exports = grammar({
     verbatim_string: $ => seq(
       $.verbatim_string_opener,
       alias(repeat(choice(
-        seq(EAT_SPACES, ']', token.immediate(/[^"]/), /[^\n]*\n/),
+        // Optional match \r for Windows.
+        seq(EAT_SPACES, ']', token.immediate(/[^"]/), /[^\n]*?\n/),
+        seq(EAT_SPACES, ']', token.immediate('\r')),
         seq(EAT_SPACES, ']', token.immediate('\n')),
-        seq(EAT_SPACES, /[^\]\n]/, token.immediate(/[^\n]*\n/)),
-        seq(EAT_SPACES, token.immediate('\n')),
+        seq(EAT_SPACES, /[^\]\r\n]/, token.immediate(/[^\n]*\r?\n/)),
+        seq(EAT_SPACES, token.immediate(/\r?\n/)),
       )), $.verbatim_string_content),
       $.verbatim_string_closer,
     ),
 
-    verbatim_string_opener: $ => seq(/"\[[ \t]*\n/),
+    verbatim_string_opener: $ => seq(/"\[[ \t]*\r?\n/),
 
     verbatim_string_closer: $ => seq(EAT_SPACES, ']"'),
 

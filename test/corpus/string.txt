@@ -122,6 +122,27 @@ end
             (verbatim_string_closer)))))))
 
 ===
+String. Single closing bracket and CR in Verbatim string
+===
+class A
+invariant
+  "[
+next line has CR before new line
+]
+  ]"
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (verbatim_string
+            (verbatim_string_opener)
+            (verbatim_string_content)
+            (verbatim_string_closer)))))))
+
+===
 String. One line Verbatim string
 ===
 class A
