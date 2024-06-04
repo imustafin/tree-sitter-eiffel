@@ -4498,7 +4498,30 @@
                     },
                     {
                       "type": "PATTERN",
-                      "value": "[^\\n]*\\n"
+                      "value": "[^\\n]*?\\n"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "IMMEDIATE_TOKEN",
+                      "content": {
+                        "type": "PATTERN",
+                        "value": "[ \\t]*"
+                      }
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "]"
+                    },
+                    {
+                      "type": "IMMEDIATE_TOKEN",
+                      "content": {
+                        "type": "STRING",
+                        "value": "\r"
+                      }
                     }
                   ]
                 },
@@ -4537,13 +4560,13 @@
                     },
                     {
                       "type": "PATTERN",
-                      "value": "[^\\]\\n]"
+                      "value": "[^\\]\\r\\n]"
                     },
                     {
                       "type": "IMMEDIATE_TOKEN",
                       "content": {
                         "type": "PATTERN",
-                        "value": "[^\\n]*\\n"
+                        "value": "[^\\n]*\\r?\\n"
                       }
                     }
                   ]
@@ -4561,8 +4584,8 @@
                     {
                       "type": "IMMEDIATE_TOKEN",
                       "content": {
-                        "type": "STRING",
-                        "value": "\n"
+                        "type": "PATTERN",
+                        "value": "\\r?\\n"
                       }
                     }
                   ]
@@ -4584,7 +4607,7 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "\"\\[[ \\t]*\\n"
+          "value": "\"\\[[ \\t]*\\r?\\n"
         }
       ]
     },
