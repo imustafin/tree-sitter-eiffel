@@ -264,6 +264,30 @@ end
                 (class_type (class_name))))))))))
 
 ===
+Tuple with attachment mark
+===
+class A
+invariant
+  {detachable TUPLE [a: A]}
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (manifest_type
+            (tuple_type
+              (attachment_mark)
+              (class_name)
+              (tuple_parameter_list
+                (entity_declaration_group
+                  (identifier)
+                  (class_type
+                    (class_name)))))))))))
+
+===
 Expression. Anchored
 ===
 class A

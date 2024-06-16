@@ -844,6 +844,7 @@ module.exports = grammar({
     ),
 
     tuple_type: $ => seq(
+      optional($.attachment_mark),
       alias('TUPLE', $.class_name),
       optional(seq('[', $.tuple_parameter_list, ']')),
     ),

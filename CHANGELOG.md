@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Parse attachment mark before tuple (`attached TUPLE`) [#14]
 
 ### Changed
 
@@ -26,6 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated binding files
 
 ### Removed
+
+[#14]: https://github.com/imustafin/tree-sitter-eiffel/pull/14
 
 [unreleased]: https://github.com/imustafin/tree-sitter-eiffel/compare/v1.0.0...HEAD
 [v1.0.0]: https://github.com/imustafin/tree-sitter-eiffel/compare/3dbff72823c37277ac5db345258d9c5c0beb3a77...v1.0.0
