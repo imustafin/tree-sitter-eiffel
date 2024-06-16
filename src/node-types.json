@@ -2934,6 +2934,10 @@
       "required": true,
       "types": [
         {
+          "type": "attachment_mark",
+          "named": true
+        },
+        {
           "type": "class_name",
           "named": true
         },
