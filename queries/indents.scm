@@ -1,13 +1,28 @@
 [
   (class_declaration)
-  (attribute_or_routine)
   (feature_declaration)
-] @indent
+  (feature_body)
+  (notes)
+  (precondition)
+  (local_declarations)
+  (postcondition)
+  (check)
+  (initialization)
+  (iteration)
+  (exit_condition)
+  (loop_body)
+  (variant)
+  (quantifier_loop)
+  (then_part)
+  (else_part)
+  (then_part_expression)
+  (else_part_expression)
+  (multi_branch)
+] @indent.begin
+(loop (invariant) @indent.begin)
 
-[
-  (internal)
-] @indent @extend
-
-;[                                                                                                                                                                                                                                                       │
-;  (comment)                                                                                                                                                                                                                                             │
-;] @indent.always (set! "scope" "all")   
+(check "end" @indent.branch)
+(class_declaration "end" @indent.branch)
+(feature_clause "feature" @indent.branch)
+(inheritance "inherit" @indent.branch)
+(creation_clause "create" @indent.branch)
