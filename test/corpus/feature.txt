@@ -81,6 +81,28 @@ end
     (comment)))
 
 ===
+Normal comment after empty line after feature keyword
+===
+class A
+feature
+
+-- Normal comment
+-- Normal comment again
+
+feature
+
+  -- Normal comment
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (feature_clause
+      (comment))
+    (comment)
+    (feature_clause
+      (comment))))
+===
 Feature declaration header comment
 ===
 class A

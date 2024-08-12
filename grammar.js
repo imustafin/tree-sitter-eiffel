@@ -42,14 +42,21 @@ module.exports = grammar({
     //
     // Blank line (without --) ends the current comment.
     // To do that we use [ \t] which matches spaces but does not match \n.
-    header_comment: $ => token(prec(
+    header_comment: $ => token.immediate(prec(
       PREC.HEADER_COMMENT,
       seq(
-        /--/,
+        // Header comments can't have empty lines before them,
+        // so allow only 1 \n before the start
+        token.immediate(/[ \t]*\r?\n?[ \t]*--/),
         token.immediate(/[^\n]*/),
         token.immediate(/(\n[ \t]*--[^\n]*)*/)
       )
     )),
+
+    _header_comment: $ => choice(
+      $.header_comment,
+      $.comment
+    ),
 
     class_declaration: $ => seq(
       optional($.notes),
@@ -103,7 +110,7 @@ module.exports = grammar({
     creation_clause: $ => seq(
       'create',
       optional($.clients),
-      optional($.header_comment),
+      optional($._header_comment),
       join1($.identifier, ',')
     ),
 
@@ -148,7 +155,7 @@ module.exports = grammar({
 
     new_export_item: $ => seq(
       $.clients,
-      optional($.header_comment),
+      optional($._header_comment),
       choice(
         'all',
         join1($.identifier, ',')
@@ -280,7 +287,7 @@ module.exports = grammar({
     feature_clause: $ => seq(
       'feature',
       optional($.clients),
-      optional($.header_comment),
+      optional($._header_comment),
       field('declarations', repeat($.feature_declaration))
     ),
 
@@ -295,16 +302,16 @@ module.exports = grammar({
 
       choice(
         // Constant
-        seq($._query_mark, $.explicit_value, optional($.header_comment)),
+        seq($._query_mark, $.explicit_value, optional($._header_comment)),
 
         // Field
-        seq($._query_mark, optional($.header_comment)),
+        seq($._query_mark, optional($._header_comment)),
 
         // Routine
         seq(
           optional($.formal_arguments),
           optional($._query_mark),
-          optional($.header_comment),
+          optional($._header_comment),
           optional($.obsolete),
           $.attribute_or_routine,
           repeat(';'),
