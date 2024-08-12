@@ -1031,6 +1031,10 @@
           "named": true
         },
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "header_comment",
           "named": true
         },
@@ -1543,6 +1547,10 @@
           "named": true
         },
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "header_comment",
           "named": true
         }
@@ -1571,6 +1579,10 @@
         },
         {
           "type": "class_type",
+          "named": true
+        },
+        {
+          "type": "comment",
           "named": true
         },
         {
@@ -2154,6 +2166,10 @@
       "types": [
         {
           "type": "clients",
+          "named": true
+        },
+        {
+          "type": "comment",
           "named": true
         },
         {
