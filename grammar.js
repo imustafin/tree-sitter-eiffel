@@ -590,8 +590,7 @@ module.exports = grammar({
       'if',
       $.then_part_expression,
       repeat(seq('elseif', $.then_part_expression)),
-      'else',
-      $.expression,
+      $.else_part_expression,
       'end'
     ),
 
