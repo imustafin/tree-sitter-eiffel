@@ -264,7 +264,8 @@ end
                     (then_part_expression
                       (expression (call (unqualified_call (identifier))))
                       (expression (call (unqualified_call (identifier)))))
-                      (expression (call (unqualified_call (identifier)))))))))))))))
+                    (else_part_expression
+                      (expression (call (unqualified_call (identifier))))))))))))))))
 
 ===
 Body. Multi-branch

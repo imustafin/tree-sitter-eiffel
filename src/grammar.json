@@ -2631,12 +2631,8 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "else"
-        },
-        {
           "type": "SYMBOL",
-          "name": "expression"
+          "name": "else_part_expression"
         },
         {
           "type": "STRING",
