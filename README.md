@@ -17,6 +17,22 @@ with the changelog located at [CHANGELOG.md](CHANGELOG.md).
 * [eiffel.org - Eiffel programming language syntax](https://www.eiffel.org/doc/eiffel/Eiffel_programming_language_syntax)
 * [gobosoft.com - Eiffel: The Syntax](http://www.gobosoft.com/eiffel/syntax/) (non-https!)
 
+## Local development
+Install JavaScript dependencies:
+```sh
+npm install
+```
+
+Regenerate parser before running tests:
+```sh
+./node_modules/tree-sitter-cli/tree-sitter generate
+./node_modules/tree-sitter-cli/tree-sitter test
+```
+
+Build binary files:
+```sh
+make all
+```
 
 ### Releasing
 1. Choose the release version (e.g. `v0.0.1`)
