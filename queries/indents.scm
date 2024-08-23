@@ -19,8 +19,8 @@
   (else_part_expression)
   (multi_branch)
 ] @indent.begin
-(loop (invariant) @indent.begin)
-
+(invariant) @indent.branch
+(class_declaration "class" @indent.branch)
 (check "end" @indent.branch)
 (class_declaration "end" @indent.branch)
 (feature_clause "feature" @indent.branch)
