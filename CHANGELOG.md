@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   it will be matched as a simple `(comment)`. [#16]
 - Differentiate in `(conditional_expression)` the `(else_part_expression)`. [#17]
 - Extend highlight queries compatible with [neovim](https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md). [#17]
+- Don't collect multiple lines into one `(header_comment)`.
+  Now both `(header_comment)` and `(comment)` represent one line of comment. [#18]
+- Fix token start positions after possible `(header_comment)`. Add tests for this too. [#18]
 
 ### Removed
 
@@ -36,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#14]: https://github.com/imustafin/tree-sitter-eiffel/pull/14
 [#16]: https://github.com/imustafin/tree-sitter-eiffel/pull/16
 [#17]: https://github.com/imustafin/tree-sitter-eiffel/pull/17
+[#18]: https://github.com/imustafin/tree-sitter-eiffel/pull/18
 
 [unreleased]: https://github.com/imustafin/tree-sitter-eiffel/compare/v1.0.0...HEAD
 [v1.0.0]: https://github.com/imustafin/tree-sitter-eiffel/compare/3dbff72823c37277ac5db345258d9c5c0beb3a77...v1.0.0

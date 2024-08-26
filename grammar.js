@@ -2,7 +2,6 @@ const PREC = {
   UNARY: 2, // UNARY > SIGN so that -1 is parsed as (unary (-) (1))
   ACTUALS: 2,
   TYPE: 2,
-  HEADER_COMMENT: 2,
 };
 
 const EAT_SPACES = token.immediate(/[ \t]*/);
@@ -30,32 +29,19 @@ module.exports = grammar({
     [$.class_name, $.identifier],
   ],
   rules: {
-    source_file: $ => $.class_declaration,
+    source_file: $ => optional($.class_declaration),
 
-    // Simple comment is one line
-    comment: $ => token(seq(/--/, token.immediate(/[^\n]*/))),
+    comment: $ => token(seq('--', token.immediate(/[^\r\n]*(\r?\n)?/))),
 
-    // Header comments are multi-line
-    //
-    // Header comment starts with -- and consumes until end of line.
-    // The next line can be the continuation of this comment.
-    //
-    // Blank line (without --) ends the current comment.
-    // To do that we use [ \t] which matches spaces but does not match \n.
-    header_comment: $ => token.immediate(prec(
-      PREC.HEADER_COMMENT,
-      seq(
-        // Header comments can't have empty lines before them,
-        // so allow only 1 \n before the start
-        token.immediate(/[ \t]*\r?\n?[ \t]*--/),
-        token.immediate(/[^\n]*/),
-        token.immediate(/(\n[ \t]*--[^\n]*)*/)
-      )
-    )),
-
-    _header_comment: $ => choice(
-      $.header_comment,
-      $.comment
+    _header_comment: $ => seq(
+      choice(
+        // Header comment starts on the next line
+        choice(token.immediate('\r\n'), token.immediate('\n')),
+        // Or header comment starts on the current line
+        alias($.comment, $.header_comment),
+      ),
+      repeat(alias($.comment, $.header_comment)),
+      optional(choice('\r\n', '\n'))
     ),
 
     class_declaration: $ => seq(

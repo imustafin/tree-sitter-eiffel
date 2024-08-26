@@ -2,8 +2,16 @@
   "name": "eiffel",
   "rules": {
     "source_file": {
-      "type": "SYMBOL",
-      "name": "class_declaration"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "class_declaration"
+        },
+        {
+          "type": "BLANK"
+        }
+      ]
     },
     "comment": {
       "type": "TOKEN",
@@ -11,62 +19,87 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "PATTERN",
+            "type": "STRING",
             "value": "--"
           },
           {
             "type": "IMMEDIATE_TOKEN",
             "content": {
               "type": "PATTERN",
-              "value": "[^\\n]*"
+              "value": "[^\\r\\n]*(\\r?\\n)?"
             }
           }
         ]
       }
     },
-    "header_comment": {
-      "type": "IMMEDIATE_TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 2,
-        "content": {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "IMMEDIATE_TOKEN",
-              "content": {
-                "type": "PATTERN",
-                "value": "[ \\t]*\\r?\\n?[ \\t]*--"
-              }
-            },
-            {
-              "type": "IMMEDIATE_TOKEN",
-              "content": {
-                "type": "PATTERN",
-                "value": "[^\\n]*"
-              }
-            },
-            {
-              "type": "IMMEDIATE_TOKEN",
-              "content": {
-                "type": "PATTERN",
-                "value": "(\\n[ \\t]*--[^\\n]*)*"
-              }
-            }
-          ]
-        }
-      }
-    },
     "_header_comment": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "header_comment"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "\r\n"
+                  }
+                },
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "\n"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "comment"
+              },
+              "named": true,
+              "value": "header_comment"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "comment"
+          "type": "REPEAT",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            "named": true,
+            "value": "header_comment"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "\r\n"
+                },
+                {
+                  "type": "STRING",
+                  "value": "\n"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

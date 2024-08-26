@@ -1,0 +1,5 @@
+(source_file [0, 0] - [4, 0]
+  (class_declaration [0, 0] - [3, 3]
+    (class_name [0, 6] - [0, 7])
+    (creation_clause [1, 0] - [2, 1]
+      (identifier [2, 0] - [2, 1]))))
