@@ -13,3 +13,18 @@ end
   (comment)
   (comment)
   (comment)))
+
+===
+Header comment on same line and next line
+===
+class A
+feature -- start
+  -- continue
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (feature_clause
+      (header_comment)
+      (header_comment))))

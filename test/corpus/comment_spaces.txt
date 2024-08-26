@@ -1,0 +1,13 @@
+===
+Header comment with spaces before
+===
+class A
+feature      
+  -- There MUST be spaces at the end of line above
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (feature_clause
+      (header_comment))))

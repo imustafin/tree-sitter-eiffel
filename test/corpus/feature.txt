@@ -77,6 +77,7 @@ end
 (source_file
   (class_declaration (class_name)
     (feature_clause
+      (header_comment)
       (header_comment))
     (comment)))
 
@@ -97,11 +98,11 @@ end
 (source_file
   (class_declaration
     (class_name)
-    (feature_clause
-      (comment))
+    (feature_clause)
     (comment)
-    (feature_clause
-      (comment))))
+    (comment)
+    (feature_clause)
+    (comment)))
 ===
 Feature declaration header comment
 ===

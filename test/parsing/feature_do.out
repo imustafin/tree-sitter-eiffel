@@ -1,0 +1,14 @@
+(source_file [0, 0] - [7, 0]
+  (class_declaration [0, 0] - [6, 3]
+    (class_name [0, 6] - [0, 7])
+    (feature_clause [1, 0] - [5, 3]
+      declarations: (feature_declaration [2, 0] - [5, 3]
+        (new_feature [2, 0] - [2, 1]
+          (extended_feature_name [2, 0] - [2, 1]
+            (identifier [2, 0] - [2, 1])))
+        (header_comment [3, 0] - [4, 0])
+        (attribute_or_routine [4, 0] - [5, 3]
+          (feature_body [4, 0] - [4, 2]
+            (effective_routine [4, 0] - [4, 2]
+              (internal [4, 0] - [4, 2]
+                (routine_mark [4, 0] - [4, 2])))))))))
