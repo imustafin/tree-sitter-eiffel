@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Don't collect multiple lines into one `(header_comment)`.
   Now both `(header_comment)` and `(comment)` represent one line of comment. [#18]
 - Fix token start positions after possible `(header_comment)`. Add tests for this too. [#18]
+- Don't match comments inside `(verbatim_string)`. [#18]
 
 ### Removed
 
