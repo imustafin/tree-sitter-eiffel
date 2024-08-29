@@ -888,13 +888,20 @@ module.exports = grammar({
     // TODO: Support tagged brackets ("named[ ... ]named")
     verbatim_string: $ => seq(
       $.verbatim_string_opener,
-      alias(repeat(choice(
-        // Optional match \r for Windows.
-        seq(EAT_SPACES, ']', token.immediate(/[^"]/), /[^\n]*?\n/),
-        seq(EAT_SPACES, ']', token.immediate('\r')),
-        seq(EAT_SPACES, ']', token.immediate('\n')),
-        seq(EAT_SPACES, /[^\]\r\n]/, token.immediate(/[^\n]*\r?\n/)),
-        seq(EAT_SPACES, token.immediate(/\r?\n/)),
+      alias(repeat(seq(
+        EAT_SPACES,
+        choice(
+          seq(
+            token.immediate(']'),
+            choice(
+              token.immediate(/[^"][^\n]*\r?\n/),
+              token.immediate('\r'),
+              token.immediate('\n')
+            )
+          ),
+          token.immediate(/[^\]\r\n][^\n]*\r?\n/),
+          token.immediate(/\r?\n/)
+        )
       )), $.verbatim_string_content),
       $.verbatim_string_closer,
     ),

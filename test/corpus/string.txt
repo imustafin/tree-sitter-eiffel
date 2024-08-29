@@ -308,3 +308,23 @@ end
             (string_content
               (special_text)
               (special_text))))))))
+
+===
+Dash-dash in verbatim string is not comment
+===
+class A invariant
+"[
+-- Normal string content
+]"
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (verbatim_string
+            (verbatim_string_opener)
+            (verbatim_string_content)
+            (verbatim_string_closer)))))))
