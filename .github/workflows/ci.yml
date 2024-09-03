@@ -54,7 +54,7 @@ jobs:
       - name: Run parsing tests
         if: ${{runner.os != 'Windows'}}
         run: |
-          npm run test_parsing
+          node --test bindings/node/parsing_test.js
   fuzz:
     name: Fuzz scanner
     runs-on: ubuntu-latest
