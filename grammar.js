@@ -190,10 +190,13 @@ module.exports = grammar({
     ),
 
     class_type: $ => seq(
+      optional($.separate_mark),
       optional($.attachment_mark),
       $.class_name,
       optional($.actual_generics)
     ),
+
+    separate_mark: $ => 'separate',
 
     attachment_mark: $ => choice(
       'attached',
@@ -416,7 +419,16 @@ module.exports = grammar({
       $.debug,
       $.precursor,
       $.check,
-      $.retry
+      $.retry,
+      $.separate
+    ),
+
+    separate: $ => seq(
+      'separate',
+      join1(seq($.expression, 'as', $.identifier), ','),
+      'then',
+      repeat($._instruction),
+      'end'
     ),
 
     retry: $ => 'retry',
@@ -830,12 +842,14 @@ module.exports = grammar({
     ),
 
     class_type: $ => seq(
+      optional($.separate_mark),
       optional($.attachment_mark),
       $.class_name,
       optional($.actual_generics)
     ),
 
     tuple_type: $ => seq(
+      optional($.separate_mark),
       optional($.attachment_mark),
       alias('TUPLE', $.class_name),
       optional(seq('[', $.tuple_parameter_list, ']')),
@@ -847,6 +861,7 @@ module.exports = grammar({
     ),
 
     anchored: $ => seq(
+      optional($.separate_mark),
       optional($.attachment_mark),
       'like',
       choice($.call, $.current)
