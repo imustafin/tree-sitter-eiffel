@@ -1,0 +1,39 @@
+===
+Separate instruction
+===
+class A
+feature x
+    do
+      separate a as b, c as d then
+        f
+      end
+    end
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark)
+                (separate
+                  (expression
+                    (call
+                      (unqualified_call
+                        (identifier))))
+                  (identifier)
+                  (expression
+                    (call
+                      (unqualified_call
+                        (identifier))))
+                  (identifier)
+                  (call
+                    (unqualified_call
+                      (identifier))))))))))))
