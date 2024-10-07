@@ -717,7 +717,7 @@ module.exports = grammar({
 
     binary_plus_minus: $ => choice('+', '-'),
     binary_mul_div: $ => choice('*', '/', '//', '\\\\'),
-    binary_caret: $ => choice('^'),
+    binary_caret: $ => '^',
     binary_dot_dot: $ => choice('..'),
     binary_comparison: $ => choice('<', '<=', '>=', '>'),
     binary_and: $ => choice('and', 'and then'),
@@ -921,7 +921,7 @@ module.exports = grammar({
       $.verbatim_string_closer,
     ),
 
-    verbatim_string_opener: $ => seq(/"\[[ \t]*\r?\n/),
+    verbatim_string_opener: $ => /"\[[ \t]*\r?\n/,
 
     verbatim_string_closer: $ => seq(EAT_SPACES, ']"'),
 

@@ -28,15 +28,6 @@
     "prebuildify": "^6.0.0",
     "tree-sitter-cli": "^0.24.2"
   },
-  "tree-sitter": [
-    {
-      "scope": "source.e",
-      "highlights": "queries/highlights.scm",
-      "file-types": [
-        "e"
-      ]
-    }
-  ],
   "files": [
     "grammar.js",
     "binding.gyp",

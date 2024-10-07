@@ -344,11 +344,6 @@
     "fields": {}
   },
   {
-    "type": "binary_caret",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "binary_comparison",
     "named": true,
     "fields": {}
@@ -3184,11 +3179,6 @@
     "fields": {}
   },
   {
-    "type": "verbatim_string_opener",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "when_part",
     "named": true,
     "fields": {},
@@ -3435,10 +3425,6 @@
     "named": false
   },
   {
-    "type": "^",
-    "named": false
-  },
-  {
     "type": "across",
     "named": false
   },
@@ -3477,6 +3463,10 @@
   {
     "type": "attribute",
     "named": false
+  },
+  {
+    "type": "binary_caret",
+    "named": true
   },
   {
     "type": "character",
@@ -3689,6 +3679,10 @@
   {
     "type": "variant",
     "named": false
+  },
+  {
+    "type": "verbatim_string_opener",
+    "named": true
   },
   {
     "type": "void",
