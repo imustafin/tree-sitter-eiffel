@@ -3566,13 +3566,8 @@
       ]
     },
     "binary_caret": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "^"
-        }
-      ]
+      "type": "STRING",
+      "value": "^"
     },
     "binary_dot_dot": {
       "type": "CHOICE",
@@ -4729,13 +4724,8 @@
       ]
     },
     "verbatim_string_opener": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "\"\\[[ \\t]*\\r?\\n"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "\"\\[[ \\t]*\\r?\\n"
     },
     "verbatim_string_closer": {
       "type": "SEQ",
