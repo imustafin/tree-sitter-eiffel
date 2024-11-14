@@ -326,7 +326,8 @@ module.exports = grammar({
 
     new_feature: $ => seq(
       optional('frozen'),
-      $.extended_feature_name
+      $.extended_feature_name,
+      optional('\0')
     ),
 
     obsolete: $ => seq(

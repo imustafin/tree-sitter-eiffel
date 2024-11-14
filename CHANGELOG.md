@@ -23,6 +23,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix token start positions after possible `(header_comment)`. Add tests for this too. [#18]
 - Don't match comments inside `(verbatim_string)`. [#18]
 - Update `tree-sitter-cli` to [0.24.2](https://github.com/tree-sitter/tree-sitter/releases/tag/v0.23.0). [#19], [#20], [#22]
+- Recognize `(new_feature (extended_feature_name (identifier)))` at EOF. [#26]
+
+  In files containing just the following (no `\n` after `x`):
+  ```eiffel
+  class A feature x
+  ```
+
+  Previously:
+  ```
+  (source_file
+    (ERROR
+      (class_name)
+      (identifier)))
+  ```
+
+  After this change:
+  ```
+  (source_file
+    (ERROR
+      (class_name)
+      (new_feature
+        (extended_feature_name
+        (identifier)))))
+  ```
 
 ### Removed
 
@@ -45,9 +69,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#17]: https://github.com/imustafin/tree-sitter-eiffel/pull/17
 [#18]: https://github.com/imustafin/tree-sitter-eiffel/pull/18
 [#19]: https://github.com/imustafin/tree-sitter-eiffel/pull/19
-[#19]: https://github.com/imustafin/tree-sitter-eiffel/pull/20
-[#19]: https://github.com/imustafin/tree-sitter-eiffel/pull/21
-[#19]: https://github.com/imustafin/tree-sitter-eiffel/pull/22
+[#20]: https://github.com/imustafin/tree-sitter-eiffel/pull/20
+[#21]: https://github.com/imustafin/tree-sitter-eiffel/pull/21
+[#22]: https://github.com/imustafin/tree-sitter-eiffel/pull/22
+[#26]: https://github.com/imustafin/tree-sitter-eiffel/pull/26
 
 [unreleased]: https://github.com/imustafin/tree-sitter-eiffel/compare/v1.0.0...HEAD
 [v1.0.0]: https://github.com/imustafin/tree-sitter-eiffel/compare/3dbff72823c37277ac5db345258d9c5c0beb3a77...v1.0.0
