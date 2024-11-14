@@ -1486,6 +1486,18 @@
         {
           "type": "SYMBOL",
           "name": "extended_feature_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\u0000"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
