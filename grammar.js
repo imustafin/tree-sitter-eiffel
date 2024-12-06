@@ -833,7 +833,7 @@ module.exports = grammar({
     entity_declaration_group: $ => seq(
       join1($.identifier, ','),
       ':',
-      $._type
+      field("type", $._type)
     ),
 
     _type: $ => choice(

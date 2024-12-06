@@ -1226,25 +1226,32 @@
   {
     "type": "entity_declaration_group",
     "named": true,
-    "fields": {},
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anchored",
+            "named": true
+          },
+          {
+            "type": "class_type",
+            "named": true
+          },
+          {
+            "type": "tuple_type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "anchored",
-          "named": true
-        },
-        {
-          "type": "class_type",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "tuple_type",
           "named": true
         }
       ]
