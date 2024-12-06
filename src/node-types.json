@@ -2888,7 +2888,6 @@
   {
     "type": "source_file",
     "named": true,
-    "root": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2896,6 +2895,10 @@
       "types": [
         {
           "type": "class_declaration",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         }
       ]

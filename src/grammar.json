@@ -1,13 +1,21 @@
 {
-  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "eiffel",
   "rules": {
     "source_file": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "class_declaration"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "class_declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          ]
         },
         {
           "type": "BLANK"
