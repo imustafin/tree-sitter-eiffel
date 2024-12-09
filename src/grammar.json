@@ -5,20 +5,12 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "class_declaration"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "expression"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "class_declaration"
         },
         {
-          "type": "BLANK"
+          "type": "SYMBOL",
+          "name": "expression"
         }
       ]
     },
@@ -3590,13 +3582,8 @@
       "value": "^"
     },
     "binary_dot_dot": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": ".."
-        }
-      ]
+      "type": "STRING",
+      "value": ".."
     },
     "binary_comparison": {
       "type": "CHOICE",

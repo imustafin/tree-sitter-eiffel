@@ -29,7 +29,7 @@ module.exports = grammar({
     [$.class_name, $.identifier],
   ],
   rules: {
-    source_file: $ => optional(choice($.class_declaration, $.expression)),
+    source_file: $ => choice($.class_declaration, $.expression),
 
     comment: $ => token(seq('--', token.immediate(/[^\r\n]*(\r?\n)?/))),
 
@@ -719,7 +719,7 @@ module.exports = grammar({
     binary_plus_minus: $ => choice('+', '-'),
     binary_mul_div: $ => choice('*', '/', '//', '\\\\'),
     binary_caret: $ => '^',
-    binary_dot_dot: $ => choice('..'),
+    binary_dot_dot: $ => '..',
     binary_comparison: $ => choice('<', '<=', '>=', '>'),
     binary_and: $ => choice('and', 'and then'),
     binary_or: $ => choice('or', 'or else', 'xor'),

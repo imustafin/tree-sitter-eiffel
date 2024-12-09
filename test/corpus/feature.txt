@@ -44,10 +44,10 @@ end
             (entity_declaration_group
               (identifier)
               (identifier)
-              (class_type (class_name)))
+              type: (class_type (class_name)))
             (entity_declaration_group
               (identifier)
-              (class_type (class_name))))
+              type: (class_type (class_name))))
            (attribute_or_routine
              (feature_body (effective_routine (internal (routine_mark)))))))))
 
