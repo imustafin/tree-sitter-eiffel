@@ -2247,49 +2247,64 @@
   {
     "type": "note_entry",
     "named": true,
-    "fields": {},
+    "fields": {
+      "value": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "basic_manifest_string",
+            "named": true
+          },
+          {
+            "type": "boolean_constant",
+            "named": true
+          },
+          {
+            "type": "character_constant",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "integer_constant",
+            "named": true
+          },
+          {
+            "type": "manifest_array",
+            "named": true
+          },
+          {
+            "type": "manifest_type",
+            "named": true
+          },
+          {
+            "type": "real_constant",
+            "named": true
+          },
+          {
+            "type": "value",
+            "named": false
+          },
+          {
+            "type": "verbatim_string",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "basic_manifest_string",
-          "named": true
-        },
-        {
-          "type": "boolean_constant",
-          "named": true
-        },
-        {
-          "type": "character_constant",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "integer_constant",
-          "named": true
-        },
-        {
-          "type": "manifest_array",
-          "named": true
-        },
-        {
-          "type": "manifest_type",
-          "named": true
-        },
-        {
-          "type": "real_constant",
-          "named": true
-        },
-        {
           "type": "tag",
-          "named": true
-        },
-        {
-          "type": "verbatim_string",
           "named": true
         }
       ]
@@ -3688,6 +3703,10 @@
   },
   {
     "type": "until",
+    "named": false
+  },
+  {
+    "type": "value",
     "named": false
   },
   {
