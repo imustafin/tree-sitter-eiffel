@@ -2850,50 +2850,54 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "current"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "result"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "call"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "bracket_expression"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "manifest_type"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "at_cursor"
-                      },
-                      {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "STRING",
-                            "value": "("
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "expression"
-                          },
-                          {
-                            "type": "STRING",
-                            "value": ")"
-                          }
-                        ]
-                      }
-                    ]
+                    "type": "FIELD",
+                    "name": "target",
+                    "content": {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "current"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "result"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "call"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "bracket_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "manifest_type"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "at_cursor"
+                        },
+                        {
+                          "type": "SEQ",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": "("
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "expression"
+                            },
+                            {
+                              "type": "STRING",
+                              "value": ")"
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   },
                   {
                     "type": "STRING",

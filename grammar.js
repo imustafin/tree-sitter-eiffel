@@ -610,7 +610,7 @@ module.exports = grammar({
     ),
 
     call: $ => prec.left(2, seq(
-      optional(seq(target($), '.')),
+      optional(seq(field("target",target($)), '.')),
       $.unqualified_call
     )),
 

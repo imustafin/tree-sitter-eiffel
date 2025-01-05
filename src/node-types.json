@@ -451,39 +451,54 @@
   {
     "type": "call",
     "named": true,
-    "fields": {},
+    "fields": {
+      "target": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "at_cursor",
+            "named": true
+          },
+          {
+            "type": "bracket_expression",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "current",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "manifest_type",
+            "named": true
+          },
+          {
+            "type": "result",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "at_cursor",
-          "named": true
-        },
-        {
-          "type": "bracket_expression",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "current",
-          "named": true
-        },
-        {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "manifest_type",
-          "named": true
-        },
-        {
-          "type": "result",
-          "named": true
-        },
         {
           "type": "unqualified_call",
           "named": true
