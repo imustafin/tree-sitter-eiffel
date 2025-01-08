@@ -24,7 +24,7 @@ end
     (feature_clause
       declarations: (feature_declaration
         (new_feature (extended_feature_name (identifier)))
-        (class_type (class_name))))))
+        type: (class_type (class_name))))))
 
 ===
 Feature. Arguments

@@ -4318,31 +4318,31 @@
           "value": ":"
         },
         {
-          "type": "FIELD",
-          "name": "type",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_type"
-          }
+          "type": "SYMBOL",
+          "name": "_type"
         }
       ]
     },
     "_type": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "class_type"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "tuple_type"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "anchored"
-        }
-      ]
+      "type": "FIELD",
+      "name": "type",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "class_type"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "tuple_type"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "anchored"
+          }
+        ]
+      }
     },
     "tuple_type": {
       "type": "SEQ",
