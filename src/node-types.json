@@ -2334,10 +2334,6 @@
             "named": true
           },
           {
-            "type": "value",
-            "named": false
-          },
-          {
             "type": "verbatim_string",
             "named": true
           }
@@ -3762,10 +3758,6 @@
   },
   {
     "type": "until",
-    "named": false
-  },
-  {
-    "type": "value",
     "named": false
   },
   {

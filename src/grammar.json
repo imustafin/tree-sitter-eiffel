@@ -4528,10 +4528,6 @@
                     "name": "identifier"
                   },
                   {
-                    "type": "STRING",
-                    "value": "value"
-                  },
-                  {
                     "type": "SYMBOL",
                     "name": "_manifest_constant"
                   }
@@ -4552,10 +4548,6 @@
                         {
                           "type": "SYMBOL",
                           "name": "identifier"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "value"
                         },
                         {
                           "type": "SYMBOL",

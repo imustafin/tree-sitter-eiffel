@@ -875,7 +875,7 @@ module.exports = grammar({
     note_entry: $ => seq(
       $.tag,
       ':',
-      field("value", join1(choice($.identifier,"value", $._manifest_constant), ','))
+      field("value", join1(choice($.identifier, $._manifest_constant), ','))
     ),
 
     _manifest_constant: $ => choice(
