@@ -2298,10 +2298,6 @@
         "required": true,
         "types": [
           {
-            "type": ",",
-            "named": false
-          },
-          {
             "type": "basic_manifest_string",
             "named": true
           },
@@ -2961,7 +2957,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "class_declaration",

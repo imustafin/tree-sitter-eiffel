@@ -29,7 +29,7 @@ module.exports = grammar({
     [$.class_name, $.identifier],
   ],
   rules: {
-    source_file: $ => choice($.class_declaration, $.expression),
+    source_file: $ => optional(choice($.class_declaration, $.expression)),
 
     comment: $ => token(seq('--', token.immediate(/[^\r\n]*(\r?\n)?/))),
 
@@ -610,7 +610,7 @@ module.exports = grammar({
     ),
 
     call: $ => prec.left(2, seq(
-      optional(seq(field("target",target($)), '.')),
+      optional(seq(field('target',target($)), '.')),
       $.unqualified_call
     )),
 
@@ -836,7 +836,7 @@ module.exports = grammar({
       $._type
     ),
 
-    _type: $ => field("type", choice(
+    _type: $ => field('type', choice(
       $.class_type,
       $.tuple_type,
       $.anchored,
@@ -875,7 +875,7 @@ module.exports = grammar({
     note_entry: $ => seq(
       $.tag,
       ':',
-      field("value", join1(choice($.identifier, $._manifest_constant), ','))
+      join1(field('value', choice($.identifier, $._manifest_constant)), ',')
     ),
 
     _manifest_constant: $ => choice(

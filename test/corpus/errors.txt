@@ -3,8 +3,9 @@ Unfinished new_feature
 ===
 class A feature x
 ---
-(ERROR
-  (class_name)
-  (new_feature
-    (extended_feature_name
-      (identifier))))
+(source_file
+  (ERROR
+    (class_name)
+    (new_feature
+      (extended_feature_name
+        (identifier)))))
