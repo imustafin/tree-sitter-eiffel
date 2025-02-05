@@ -1,3 +1,12 @@
+/**
+ * @file Parser for Eiffel programming language
+ * @author Ilgiz Mustafin <ilgimustafin@gmail.com>
+ * @license MIT
+ */
+
+/// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
+
 const PREC = {
   UNARY: 2, // UNARY > SIGN so that -1 is parsed as (unary (-) (1))
   ACTUALS: 2,

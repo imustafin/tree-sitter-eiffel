@@ -1,22 +1,35 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
   "grammars": [
     {
       "name": "eiffel",
       "camelcase": "Eiffel",
-      "scope": "source.e",
-      "path": ".",
+      "title": "Eiffel",
+      "scope": "source.eiffel",
       "file-types": [
         "e"
       ],
-      "highlights": "queries/highlights.scm"
+      "highlights": "queries/highlights.scm",
+      "injection-regex": "^eiffel$",
+      "class-name": "TreeSitterEiffel"
     }
   ],
   "metadata": {
     "version": "1.0.0",
     "license": "MIT",
-    "description": "",
+    "description": "Eiffel grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Ilgiz Mustafin",
+        "email": "ilgimustafin@gmail.com",
+        "url": "https://imustafin.tatar/"
+      },
+      {
+        "name": "Alessandro Schena"
+      }
+    ],
     "links": {
-      "repository": "https://github.com/tree-sitter/tree-sitter-eiffel"
+      "repository": "https://github.com/imustafin/tree-sitter-eiffel"
     }
   },
   "bindings": {
@@ -25,6 +38,7 @@
     "node": true,
     "python": true,
     "rust": true,
-    "swift": true
+    "swift": true,
+    "zig": false
   }
 }

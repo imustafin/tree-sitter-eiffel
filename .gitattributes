@@ -1,3 +1,7 @@
 src/*.json linguist-generated
 src/parser.c linguist-generated
 src/tree_sitter/* linguist-generated
+
+# Zig bindings
+build.zig linguist-generated
+build.zig.zon linguist-generated
