@@ -47,6 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
         (extended_feature_name
         (identifier)))))
   ```
+- Update `tree-sitter-cli` to 0.25.1 [#33]
 
 ### Removed
 
@@ -73,7 +74,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#21]: https://github.com/imustafin/tree-sitter-eiffel/pull/21
 [#22]: https://github.com/imustafin/tree-sitter-eiffel/pull/22
 [#26]: https://github.com/imustafin/tree-sitter-eiffel/pull/26
-[#26]: https://github.com/imustafin/tree-sitter-eiffel/pull/31
+[#31]: https://github.com/imustafin/tree-sitter-eiffel/pull/31
+[#33]: https://github.com/imustafin/tree-sitter-eiffel/pull/33
 
 [unreleased]: https://github.com/imustafin/tree-sitter-eiffel/compare/v1.0.0...HEAD
 [v1.0.0]: https://github.com/imustafin/tree-sitter-eiffel/compare/3dbff72823c37277ac5db345258d9c5c0beb3a77...v1.0.0
