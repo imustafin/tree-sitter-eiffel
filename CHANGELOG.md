@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add indent queries compatible with [neovim](https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md). [#17]
 - Keyword `separate` both as a type mark (`separate STRING`)
   and as an inline separate block (`separate x as y then end`). [#21]
+- Add `only` postcondition clause. [#35]
 
 ### Changed
 - Don't match a `(header_comment)`if there is an empty line before it,
@@ -76,6 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#26]: https://github.com/imustafin/tree-sitter-eiffel/pull/26
 [#31]: https://github.com/imustafin/tree-sitter-eiffel/pull/31
 [#33]: https://github.com/imustafin/tree-sitter-eiffel/pull/33
+[#34]: https://github.com/imustafin/tree-sitter-eiffel/pull/34
 
 [unreleased]: https://github.com/imustafin/tree-sitter-eiffel/compare/v1.0.0...HEAD
 [v1.0.0]: https://github.com/imustafin/tree-sitter-eiffel/compare/3dbff72823c37277ac5db345258d9c5c0beb3a77...v1.0.0

@@ -296,6 +296,35 @@ end
             (assertion_clause (expression (boolean_constant)))))))))
 
 ===
+Postcondition only clause
+===
+class A feature
+  x
+    do
+    ensure
+    only a, b
+  end
+end
+---
+(source_file
+  (class_declaration
+    (class_name)
+    (feature_clause
+      (feature_declaration
+        (new_feature
+          (extended_feature_name
+            (identifier)))
+        (attribute_or_routine
+          (feature_body
+            (effective_routine
+              (internal
+                (routine_mark))))
+          (postcondition
+            (only
+              (identifier)
+              (identifier))))))))
+
+===
 Feature. Rescue
 ===
 class A feature
