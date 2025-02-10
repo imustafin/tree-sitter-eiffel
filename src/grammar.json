@@ -1,6 +1,7 @@
 {
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "eiffel",
+  "word": "_id",
   "rules": {
     "source_file": {
       "type": "CHOICE",
@@ -5086,5 +5087,248 @@
   "externals": [],
   "inline": [],
   "supertypes": [],
-  "reserved": {}
+  "reserved": {
+    "global": [
+      {
+        "type": "STRING",
+        "value": "across"
+      },
+      {
+        "type": "STRING",
+        "value": "agent"
+      },
+      {
+        "type": "STRING",
+        "value": "alias"
+      },
+      {
+        "type": "STRING",
+        "value": "all"
+      },
+      {
+        "type": "STRING",
+        "value": "and"
+      },
+      {
+        "type": "STRING",
+        "value": "as"
+      },
+      {
+        "type": "STRING",
+        "value": "assign"
+      },
+      {
+        "type": "STRING",
+        "value": "attribute"
+      },
+      {
+        "type": "STRING",
+        "value": "check"
+      },
+      {
+        "type": "STRING",
+        "value": "class"
+      },
+      {
+        "type": "STRING",
+        "value": "convert"
+      },
+      {
+        "type": "STRING",
+        "value": "create"
+      },
+      {
+        "type": "STRING",
+        "value": "Current"
+      },
+      {
+        "type": "STRING",
+        "value": "debug"
+      },
+      {
+        "type": "STRING",
+        "value": "deferred"
+      },
+      {
+        "type": "STRING",
+        "value": "do"
+      },
+      {
+        "type": "STRING",
+        "value": "else"
+      },
+      {
+        "type": "STRING",
+        "value": "elseif"
+      },
+      {
+        "type": "STRING",
+        "value": "end"
+      },
+      {
+        "type": "STRING",
+        "value": "ensure"
+      },
+      {
+        "type": "STRING",
+        "value": "expanded"
+      },
+      {
+        "type": "STRING",
+        "value": "export"
+      },
+      {
+        "type": "STRING",
+        "value": "external"
+      },
+      {
+        "type": "STRING",
+        "value": "False"
+      },
+      {
+        "type": "STRING",
+        "value": "feature"
+      },
+      {
+        "type": "STRING",
+        "value": "from"
+      },
+      {
+        "type": "STRING",
+        "value": "frozen"
+      },
+      {
+        "type": "STRING",
+        "value": "if"
+      },
+      {
+        "type": "STRING",
+        "value": "implies"
+      },
+      {
+        "type": "STRING",
+        "value": "inherit"
+      },
+      {
+        "type": "STRING",
+        "value": "inspect"
+      },
+      {
+        "type": "STRING",
+        "value": "invariant"
+      },
+      {
+        "type": "STRING",
+        "value": "like"
+      },
+      {
+        "type": "STRING",
+        "value": "local"
+      },
+      {
+        "type": "STRING",
+        "value": "loop"
+      },
+      {
+        "type": "STRING",
+        "value": "not"
+      },
+      {
+        "type": "STRING",
+        "value": "note"
+      },
+      {
+        "type": "STRING",
+        "value": "obsolete"
+      },
+      {
+        "type": "STRING",
+        "value": "old"
+      },
+      {
+        "type": "STRING",
+        "value": "once"
+      },
+      {
+        "type": "STRING",
+        "value": "only"
+      },
+      {
+        "type": "STRING",
+        "value": "or"
+      },
+      {
+        "type": "STRING",
+        "value": "Precursor"
+      },
+      {
+        "type": "STRING",
+        "value": "redefine"
+      },
+      {
+        "type": "STRING",
+        "value": "rename"
+      },
+      {
+        "type": "STRING",
+        "value": "require"
+      },
+      {
+        "type": "STRING",
+        "value": "rescue"
+      },
+      {
+        "type": "STRING",
+        "value": "Result"
+      },
+      {
+        "type": "STRING",
+        "value": "retry"
+      },
+      {
+        "type": "STRING",
+        "value": "select"
+      },
+      {
+        "type": "STRING",
+        "value": "separate"
+      },
+      {
+        "type": "STRING",
+        "value": "then"
+      },
+      {
+        "type": "STRING",
+        "value": "True"
+      },
+      {
+        "type": "STRING",
+        "value": "TUPLE"
+      },
+      {
+        "type": "STRING",
+        "value": "undefine"
+      },
+      {
+        "type": "STRING",
+        "value": "until"
+      },
+      {
+        "type": "STRING",
+        "value": "variant"
+      },
+      {
+        "type": "STRING",
+        "value": "Void"
+      },
+      {
+        "type": "STRING",
+        "value": "when"
+      },
+      {
+        "type": "STRING",
+        "value": "xor"
+      }
+    ]
+  }
 }
