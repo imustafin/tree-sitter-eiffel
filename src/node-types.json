@@ -2404,6 +2404,21 @@
     }
   },
   {
+    "type": "only",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "operator_expression",
     "named": true,
     "fields": {},
@@ -2513,6 +2528,10 @@
       "types": [
         {
           "type": "assertion_clause",
+          "named": true
+        },
+        {
+          "type": "only",
           "named": true
         }
       ]
@@ -3616,6 +3635,10 @@
   },
   {
     "type": "once",
+    "named": false
+  },
+  {
+    "type": "only",
     "named": false
   },
   {

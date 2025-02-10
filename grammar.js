@@ -373,7 +373,13 @@ module.exports = grammar({
     postcondition: $ => seq(
       'ensure',
       optional('then'),
-      repeat($.assertion_clause)
+      repeat($.assertion_clause),
+      optional($.only)
+    ),
+
+    only: $ => seq(
+      'only',
+      join1($.identifier, ',')
     ),
 
     feature_body: $ => choice(
