@@ -9,3 +9,12 @@ class A feature x
     (new_feature
       (extended_feature_name
         (identifier)))))
+
+===
+Class named class
+===
+class class
+end
+---
+(source_file
+  (ERROR))
