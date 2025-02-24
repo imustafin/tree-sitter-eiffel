@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `only` postcondition clause. [#35]
 
 ### Changed
+- Update `tree-sitter-cli` to 0.25.2. [#19], [#20], [#22], [#31], [#33], [#36]
 - Don't match a `(header_comment)`if there is an empty line before it,
   it will be matched as a simple `(comment)`. [#16]
 - Differentiate in `(conditional_expression)` the `(else_part_expression)`. [#17]
@@ -23,7 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Now both `(header_comment)` and `(comment)` represent one line of comment. [#18]
 - Fix token start positions after possible `(header_comment)`. Add tests for this too. [#18]
 - Don't match comments inside `(verbatim_string)`. [#18]
-- Update `tree-sitter-cli` to [0.24.6](https://github.com/tree-sitter/tree-sitter/releases/tag/v0.24.6). [#19], [#20], [#22], [#31]
 - Recognize `(new_feature (extended_feature_name (identifier)))` at EOF. [#26]
 
   In files containing just the following (no `\n` after `x`):
@@ -48,7 +48,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
         (extended_feature_name
         (identifier)))))
   ```
-- Update `tree-sitter-cli` to 0.25.1 [#33]
 - Add reserved keywords. [#34], [#35]
 
 ### Removed
@@ -80,6 +79,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#33]: https://github.com/imustafin/tree-sitter-eiffel/pull/33
 [#34]: https://github.com/imustafin/tree-sitter-eiffel/pull/34
 [#35]: https://github.com/imustafin/tree-sitter-eiffel/pull/35
+[#35]: https://github.com/imustafin/tree-sitter-eiffel/pull/36
 
 [unreleased]: https://github.com/imustafin/tree-sitter-eiffel/compare/v1.0.0...HEAD
 [v1.0.0]: https://github.com/imustafin/tree-sitter-eiffel/compare/3dbff72823c37277ac5db345258d9c5c0beb3a77...v1.0.0
