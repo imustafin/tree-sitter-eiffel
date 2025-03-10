@@ -3567,8 +3567,7 @@
   },
   {
     "type": "comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "convert",
@@ -3644,8 +3643,7 @@
   },
   {
     "type": "header_comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "if",
