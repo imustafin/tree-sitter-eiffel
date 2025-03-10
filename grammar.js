@@ -29,7 +29,7 @@ module.exports = grammar({
     [$.class_name, $.identifier],
   ],
   rules: {
-    source_file: $ => optional(choice($.class_declaration, $.expression)),
+    source_file: $ => optional(choice($.class_declaration, $.expression, $.feature_declaration)),
 
     comment: $ => token(seq('--', token.immediate(/[^\r\n]*(\r?\n)?/))),
 

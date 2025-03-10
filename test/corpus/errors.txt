@@ -1,11 +1,11 @@
 ===
 Unfinished new_feature
 ===
-class A feature x
+class A feature x end
 ---
 (source_file
-  (ERROR
+  (class_declaration
     (class_name)
-    (new_feature
-      (extended_feature_name
-        (identifier)))))
+    (feature_clause)
+    (ERROR
+      (identifier))))

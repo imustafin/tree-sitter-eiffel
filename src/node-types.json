@@ -2954,6 +2954,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2965,6 +2966,10 @@
         },
         {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "feature_declaration",
           "named": true
         }
       ]
@@ -3562,7 +3567,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "convert",
@@ -3638,7 +3644,8 @@
   },
   {
     "type": "header_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "if",
