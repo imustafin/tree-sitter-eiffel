@@ -29,7 +29,7 @@ module.exports = grammar({
     [$.class_name, $.identifier],
   ],
   rules: {
-    source_file: $ => optional(choice($.class_declaration, $.expression, $.feature_declaration)),
+    source_file: $ => optional(choice($.class_declaration, $._top_expression, $._top_feature)),
 
     comment: $ => token(seq('--', token.immediate(/[^\r\n]*(\r?\n)?/))),
 
@@ -42,6 +42,16 @@ module.exports = grammar({
       ),
       repeat(alias($.comment, $.header_comment)),
       optional(choice('\r\n', '\n'))
+    ),
+
+    _top_expression: $ => seq(
+      '[EXPRESSION]',
+      $.expression
+    ),
+
+    _top_feature: $ => seq(
+      '[FEATURE]',
+      $.feature_declaration,
     ),
 
     class_declaration: $ => seq(

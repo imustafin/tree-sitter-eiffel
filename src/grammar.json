@@ -14,11 +14,11 @@
             },
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "_top_expression"
             },
             {
               "type": "SYMBOL",
-              "name": "feature_declaration"
+              "name": "_top_feature"
             }
           ]
         },
@@ -114,6 +114,32 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "_top_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "[EXPRESSION]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
+    "_top_feature": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "[FEATURE]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "feature_declaration"
         }
       ]
     },

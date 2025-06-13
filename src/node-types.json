@@ -3498,6 +3498,14 @@
     "named": false
   },
   {
+    "type": "[EXPRESSION]",
+    "named": false
+  },
+  {
+    "type": "[FEATURE]",
+    "named": false
+  },
+  {
     "type": "\\\\",
     "named": false
   },
