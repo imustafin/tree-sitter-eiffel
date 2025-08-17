@@ -16,7 +16,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-14]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v2
       - name: Check for scanner changes
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Check for scanner changes
         id: scanner-check
         shell: sh
