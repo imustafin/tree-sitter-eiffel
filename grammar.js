@@ -975,7 +975,11 @@ module.exports = grammar({
 
     character_constant: $ => seq("'", $.character, "'"),
 
-    character: $ => /./, // TODO: finish Character
+    // TODO: finish Character
+    character: $ => choice(
+      token.immediate(/[^%']/), // simple character
+      token.immediate(/%./) // escaped Special Character
+    ),
 
     boolean_constant: $ => choice('True', 'False'),
 

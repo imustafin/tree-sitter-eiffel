@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Keyword `separate` both as a type mark (`separate STRING`)
   and as an inline separate block (`separate x as y then end`). [#21]
 - Add unicode and, or: `∧`, `∧…`, `∨`, `∨…`
+- Allow special characters in `(character)`: `'%%'`
 
 ### Changed
 - Don't match a `(header_comment)`if there is an empty line before it,

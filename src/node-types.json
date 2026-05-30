@@ -527,6 +527,11 @@
     }
   },
   {
+    "type": "character",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "character_constant",
     "named": true,
     "fields": {},
@@ -3559,10 +3564,6 @@
   },
   {
     "type": "binary_caret",
-    "named": true
-  },
-  {
-    "type": "character",
     "named": true
   },
   {

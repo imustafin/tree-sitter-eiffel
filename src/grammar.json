@@ -5053,8 +5053,23 @@
       ]
     },
     "character": {
-      "type": "PATTERN",
-      "value": "."
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^%']"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "%."
+          }
+        }
+      ]
     },
     "boolean_constant": {
       "type": "CHOICE",
