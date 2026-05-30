@@ -415,6 +415,78 @@ end
                       (void))))))))))))
 
 ===
+Expression. And Unicode
+===
+class A
+invariant
+a ∧ b
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (operator_expression
+            (expression (call (unqualified_call (identifier))))
+            (binary_and)
+            (expression (call (unqualified_call (identifier))))))))))
+
+===
+Expression. And-then Unicode
+===
+class A
+invariant
+a ∧… b
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (operator_expression
+            (expression (call (unqualified_call (identifier))))
+            (binary_and)
+            (expression (call (unqualified_call (identifier))))))))))
+
+===
+Expression. Or Unicode
+===
+class A
+invariant
+a ∨ b
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (operator_expression
+            (expression (call (unqualified_call (identifier))))
+            (binary_or)
+            (expression (call (unqualified_call (identifier))))))))))
+
+===
+Expression. Or-else Unicode
+===
+class A
+invariant
+a ∨… b
+end
+---
+(source_file
+  (class_declaration (class_name)
+    (invariant
+      (assertion_clause
+        (expression
+          (operator_expression
+            (expression (call (unqualified_call (identifier))))
+            (binary_or)
+            (expression (call (unqualified_call (identifier))))))))))
+
+===
 Expression. Implies
 ===
 class A

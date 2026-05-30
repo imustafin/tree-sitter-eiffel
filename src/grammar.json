@@ -3659,6 +3659,14 @@
         {
           "type": "STRING",
           "value": "and then"
+        },
+        {
+          "type": "STRING",
+          "value": "∧"
+        },
+        {
+          "type": "STRING",
+          "value": "∧…"
         }
       ]
     },
@@ -3676,6 +3684,14 @@
         {
           "type": "STRING",
           "value": "xor"
+        },
+        {
+          "type": "STRING",
+          "value": "∨"
+        },
+        {
+          "type": "STRING",
+          "value": "∨…"
         }
       ]
     },
